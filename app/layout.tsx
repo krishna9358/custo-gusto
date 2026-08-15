@@ -1,9 +1,12 @@
 import React from 'react';
 import './globals.css';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export const metadata = {
   title: 'Custo Gusto — Made in front of you. Never repeated.',
-  description: 'Custo Gusto puts your name, number or design onto things you already own — stitched, printed or engraved in front of you, in minutes.',
+  description:
+    'Custo Gusto puts your name, number or design onto things you already own — stitched, printed or engraved in front of you, in minutes. Live customisation desks for retail floors, launches and job work across India.',
 };
 
 export default function RootLayout({
@@ -13,7 +16,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <a className="skip" href="#main">
+          Skip to content
+        </a>
+        <Header />
+        <main id="main">{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
