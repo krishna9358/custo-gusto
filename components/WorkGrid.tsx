@@ -19,7 +19,6 @@ export const WORK_ITEMS: WorkItem[] = [
   { id: 'w04', alt: 'Embroidered cap, worn', tech: 'emb', prod: 'caps', shape: 'ph-23' },
   { id: 'w05', alt: 'Foiled pieces, together', tech: 'foil', prod: 'leather', shape: 'ph-16' },
   { id: 'w06', alt: 'Embroidery, close enough to count the threads', tech: 'emb', prod: 'apparel', shape: 'ph-sq' },
-  { id: 'w07', alt: 'Name and number on a shoe', tech: 'emb', prod: 'shoes', shape: 'ph-23' },
   { id: 'w08', alt: 'UV sticker on a bottle', tech: 'uv', prod: 'hard', shape: 'ph-23' },
   { id: 'w09', alt: 'Personalised patches', tech: 'patch', prod: 'apparel', shape: 'ph-16' },
   { id: 'w10', alt: 'Embroidered detail on denim', tech: 'emb', prod: 'apparel', shape: 'ph-23' },
