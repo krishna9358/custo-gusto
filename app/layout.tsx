@@ -2,6 +2,7 @@ import React from 'react';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import ScrollReveal from '@/components/ScrollReveal';
 
 export const metadata = {
   title: 'Custo Gusto — Made in front of you. Never repeated.',
@@ -23,6 +24,7 @@ export default function RootLayout({
         <Header />
         <main id="main">{children}</main>
         <Footer />
+        <ScrollReveal />
       </body>
     </html>
   );
