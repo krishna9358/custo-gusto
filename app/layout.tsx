@@ -1,4 +1,5 @@
 import React from 'react';
+import './globals.css';
 
 export const metadata = {
   title: 'Custo Gusto — Made in front of you. Never repeated.',
