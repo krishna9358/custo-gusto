@@ -1,9 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
+import { MessageCircle, Play, Mail, ArrowRight } from 'lucide-react';
 
 interface ButtonProps {
   href?: string;
   variant?: 'primary' | 'ghost' | 'live' | 'blush';
+  icon?: 'whatsapp' | 'play' | 'mail' | 'arrow' | 'none';
   children: React.ReactNode;
   target?: string;
   rel?: string;
@@ -15,6 +17,7 @@ interface ButtonProps {
 export function Button({
   href,
   variant = 'primary',
+  icon,
   children,
   target,
   rel,
@@ -31,7 +34,36 @@ export function Button({
       ? 'btn-live'
       : 'btn-blush';
 
-  const combinedClass = `btn ${variantClass} ${className}`.trim();
+  const combinedClass =
+    `btn ${variantClass} group inline-flex items-center gap-2 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 ${className}`.trim();
+
+  // Determine icon to render
+  let IconComponent: React.ReactNode = null;
+
+  if (icon === 'whatsapp' || (href && href.includes('wa.me'))) {
+    IconComponent = (
+      <MessageCircle className="w-4 h-4 transition-transform duration-200 group-hover:scale-110" />
+    );
+  } else if (icon === 'play' || (href && href.includes('youtube.com'))) {
+    IconComponent = (
+      <Play className="w-4 h-4 fill-current transition-transform duration-200 group-hover:scale-110" />
+    );
+  } else if (icon === 'mail' || (href && href.startsWith('mailto:'))) {
+    IconComponent = (
+      <Mail className="w-4 h-4 transition-transform duration-200 group-hover:scale-110" />
+    );
+  } else if (icon === 'arrow' || (href && !icon)) {
+    IconComponent = (
+      <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+    );
+  }
+
+  const content = (
+    <>
+      {IconComponent}
+      <span>{children}</span>
+    </>
+  );
 
   if (href) {
     if (href.startsWith('http') || href.startsWith('mailto:')) {
@@ -43,20 +75,20 @@ export function Button({
           rel={rel || (target === '_blank' ? 'noopener noreferrer' : undefined)}
           onClick={onClick}
         >
-          {children}
+          {content}
         </a>
       );
     }
     return (
       <Link href={href} className={combinedClass} onClick={onClick}>
-        {children}
+        {content}
       </Link>
     );
   }
 
   return (
     <button type={type} className={combinedClass} onClick={onClick}>
-      {children}
+      {content}
     </button>
   );
 }
