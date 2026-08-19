@@ -73,7 +73,7 @@ export function Photo({
   }
   return (
     <figure className={`ph ${shape}`} style={{ margin: 0 }}>
-      <img src={IMG_KEYS[imgKey]} alt={alt} loading="lazy" />
+      <img src={IMG_KEYS[imgKey]} alt={alt} loading="lazy" decoding="async" />
     </figure>
   );
 }

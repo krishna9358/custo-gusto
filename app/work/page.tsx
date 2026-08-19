@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   ],
 };
 import WorkGrid from '@/components/WorkGrid';
+import WorkMarquee from '@/components/WorkMarquee';
 import { ClosingBand } from '@/components/SharedSections';
 
 export default function WorkPage() {
@@ -32,7 +33,11 @@ export default function WorkPage() {
             product.
           </p>
 
-          <WorkGrid />
+          <WorkMarquee />
+
+          <Suspense fallback={<div className="py-12 text-center text-soft">Loading gallery...</div>}>
+            <WorkGrid />
+          </Suspense>
 
           <p className="sub" style={{ marginTop: '26px', fontSize: '14.5px' }}>
             Each block carries its shot code from the production list.

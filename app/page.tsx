@@ -136,11 +136,24 @@ export default function Home() {
                 lead &mdash; they always lead.
               </p>
               <div className="chips" style={{ marginTop: '20px' }}>
-                {COVERAGE_CHIPS.map((c, i) => (
-                  <span key={i} className={`chip${i === 0 ? ' on' : ''}`}>
-                    {c}
-                  </span>
-                ))}
+                {COVERAGE_CHIPS.map((c, i) => {
+                  const slug =
+                    c.toLowerCase().includes('shoe') ? 'shoes' :
+                    c.toLowerCase().includes('cap') ? 'caps' :
+                    c.toLowerCase().includes('tee') || c.toLowerCase().includes('jacket') ? 'apparel' :
+                    c.toLowerCase().includes('bag') || c.toLowerCase().includes('tote') ? 'bags' :
+                    c.toLowerCase().includes('leather') || c.toLowerCase().includes('foil') ? 'leather' :
+                    c.toLowerCase().includes('hard') ? 'hard' : 'all';
+                  return (
+                    <Link
+                      key={i}
+                      href={`/work?prod=${slug}`}
+                      className={`chip transition-transform duration-200 hover:scale-105 ${i === 0 ? 'on' : ''}`}
+                    >
+                      {c}
+                    </Link>
+                  );
+                })}
               </div>
             </div>
             <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
