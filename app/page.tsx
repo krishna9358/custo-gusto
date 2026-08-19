@@ -31,6 +31,7 @@ import {
   ClosingBand,
 } from '@/components/SharedSections';
 import { COVERAGE_CHIPS } from '@/data/engines';
+import { Button } from '@/components/Button';
 
 
 export default function Home() {
@@ -71,17 +72,16 @@ export default function Home() {
                 <strong>One of one. Never made again.</strong>
               </p>
               <div className="btns">
-                <Link className="btn btn-p" href="/work">
+                <Button href="/work" variant="primary">
                   See the work
-                </Link>
-                <a
-                  className="btn btn-live"
+                </Button>
+                <Button
                   href="https://youtube.com/shorts/PFZjzmlq5LI"
+                  variant="live"
                   target="_blank"
-                  rel="noopener noreferrer"
                 >
-                  <Dot /> Watch it live
-                </a>
+                  Watch it live
+                </Button>
               </div>
             </div>
             <div className="hero-media">
