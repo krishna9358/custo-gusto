@@ -1,16 +1,51 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
+import { ChevronDown } from 'lucide-react';
 
 interface AccordionProps {
   question: string;
   answer: string;
   className?: string;
+  defaultOpen?: boolean;
 }
 
-export function Accordion({ question, answer, className = '' }: AccordionProps) {
+export function Accordion({
+  question,
+  answer,
+  className = '',
+  defaultOpen = false,
+}: AccordionProps) {
+  const [isOpen, setIsOpen] = useState(defaultOpen);
+
   return (
-    <details className={`acc ${className}`.trim()}>
-      <summary>{question}</summary>
-      <div className="body">{answer}</div>
-    </details>
+    <div
+      className={`acc border border-rule bg-panel mb-2.5 shadow-sh transition-all duration-300 ${className}`.trim()}
+    >
+      <button
+        type="button"
+        className="w-full text-left p-[16px_20px] font-semibold text-[16px] flex justify-between items-center gap-4 cursor-pointer select-none group"
+        onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+      >
+        <span className="group-hover:text-brick transition-colors duration-200">
+          {question}
+        </span>
+        <ChevronDown
+          className={`w-5 h-5 text-brick flex-none transition-transform duration-300 ${
+            isOpen ? 'rotate-180' : 'rotate-0'
+          }`}
+        />
+      </button>
+      <div
+        className={`grid transition-all duration-300 ease-in-out ${
+          isOpen ? 'grid-rows-[1fr] opacity-100 pb-4' : 'grid-rows-[0fr] opacity-0 pb-0'
+        }`}
+      >
+        <div className="overflow-hidden px-5 text-[15.5px] text-soft">
+          {answer}
+        </div>
+      </div>
+    </div>
   );
 }
