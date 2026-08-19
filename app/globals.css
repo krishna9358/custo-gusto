@@ -159,11 +159,11 @@ h3.mid{font-family:'Best Curry','Poppins',sans-serif;font-weight:400;
 .hero-hi{font-size:clamp(19px,2vw,26px);color:var(--indigo);margin:14px 0 0;}
 .hero p.lead{margin-top:16px;}
 .hero .btns{margin-top:26px;}
-.hero-stk{position:absolute;top:-6px;right:0;z-index:2;}
+.hero-stk{position:absolute;top:clamp(4px,1.2vw,16px);right:var(--gut);z-index:10;pointer-events:none;}
 .hero-media{position:relative;max-width:92%;margin-left:auto;}
 .hero-media img{width:100%;height:auto;border:1px solid var(--rule);}
 .hero-badge{position:absolute;left:-14px;bottom:24px;z-index:3;}
-@media (max-width:860px){.hero-g{grid-template-columns:1fr;} .hero-media{max-width:100%;margin-left:0;} .hero-stk{position:static;margin-bottom:16px;display:inline-block;}}
+@media (max-width:860px){.hero-g{grid-template-columns:1fr;} .hero-media{max-width:100%;margin-left:0;} .hero-stk{position:static;margin-bottom:12px;display:inline-block;}}
 
 /* ---- photo slots ---- */
 .ph-cap{font-size:13.5px;color:var(--soft);margin-top:6px;font-weight:500;}
