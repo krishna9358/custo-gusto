@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { FOOTER_PAGES } from '@/data/navigation';
 
 export default function Footer() {
   return (
@@ -34,12 +35,11 @@ export default function Footer() {
           </div>
           <div>
             <h4>Pages</h4>
-            <Link href="/work">The Work</Link>
-            <Link href="/services">What We Do</Link>
-            <Link href="/clients">Clients</Link>
-            <Link href="/story">Our Story</Link>
-            <Link href="/commercials">Commercials</Link>
-            <Link href="/faq">FAQ</Link>
+            {FOOTER_PAGES.map((page) => (
+              <Link key={page.href} href={page.href}>
+                {page.label}
+              </Link>
+            ))}
           </div>
           <div>
             <h4>Talk to us</h4>

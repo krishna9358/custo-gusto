@@ -1,30 +1,28 @@
-'use client';
-
 import React from 'react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Book a Desk or Get a Price in 24 Hours | Custo Gusto',
+  description:
+    'Contact Custo Gusto to book a live desk for your retail store, launch event, or corporate order. Same-day replies from our teams in Delhi, Noida & Bangalore.',
+  keywords: [
+    'contact Custo Gusto',
+    'book live desk',
+    'WhatsApp Custo Gusto',
+    'Laksh email',
+    'Noida office',
+    'Bangalore Delhi crews',
+  ],
+};
 import Link from 'next/link';
 import { Dot } from '@/components/Glyphs';
 import { Photo } from '@/components/SharedSections';
+import { ContactForm } from '@/components/ContactForm';
+import { Accordion } from '@/components/Accordion';
+import { Button } from '@/components/Button';
+import { CONTACT_FAQS } from '@/data/faq';
 
 export default function ContactPage() {
-  const faqs = [
-    {
-      q: 'How quickly can you start?',
-      a: 'About two days, from our crews in Bangalore and Delhi.',
-    },
-    {
-      q: 'What do you need from us?',
-      a: 'Somewhere to stand and the products themselves. The machines, the operator, the designer, all the materials and the running of it are ours.',
-    },
-    {
-      q: 'Can we see it before committing to anything?',
-      a: 'Yes, and this is the easiest way. We will bring a desk to your office for an afternoon and let your team make their own pieces. Most decisions get made in that hour.',
-    },
-    {
-      q: 'Do you work outside Delhi and Bangalore?',
-      a: 'Yes. Those are just where the crews sleep.',
-    },
-  ];
-
   return (
     <>
       <section
@@ -47,17 +45,16 @@ export default function ContactPage() {
             &mdash; WhatsApp is the fastest way.
           </p>
           <div className="btns" style={{ marginTop: '28px' }}>
-            <a
-              className="btn btn-live"
+            <Button
               href="https://wa.me/919654382799"
+              variant="live"
               target="_blank"
-              rel="noopener noreferrer"
             >
               <Dot /> WhatsApp us
-            </a>
-            <a className="btn btn-p" href="mailto:laksh@custogusto.in">
+            </Button>
+            <Button href="mailto:laksh@custogusto.in" variant="primary">
               Email Laksh
-            </a>
+            </Button>
           </div>
         </div>
       </section>
@@ -72,40 +69,7 @@ export default function ContactPage() {
               Four fields, because your time is worth more than our form. You get a reply
               the same day.
             </p>
-            <form
-              className="form"
-              style={{ marginTop: '22px' }}
-              onSubmit={(e) => e.preventDefault()}
-            >
-              <div className="f2">
-                <div className="field">
-                  <label htmlFor="n">Name</label>
-                  <input id="n" type="text" autoComplete="name" />
-                </div>
-                <div className="field">
-                  <label htmlFor="e">Email</label>
-                  <input id="e" type="email" autoComplete="email" />
-                </div>
-              </div>
-              <div className="field">
-                <label htmlFor="w">Which sounds like you?</label>
-                <select id="w" defaultValue="I have a shop floor that needs a reason to visit">
-                  <option>I have a shop floor that needs a reason to visit</option>
-                  <option>I have a launch or an event coming up</option>
-                  <option>I need a batch of things made and sent back</option>
-                  <option>I am not sure yet, but I want to talk</option>
-                </select>
-              </div>
-              <div className="field">
-                <label htmlFor="m">Tell us more</label>
-                <textarea id="m"></textarea>
-              </div>
-              <div>
-                <button className="btn btn-p" type="submit">
-                  Send it
-                </button>
-              </div>
-            </form>
+            <ContactForm />
           </div>
           <div>
             <div className="case">
@@ -155,11 +119,8 @@ export default function ContactPage() {
             What people usually ask first
           </h2>
           <div style={{ marginTop: '22px', maxWidth: '820px' }}>
-            {faqs.map((f, idx) => (
-              <details key={idx} className="acc">
-                <summary>{f.q}</summary>
-                <div className="body">{f.a}</div>
-              </details>
+            {CONTACT_FAQS.map((f, idx) => (
+              <Accordion key={idx} question={f.q} answer={f.a} />
             ))}
             <p style={{ marginTop: '16px' }}>
               <Link href="/faq" style={{ color: 'var(--brick)', fontWeight: 600 }}>

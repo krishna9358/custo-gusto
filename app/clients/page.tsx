@@ -1,47 +1,30 @@
 import React from 'react';
-import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Clients & Case Studies — Decathlon, Puma, one8 & More | Custo Gusto',
+  description:
+    'Trusted by Decathlon, Puma, Mothercare, Benetton, Comic Con, and Virat Kohli’s one8 Global Premiere. 13 desks running live across India.',
+  keywords: [
+    'one8 global premiere',
+    'Decathlon customisation',
+    'Puma live desk',
+    'Comic Con activation',
+    'brand launch experiences',
+    'live embroidery India',
+  ],
+};
 import { Dot, Tilde } from '@/components/Glyphs';
 import {
   StatTiles,
   One8Photo,
   ClosingBand,
 } from '@/components/SharedSections';
+import { Button } from '@/components/Button';
+import { Sticker } from '@/components/Sticker';
+import { TRUSTED_LOGOS, TICKETS_DATA } from '@/data/clients';
 
 export default function ClientsPage() {
-  const trustedLogos = [
-    'Decathlon',
-    'Puma',
-    'Sports Yard',
-    'Benetton',
-    'Mothercare',
-    'one8',
-    'Comic Con',
-    'Winter Wonderland',
-  ];
-
-  const tickets = [
-    {
-      title: 'Comic Con',
-      desc: 'Fan identity at festival scale. Demand outran capacity on both days.',
-      tag: 'Festival',
-    },
-    {
-      title: 'Winter Wonderland',
-      desc: 'With Edamame and Mothercare. Family retail, holiday footfall.',
-      tag: 'Seasonal retail',
-    },
-    {
-      title: 'Weddings',
-      desc: 'Keepsakes, napkins and apparel that guests actually keep.',
-      tag: 'Private',
-    },
-    {
-      title: 'Hotels & auto',
-      desc: 'Robes and towels; personalised accessories at launches.',
-      tag: 'Corporate',
-    },
-  ];
-
   return (
     <>
       <section
@@ -85,7 +68,7 @@ export default function ClientsPage() {
             Trusted by
           </p>
           <div className="logos">
-            {trustedLogos.map((l, i) => (
+            {TRUSTED_LOGOS.map((l, i) => (
               <span key={i} className="logo-pill">
                 {l}
               </span>
@@ -137,14 +120,13 @@ export default function ClientsPage() {
                 </div>
               </div>
               <div className="btns" style={{ marginTop: '22px' }}>
-                <a
-                  className="btn btn-live"
+                <Button
                   href="https://youtube.com/shorts/PFZjzmlq5LI"
+                  variant="live"
                   target="_blank"
-                  rel="noopener noreferrer"
                 >
                   <Dot /> Watch the film
-                </a>
+                </Button>
               </div>
             </div>
             <div>
@@ -207,9 +189,9 @@ export default function ClientsPage() {
       <section className="sec">
         <div className="wrap rwrap">
           <div className="rm-stk">
-            <span className="stk hi" style={{ fontSize: '13px' }}>
+            <Sticker isHindi style={{ fontSize: '13px' }}>
               आपका. सिर्फ़ आपका.
-            </span>
+            </Sticker>
           </div>
           <p className="eyebrow">Beyond retail</p>
           <h2 className="big">THE SAME DESK, DIFFERENT ROOMS.</h2>
@@ -218,7 +200,7 @@ export default function ClientsPage() {
             people, entirely different night.
           </p>
           <div className="tks">
-            {tickets.map((r, i) => (
+            {TICKETS_DATA.map((r, i) => (
               <div className="tk2" key={i}>
                 <div className="tk2-t">{r.title}</div>
                 <div className="tk2-d">{r.desc}</div>
@@ -227,12 +209,12 @@ export default function ClientsPage() {
             ))}
           </div>
           <div className="rm-cta" style={{ marginTop: '30px' }}>
-            <Link className="btn btn-p" href="/contact">
+            <Button href="/contact" variant="primary">
               Tell us about your event
-            </Link>
-            <Link className="btn btn-g" href="/work">
+            </Button>
+            <Button href="/work" variant="ghost">
               See the work
-            </Link>
+            </Button>
           </div>
         </div>
       </section>

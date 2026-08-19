@@ -1,5 +1,23 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Custo Gusto — Made in front of you. Never repeated.',
+  description:
+    'India’s live customisation brand. One-of-one shoes, apparel, and accessories embroidered, printed, or laser engraved live in minutes at retail desks across India.',
+  keywords: [
+    'live customisation',
+    'live embroidery',
+    'custom sneakers',
+    'personalized caps',
+    'retail activation',
+    'one8 global premiere',
+    'Noida',
+    'Delhi',
+    'Bangalore',
+  ],
+};
 import { Dot, bc } from '@/components/Glyphs';
 import Ticker from '@/components/Ticker';
 import {
@@ -11,8 +29,9 @@ import {
   StatTiles,
   One8Photo,
   ClosingBand,
-  COVERAGE,
 } from '@/components/SharedSections';
+import { COVERAGE_CHIPS } from '@/data/engines';
+
 
 export default function Home() {
   const trustedLogos = [
@@ -117,7 +136,7 @@ export default function Home() {
                 lead &mdash; they always lead.
               </p>
               <div className="chips">
-                {COVERAGE.map((c, i) => (
+                {COVERAGE_CHIPS.map((c, i) => (
                   <span key={i} className={`chip${i === 0 ? ' on' : ''}`}>
                     {c}
                   </span>

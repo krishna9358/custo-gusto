@@ -1,8 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face{font-family:'Best Curry';src:url(/fonts/BestCurry.woff2) format('woff2');font-weight:400;font-display:block;}
 @font-face{font-family:'Poppins';src:url(/fonts/Poppins-400.woff2) format('woff2');font-weight:400;font-display:swap;}
 @font-face{font-family:'Poppins';src:url(/fonts/Poppins-500.woff2) format('woff2');font-weight:500;font-display:swap;}
 @font-face{font-family:'Poppins';src:url(/fonts/Poppins-600.woff2) format('woff2');font-weight:600;font-display:swap;}
 @font-face{font-family:'Yatra One';src:url(/fonts/YatraOne.woff2) format('woff2');font-weight:400;font-display:swap;}
+
 
 
 :root{

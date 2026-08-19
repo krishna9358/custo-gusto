@@ -1,12 +1,27 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'What We Do — Live Customisation Engines | Custo Gusto',
+  description:
+    'Three ways to put live customisation on your floor: permanent retail desks, traveling desks for product launches and drops, and job work orders.',
+  keywords: [
+    'retail customisation desk',
+    'event customisation',
+    'live DTF printing',
+    'laser engraving service',
+    'hot foil stamping',
+    'job work India',
+  ],
+};
 import {
   Engines,
   Photo,
   TechGrid,
   ClosingBand,
-  COVERAGE,
 } from '@/components/SharedSections';
+import { COVERAGE_CHIPS } from '@/data/engines';
 
 export default function ServicesPage() {
   return (
@@ -164,7 +179,7 @@ export default function ServicesPage() {
           <p className="eyebrow">Product coverage</p>
           <h2 className="big">90% OF WHAT IS ON YOUR SHELF.</h2>
           <div className="chips" style={{ marginTop: '20px' }}>
-            {COVERAGE.map((c, i) => (
+            {COVERAGE_CHIPS.map((c, i) => (
               <span key={i} className={`chip${i === 0 ? ' on' : ''}`}>
                 {c}
               </span>
