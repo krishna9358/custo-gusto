@@ -10,6 +10,10 @@ export const metadata = {
     'Custo Gusto puts your name, number or design onto things you already own — stitched, printed or engraved in front of you, in minutes. Live customisation desks for retail floors, launches and job work across India.',
 };
 
+/**
+ * Root Layout for Custo Gusto Website
+ * All page routes are Server Components by default.
+ */
 export default function RootLayout({
   children,
 }: {
