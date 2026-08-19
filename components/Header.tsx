@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Dot } from './Glyphs';
+import { Menu, X } from 'lucide-react';
 import { NAV_ITEMS } from '@/data/navigation';
 import { Button } from './Button';
 
@@ -24,20 +24,11 @@ export default function Header() {
         <button
           className="burger"
           id="burger"
-          aria-label="Menu"
+          aria-label="Toggle Navigation Menu"
           aria-expanded={navOpen ? 'true' : 'false'}
           onClick={() => setNavOpen(!navOpen)}
         >
-          <svg
-            width="26"
-            height="26"
-            viewBox="0 0 26 26"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.2"
-          >
-            <path d="M3 7h20M3 13h20M3 19h20" />
-          </svg>
+          {navOpen ? <X className="w-7 h-7 text-blush" /> : <Menu className="w-7 h-7 text-blush" />}
         </button>
         <nav className={`nav ${navOpen ? 'open' : ''}`} id="nav">
           {NAV_ITEMS.map((item) => {
@@ -66,7 +57,7 @@ export default function Header() {
             WhatsApp
           </Button>
           <Button
-            href="/contact"
+            href="/contact#book"
             variant="blush"
             onClick={() => setNavOpen(false)}
           >
