@@ -307,8 +307,8 @@ export function WhyItMatters() {
   return (
     <section className="sec">
       <div className="wrap">
-        <div className="split" style={{ alignItems: 'start' }}>
-          <div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+          <div className="lg:col-span-7">
             <p className="eyebrow">Why any of this matters</p>
             <h2 className="big">
               EVERYTHING YOU BUY LOSES VALUE. THIS DOESN&rsquo;T.
@@ -329,12 +329,13 @@ export function WhyItMatters() {
               <small>Your story.</small>
             </div>
           </div>
-          <div>
+          <div className="lg:col-span-5" data-aos="fade-left">
             <Photo
               imgKey="why_a1"
               alt="A sneaker with a name embroidered on the side"
-              shape="ph-16"
+              shape="ph-sq"
             />
+            <p className="ph-cap">A sneaker embroidered live with a custom name</p>
           </div>
         </div>
         <div className="four">
