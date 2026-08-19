@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import { MessageCircle, Play, Mail, ArrowRight } from 'lucide-react';
+import { Play, Mail, ArrowRight } from 'lucide-react';
+import { WhatsAppIcon } from './Glyphs';
 
 interface ButtonProps {
   href?: string;
@@ -42,7 +43,7 @@ export function Button({
 
   if (icon === 'whatsapp' || (href && href.includes('wa.me'))) {
     IconComponent = (
-      <MessageCircle className="w-4 h-4 transition-transform duration-200 group-hover:scale-110" />
+      <WhatsAppIcon className="w-4 h-4 transition-transform duration-200 group-hover:scale-110" />
     );
   } else if (icon === 'play' || (href && href.includes('youtube.com'))) {
     IconComponent = (
