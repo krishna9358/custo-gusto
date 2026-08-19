@@ -1,62 +1,11 @@
 import React from 'react';
-import Link from 'next/link';
 import { ClosingBand } from '@/components/SharedSections';
+import { Accordion } from '@/components/Accordion';
+import { Button } from '@/components/Button';
+import { COMMERCIAL_FAQS } from '@/data/faq';
+import { DIALS_DATA } from '@/data/clients';
 
 export default function CommercialsPage() {
-  const dials = [
-    {
-      title: 'Days',
-      pct: 82,
-      min: '3 days',
-      max: '6 months',
-      desc: 'The biggest single factor, by a distance.',
-    },
-    {
-      title: 'Machines',
-      pct: 55,
-      min: 'One',
-      max: 'Four+',
-      desc: 'About fifteen pieces an hour each. Your queue decides.',
-    },
-    {
-      title: 'Techniques',
-      pct: 40,
-      min: 'Transfers',
-      max: 'Embroidery',
-      desc: 'Thread and foil take longer than pressing.',
-    },
-    {
-      title: 'Cities',
-      pct: 28,
-      min: 'One',
-      max: 'Nationwide',
-      desc: 'Travel, stated plainly rather than buried.',
-    },
-  ];
-
-  const faqs = [
-    {
-      q: 'What is the ROI? What is the revenue share?',
-      a: 'Do not think of us as a shop inside your shop. Think of us the way you think about how your store looks and feels: it brings people in, keeps them there longer, and gives them something to tell people about. The commercial proof does exist: the average customer at our desks takes home three pieces, not one, and every one of our 500+ Google reviews is five stars. But that is the consequence of the experience, not the pitch.',
-    },
-    {
-      q: 'Can you handle our footfall? All of our stores?',
-      a: 'A ready design takes about four minutes, and one drawn on the spot takes about ten. That is roughly fifteen pieces an hour from each machine. At the one8 premiere, four machines and eight operators produced 300+ pieces in one evening. For very busy days we add more heat-press stations. And the operator-training system means a desk in Delhi runs exactly like one in Bangalore — we serve stores nationwide.',
-    },
-    {
-      q: 'Why not just buy a machine, or hire a vendor?',
-      a: 'A machine in a corner is not the thing. The thing is thirty years of skill, a trained operator, a designer sitting right there, all the materials, the servicing — and a performance that stops people mid-step. Levi’s spent ten years building that inside their own company. We arrive with all of it already built, in about two days.',
-    },
-    {
-      q: 'Is this not just customisation? Or printing?',
-      a: 'No. Printing means a warehouse somewhere makes a thousand identical things and posts them to you. We make one thing, for one person, standing in front of them — and they almost always film it.',
-    },
-    {
-      q: 'How quickly can you start?',
-      a: 'About two days, from crews already standing by in Bangalore and Delhi. We can run two events at the same time, one in each city, and desks anywhere in the country.',
-    },
-  ];
-
   return (
     <>
       <section className="sec">
@@ -254,7 +203,7 @@ export default function CommercialsPage() {
             &mdash; but nothing here is a mystery.
           </p>
           <div className="dl">
-            {dials.map((d, idx) => (
+            {DIALS_DATA.map((d, idx) => (
               <div className="dl-c" key={idx}>
                 <div className="dl-t">{d.title}</div>
                 <div className="dl-bar">
@@ -279,9 +228,9 @@ export default function CommercialsPage() {
             24 hours, no meeting first.
           </p>
           <div className="btns" style={{ marginTop: '16px' }}>
-            <Link className="btn btn-p" href="/contact">
+            <Button href="/contact" variant="primary">
               Get a price in 24 hours
-            </Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -291,11 +240,8 @@ export default function CommercialsPage() {
           <p className="eyebrow">The questions buyers actually ask</p>
           <h2 className="big">ANSWERED BEFORE THE CALL.</h2>
           <div style={{ marginTop: '26px', maxWidth: '820px' }}>
-            {faqs.map((f, i) => (
-              <details key={i} className="acc">
-                <summary>{f.q}</summary>
-                <div className="body">{f.a}</div>
-              </details>
+            {COMMERCIAL_FAQS.map((f, i) => (
+              <Accordion key={i} question={f.q} answer={f.a} />
             ))}
           </div>
         </div>
