@@ -125,17 +125,17 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="sec-sm">
+      <section className="sec">
         <div className="wrap">
-          <div className="split">
-            <div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
+            <div className="lg:col-span-5 lg:sticky lg:top-28 lg:self-start">
               <p className="eyebrow">What can we touch?</p>
               <h2 className="big">ALMOST EVERYTHING.</h2>
               <p className="lead" style={{ marginTop: '14px' }}>
                 We customise over 90% of what is already on your shelf. Shoes
                 lead &mdash; they always lead.
               </p>
-              <div className="chips">
+              <div className="chips" style={{ marginTop: '20px' }}>
                 {COVERAGE_CHIPS.map((c, i) => (
                   <span key={i} className={`chip${i === 0 ? ' on' : ''}`}>
                     {c}
@@ -143,27 +143,39 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <div className="g g2">
-              <Photo
-                imgKey="touch_shoes"
-                alt="An embroidered sneaker"
-                shape="ph-sq"
-              />
-              <Photo
-                imgKey="touch_caps"
-                alt="A cap with a gold emblem"
-                shape="ph-sq"
-              />
-              <Photo
-                imgKey="touch_leather"
-                alt="An engraved leather wallet"
-                shape="ph-sq"
-              />
-              <Photo
-                imgKey="touch_foil"
-                alt="Hot foil, close"
-                shape="ph-sq"
-              />
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
+              <div data-aos="fade-up">
+                <Photo
+                  imgKey="touch_shoes"
+                  alt="An embroidered sneaker"
+                  shape="ph-sq"
+                />
+                <p className="ph-cap">Shoes — lead the desk</p>
+              </div>
+              <div data-aos="fade-up" data-aos-delay="100">
+                <Photo
+                  imgKey="touch_caps"
+                  alt="A cap with a gold emblem"
+                  shape="ph-sq"
+                />
+                <p className="ph-cap">Caps — gold emblem finish</p>
+              </div>
+              <div data-aos="fade-up" data-aos-delay="200">
+                <Photo
+                  imgKey="touch_leather"
+                  alt="An engraved leather wallet"
+                  shape="ph-sq"
+                />
+                <p className="ph-cap">Leather — laser precision</p>
+              </div>
+              <div data-aos="fade-up" data-aos-delay="300">
+                <Photo
+                  imgKey="touch_foil"
+                  alt="Hot foil, close"
+                  shape="ph-sq"
+                />
+                <p className="ph-cap">Digital hot foil detail</p>
+              </div>
             </div>
           </div>
         </div>
