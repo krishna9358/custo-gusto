@@ -11,8 +11,9 @@ import {
   StatTiles,
   One8Photo,
   ClosingBand,
-  COVERAGE,
 } from '@/components/SharedSections';
+import { COVERAGE_CHIPS } from '@/data/engines';
+
 
 export default function Home() {
   const trustedLogos = [
@@ -117,7 +118,7 @@ export default function Home() {
                 lead &mdash; they always lead.
               </p>
               <div className="chips">
-                {COVERAGE.map((c, i) => (
+                {COVERAGE_CHIPS.map((c, i) => (
                   <span key={i} className={`chip${i === 0 ? ' on' : ''}`}>
                     {c}
                   </span>

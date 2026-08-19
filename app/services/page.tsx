@@ -5,8 +5,8 @@ import {
   Photo,
   TechGrid,
   ClosingBand,
-  COVERAGE,
 } from '@/components/SharedSections';
+import { COVERAGE_CHIPS } from '@/data/engines';
 
 export default function ServicesPage() {
   return (
@@ -164,7 +164,7 @@ export default function ServicesPage() {
           <p className="eyebrow">Product coverage</p>
           <h2 className="big">90% OF WHAT IS ON YOUR SHELF.</h2>
           <div className="chips" style={{ marginTop: '20px' }}>
-            {COVERAGE.map((c, i) => (
+            {COVERAGE_CHIPS.map((c, i) => (
               <span key={i} className={`chip${i === 0 ? ' on' : ''}`}>
                 {c}
               </span>

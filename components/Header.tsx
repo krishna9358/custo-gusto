@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Dot } from './Glyphs';
+import { NAV_ITEMS } from '@/data/navigation';
 
 export default function Header() {
   const [navOpen, setNavOpen] = useState(false);
@@ -12,14 +13,6 @@ export default function Header() {
   useEffect(() => {
     setNavOpen(false);
   }, [pathname]);
-
-  const navItems = [
-    { href: '/work', label: 'The Work' },
-    { href: '/services', label: 'What We Do' },
-    { href: '/clients', label: 'Clients' },
-    { href: '/story', label: 'Story' },
-    { href: '/commercials', label: 'Commercials' },
-  ];
 
   return (
     <header className="hdr">
@@ -46,7 +39,7 @@ export default function Header() {
           </svg>
         </button>
         <nav className={`nav ${navOpen ? 'open' : ''}`} id="nav">
-          {navItems.map((item) => (
+          {NAV_ITEMS.map((item) => (
             <Link
               key={item.href}
               href={item.href}

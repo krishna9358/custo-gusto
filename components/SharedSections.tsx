@@ -1,6 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import { Dot, bc } from './Glyphs';
+import { Button } from './Button';
+import { ENGINES_DATA } from '@/data/engines';
+import { TECHS_DATA } from '@/data/techniques';
 
 export const IMG_KEYS: Record<string, string> = {
   contact_e1: '/img/contact_e1.jpg',
@@ -21,7 +24,6 @@ export const IMG_KEYS: Record<string, string> = {
   w04: '/img/w04.jpg',
   w05: '/img/w05.jpg',
   w06: '/img/w06.jpg',
-  w07: '/img/w07.jpg',
   w08: '/img/w08.jpg',
   w09: '/img/w09.jpg',
   w10: '/img/w10.jpg',
@@ -150,45 +152,9 @@ export function HowItWorks() {
 }
 
 export function Engines() {
-  const enginesData = [
-    {
-      swatch: 'e-ind',
-      kicker: 'A desk that stays',
-      name: 'On your floor',
-      problem:
-        'Your store is competing with a phone that has everything on it and never closes.',
-      solution:
-        'We put a desk on your floor with a machine, an operator and a designer on it, and we keep it running every day. It gives a person a reason to come in that nothing online can match.',
-      proof: '13 desks running today',
-      href: '/services',
-    },
-    {
-      swatch: 'e-mar',
-      kicker: 'A desk that travels',
-      name: 'At your launch',
-      problem:
-        'Most launches get seen, photographed once, and forgotten by the following week.',
-      solution:
-        'We bring the whole desk to your event for a few days and make something for each guest while they watch. They leave holding it, and they film it themselves.',
-      proof: '300+ made in one evening',
-      href: '/services',
-    },
-    {
-      swatch: 'e-bri',
-      kicker: 'No desk at all',
-      name: 'Send it to us',
-      problem:
-        'Sometimes you just need two hundred good things made properly, by a certain date.',
-      solution:
-        'Send us the product, or we will find it. Tell us what goes on it. We make it here and send it back finished.',
-      proof: 'Six ways to mark a thing',
-      href: '/services',
-    },
-  ];
-
   return (
     <div className="g g3">
-      {enginesData.map((e, idx) => (
+      {ENGINES_DATA.map((e, idx) => (
         <Link key={idx} className="eng" href={e.href}>
           <div className={`eng-t ${e.swatch}`}>
             <div className="n">{e.kicker}</div>
@@ -207,86 +173,6 @@ export function Engines() {
     </div>
   );
 }
-
-export interface TechItem {
-  name: string;
-  hook: string;
-  body: string;
-  chips: string[];
-  time: string;
-  isLive: boolean;
-  technical: string;
-  isHero: boolean;
-}
-
-export const TECHS_DATA: TechItem[] = [
-  {
-    name: 'Embroidery',
-    hook: 'The one that feels expensive.',
-    body: 'Thread raised off the surface, so your fingers find it before your eyes do. This is the jacket somebody still owns in twenty years, and still tells the story about.',
-    chips: ['Shoes', 'Caps', 'Jackets', 'Bags'],
-    time: '5 minutes',
-    isLive: true,
-    technical:
-      'A needle and thread worked into the material itself by machine. Nothing is printed and nothing sits on top — the design is built out of the fabric.',
-    isHero: true,
-  },
-  {
-    name: 'DTF print',
-    hook: 'For designs too wild for thread.',
-    body: 'Photographs, gradients, six colours crashing into each other. Anything you can put on a screen goes onto the shirt. This is the one the whole crowd ends up wearing.',
-    chips: ['T-shirts', 'Jerseys', 'Hoodies', 'Event tees'],
-    time: '3 minutes',
-    isLive: false,
-    technical:
-      'Direct-to-film. Artwork prints onto a carrier film, adhesive is cured onto the wet ink, then the whole thing is fused into the fabric under heat. The printing happens beforehand; the pressing happens in front of you.',
-    isHero: false,
-  },
-  {
-    name: 'Digital hot foil',
-    hook: 'Gold you can see across a room.',
-    body: 'The finish that makes a plain box look like it came from somewhere far more expensive. Put it on the invitation, the luggage tag, the inside of a wallet nobody else will open.',
-    chips: ['Leather', 'Luggage tags', 'Notebooks', 'Gift boxes'],
-    time: '2 minutes',
-    isLive: true,
-    technical:
-      'Metallic foil bonded to the surface with heat. Because no metal plate has to be cut first, even hairline detail comes out clean.',
-    isHero: false,
-  },
-  {
-    name: 'Laser engraving',
-    hook: 'The showpiece.',
-    body: 'A perfume bottle with her name down the side. A pen. A whisky glass. Nobody expects these things to be personal, which is exactly why they stop the room. It cannot peel or fade — the mark is the object.',
-    chips: ['Perfume bottles', 'Pens', 'Glassware', 'Leather'],
-    time: '5 minutes',
-    isLive: true,
-    technical:
-      'A laser burns the design into the surface. Nothing is added and nothing sits on top, so there is no layer that can lift, wash off or wear away.',
-    isHero: false,
-  },
-  {
-    name: 'UV stickers',
-    hook: 'Colour on the hard stuff.',
-    body: 'The water bottle at the gym. The helmet. The phone case face-up on the table all through the meeting. Glass, metal, curved, painted — things nothing else will stick to properly.',
-    chips: ['Bottles', 'Phone cases', 'Helmets', 'Flasks'],
-    time: '1 minute',
-    isLive: false,
-    technical:
-      'The same idea as DTF, built for hard surfaces. The design is UV-printed onto a film and cured on the spot, a second film is laminated over it, then it is pressed onto the object and the film peeled away. <strong>No heat at all</strong> — which is why it will sit on glass, metal and curves a press could never reach.',
-    isHero: false,
-  },
-  {
-    name: 'Iron-on patches',
-    hook: 'Built for a queue.',
-    body: 'When there is a line out the door and every single person still walks away with their own. The fast one, for the days when speed is the whole point.',
-    chips: ['Jackets', 'Bags', 'Caps', 'Uniforms'],
-    time: '1 minute',
-    isLive: false,
-    technical:
-      'Embroidered separately, then heat-set into place. The patch is cut for one person; only the pressing happens at the desk.',
-    isHero: false,
-  },
-];
 
 export function TechGrid() {
   return (
@@ -336,20 +222,19 @@ export function ClosingBand({ dare, sub }: { dare: string; sub: string }) {
             {sub}
           </p>
           <div className="btns" style={{ marginTop: '26px' }}>
-            <a
-              className="btn btn-live"
+            <Button
               href="https://wa.me/919654382799"
+              variant="live"
               target="_blank"
-              rel="noopener noreferrer"
             >
               <Dot /> WhatsApp us
-            </a>
-            <Link className="btn btn-p" href="/contact">
+            </Button>
+            <Button href="/contact" variant="primary">
               Get a price in 24 hours
-            </Link>
-            <Link className="btn btn-g" href="/work">
+            </Button>
+            <Button href="/work" variant="ghost">
               Just look at the work
-            </Link>
+            </Button>
           </div>
           <p style={{ marginTop: '14px', fontSize: '14px', opacity: 0.8 }}>
             No meeting needed to get a number. We reply the same day.
@@ -444,18 +329,3 @@ export function WhyItMatters() {
     </section>
   );
 }
-
-export const COVERAGE = [
-  'All types of shoes',
-  'Caps',
-  'Tees & denim',
-  'Jackets',
-  'Bags & totes',
-  'Socks',
-  'Towels',
-  'Belts & straps',
-  'Watch straps',
-  'Leather goods',
-  'Tags & packaging',
-  'Stationery',
-];
