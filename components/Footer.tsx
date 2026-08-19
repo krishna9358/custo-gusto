@@ -43,15 +43,17 @@ export default function Footer() {
           </div>
           <div>
             <h4>Talk to us</h4>
-            <Link href="/contact">+91 96543 82799</Link>
-            <Link href="/contact">laksh@custogusto.in</Link>
+            <a href="https://wa.me/919654382799" target="_blank" rel="noopener noreferrer">+91 96543 82799</a>
+            <a href="mailto:laksh@custogusto.in">laksh@custogusto.in</a>
             <Link href="/contact">Noida &middot; Bangalore &middot; Delhi</Link>
-            <Link
-              href="/contact"
+            <a
+              href="https://wa.me/919654382799"
+              target="_blank"
+              rel="noopener noreferrer"
               style={{ marginTop: '10px', color: 'var(--bagh)', fontWeight: 600 }}
             >
-              WhatsApp us
-            </Link>
+              WhatsApp us &rarr;
+            </a>
           </div>
         </div>
         <div className="ftr-b">
