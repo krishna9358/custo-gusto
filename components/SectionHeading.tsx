@@ -39,3 +39,35 @@ export function SectionHeading({
     </div>
   );
 }
+
+interface EditorialSplitProps {
+  left: React.ReactNode;
+  right: React.ReactNode;
+  stickyLeft?: boolean;
+  align?: 'start' | 'center';
+  className?: string;
+}
+
+export function EditorialSplit({
+  left,
+  right,
+  stickyLeft = false,
+  align = 'start',
+  className = '',
+}: EditorialSplitProps) {
+  const alignClass = align === 'center' ? 'items-center' : 'items-start';
+  return (
+    <div
+      className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 ${alignClass} ${className}`.trim()}
+    >
+      <div
+        className={`lg:col-span-6 ${
+          stickyLeft ? 'lg:sticky lg:top-28 lg:self-start' : ''
+        }`}
+      >
+        {left}
+      </div>
+      <div className="lg:col-span-6">{right}</div>
+    </div>
+  );
+}
