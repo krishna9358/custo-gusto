@@ -1,5 +1,20 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'What We Do — Live Customisation Engines | Custo Gusto',
+  description:
+    'Three ways to put live customisation on your floor: permanent retail desks, traveling desks for product launches and drops, and job work orders.',
+  keywords: [
+    'retail customisation desk',
+    'event customisation',
+    'live DTF printing',
+    'laser engraving service',
+    'hot foil stamping',
+    'job work India',
+  ],
+};
 import {
   Engines,
   Photo,

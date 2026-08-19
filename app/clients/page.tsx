@@ -1,4 +1,19 @@
 import React from 'react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Clients & Case Studies — Decathlon, Puma, one8 & More | Custo Gusto',
+  description:
+    'Trusted by Decathlon, Puma, Mothercare, Benetton, Comic Con, and Virat Kohli’s one8 Global Premiere. 13 desks running live across India.',
+  keywords: [
+    'one8 global premiere',
+    'Decathlon customisation',
+    'Puma live desk',
+    'Comic Con activation',
+    'brand launch experiences',
+    'live embroidery India',
+  ],
+};
 import { Dot, Tilde } from '@/components/Glyphs';
 import {
   StatTiles,

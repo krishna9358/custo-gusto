@@ -1,4 +1,18 @@
 import React from 'react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Our Story — 30 Years of Craft, German Machines, Indian Hands | Custo Gusto',
+  description:
+    'Started during COVID by a father and daughter with 30 years of embroidery craft. German ZSK machines and master operators turning products into personal stories.',
+  keywords: [
+    'Custo Gusto story',
+    'German ZSK embroidery',
+    'Laksh Custo Gusto',
+    'live craft retail',
+    'personalized fashion India',
+  ],
+};
 import { Photo, ClosingBand } from '@/components/SharedSections';
 
 export default function StoryPage() {

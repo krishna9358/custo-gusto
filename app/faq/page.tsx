@@ -1,4 +1,18 @@
 import React from 'react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Frequently Asked Questions | Custo Gusto',
+  description:
+    'Everything you need to know about our live customisation desks: techniques, speed, volume capacity, machine specs, nationwide coverage, and logistics.',
+  keywords: [
+    'Custo Gusto FAQ',
+    'live embroidery speed',
+    'customisation product coverage',
+    'ZSK machine accuracy',
+    'retail desk setup time',
+  ],
+};
 import { ClosingBand } from '@/components/SharedSections';
 import { Accordion } from '@/components/Accordion';
 import { GENERAL_FAQS } from '@/data/faq';

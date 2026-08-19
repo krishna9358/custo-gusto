@@ -1,4 +1,18 @@
 import React from 'react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Commercial Engagement Models & Pricing | Custo Gusto',
+  description:
+    'Four business shapes: fixed monthly rental, ownership plus services, pay-per-use for events, and subscription. Transparent pricing and nationwide rollout.',
+  keywords: [
+    'retail desk rental',
+    'event activation pricing',
+    'customisation ROI',
+    'retail footfall activation',
+    'job work pricing',
+  ],
+};
 import { ClosingBand } from '@/components/SharedSections';
 import { Accordion } from '@/components/Accordion';
 import { Button } from '@/components/Button';

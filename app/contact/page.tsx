@@ -1,4 +1,19 @@
 import React from 'react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Book a Desk or Get a Price in 24 Hours | Custo Gusto',
+  description:
+    'Contact Custo Gusto to book a live desk for your retail store, launch event, or corporate order. Same-day replies from our teams in Delhi, Noida & Bangalore.',
+  keywords: [
+    'contact Custo Gusto',
+    'book live desk',
+    'WhatsApp Custo Gusto',
+    'Laksh email',
+    'Noida office',
+    'Bangalore Delhi crews',
+  ],
+};
 import Link from 'next/link';
 import { Dot } from '@/components/Glyphs';
 import { Photo } from '@/components/SharedSections';

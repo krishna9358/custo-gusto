@@ -1,5 +1,20 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'The Work — One-of-One Personalised Pieces | Custo Gusto',
+  description:
+    'Explore real one-of-one embroidered shoes, DTF tees, foiled leather, laser-engraved steel, and custom patches made live at Custo Gusto desks.',
+  keywords: [
+    'embroidered sneakers',
+    'custom leather wallets',
+    'engraved pens',
+    'UV sticker bottles',
+    'custom patches',
+    'Custo Gusto portfolio',
+  ],
+};
 import WorkGrid from '@/components/WorkGrid';
 import { ClosingBand } from '@/components/SharedSections';
 
