@@ -2,7 +2,6 @@ import React from 'react';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import ScrollReveal from '@/components/ScrollReveal';
 import AosProvider from '@/components/AosProvider';
 
 export const metadata = {
@@ -25,7 +24,6 @@ export default function RootLayout({
         <Header />
         <main id="main">{children}</main>
         <Footer />
-        <ScrollReveal />
         <AosProvider />
       </body>
     </html>
