@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   ],
 };
 import WorkGrid from '@/components/WorkGrid';
+import WorkMarquee from '@/components/WorkMarquee';
 import { ClosingBand } from '@/components/SharedSections';
 
 export default function WorkPage() {
@@ -31,6 +32,8 @@ export default function WorkPage() {
             Made live, at a desk, for one person. Filter by technique or by
             product.
           </p>
+
+          <WorkMarquee />
 
           <Suspense fallback={<div className="py-12 text-center text-soft">Loading gallery...</div>}>
             <WorkGrid />
