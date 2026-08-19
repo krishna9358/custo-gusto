@@ -1,12 +1,33 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { Photo } from './SharedSections';
 import { WORK_ITEMS, TECH_OPTIONS, PROD_OPTIONS, WorkItem } from '@/data/work';
 
 export default function WorkGrid({ items = WORK_ITEMS }: { items?: WorkItem[] }) {
   const [techFilter, setTechFilter] = useState('all');
   const [prodFilter, setProdFilter] = useState('all');
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const prodParam = searchParams ? searchParams.get('prod') : null;
+    const techParam = searchParams ? searchParams.get('tech') : null;
+
+    if (prodParam && PROD_OPTIONS.some((o) => o.value === prodParam)) {
+      setProdFilter(prodParam);
+    }
+    if (techParam && TECH_OPTIONS.some((o) => o.value === techParam)) {
+      setTechFilter(techParam);
+    }
+
+    if (typeof window !== 'undefined' && window.location.hash) {
+      const hash = window.location.hash.replace('#', '');
+      if (PROD_OPTIONS.some((o) => o.value === hash)) {
+        setProdFilter(hash);
+      }
+    }
+  }, [searchParams]);
 
   return (
     <>
@@ -36,7 +57,7 @@ export default function WorkGrid({ items = WORK_ITEMS }: { items?: WorkItem[] })
           </button>
         ))}
       </div>
-      <div className="masonry" id="grid">
+      <div className="masonry scroll-mt-28" id="grid">
         {items.map((i) => {
           const okT =
             techFilter === 'all' ||

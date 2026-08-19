@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
@@ -32,7 +32,9 @@ export default function WorkPage() {
             product.
           </p>
 
-          <WorkGrid />
+          <Suspense fallback={<div className="py-12 text-center text-soft">Loading gallery...</div>}>
+            <WorkGrid />
+          </Suspense>
 
           <p className="sub" style={{ marginTop: '26px', fontSize: '14.5px' }}>
             Each block carries its shot code from the production list.
