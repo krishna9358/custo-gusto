@@ -12,6 +12,13 @@ export default function AosProvider() {
       once: true,
       disable: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches,
     });
+
+    const handleResize = () => {
+      AOS.refresh();
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return null;

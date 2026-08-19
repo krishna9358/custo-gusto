@@ -57,7 +57,7 @@ body{margin:0;background:var(--ground);color:var(--ink);
 .hi{font-family:'Yatra One',serif;font-weight:400;}
 .wrap{max-width:var(--w);margin:0 auto;padding:0 var(--gut);}
 p{margin:0 0 1em;} p:last-child{margin-bottom:0;}
-img{max-width:100%;display:block;}
+img{max-width:100%;height:auto;display:block;}
 a{color:inherit;}
 button{font-family:inherit;}
 :focus-visible{outline:3px solid var(--bagh);outline-offset:3px;}

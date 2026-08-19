@@ -2,7 +2,6 @@ import React from 'react';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import ScrollReveal from '@/components/ScrollReveal';
 import AosProvider from '@/components/AosProvider';
 
 export const metadata = {
@@ -11,6 +10,10 @@ export const metadata = {
     'Custo Gusto puts your name, number or design onto things you already own — stitched, printed or engraved in front of you, in minutes. Live customisation desks for retail floors, launches and job work across India.',
 };
 
+/**
+ * Root Layout for Custo Gusto Website
+ * All page routes are Server Components by default.
+ */
 export default function RootLayout({
   children,
 }: {
@@ -25,7 +28,6 @@ export default function RootLayout({
         <Header />
         <main id="main">{children}</main>
         <Footer />
-        <ScrollReveal />
         <AosProvider />
       </body>
     </html>
