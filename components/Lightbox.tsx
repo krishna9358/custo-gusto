@@ -72,6 +72,7 @@ export default function Lightbox({
           <img
             src={`/img/${item.id}.jpg`}
             alt={item.alt}
+            decoding="async"
             className="max-h-[70vh] w-auto object-contain"
           />
 
