@@ -136,7 +136,12 @@ export function HowItWorks() {
   return (
     <div className="g g3">
       {steps.map((s, i) => (
-        <div className="tech" key={i}>
+        <div
+          className="tech transition-all duration-300 hover:-translate-y-1.5 hover:shadow-sh-lg hover:border-brick"
+          key={i}
+          data-aos="fade-up"
+          data-aos-delay={i * 120}
+        >
           <div
             className="tn"
             style={{ color: 'var(--indigo)', fontSize: '34px', lineHeight: 1 }}
@@ -155,7 +160,13 @@ export function Engines() {
   return (
     <div className="g g3">
       {ENGINES_DATA.map((e, idx) => (
-        <Link key={idx} className="eng" href={e.href}>
+        <Link
+          key={idx}
+          className="eng group transition-all duration-300 hover:-translate-y-1.5 hover:shadow-sh-lg"
+          href={e.href}
+          data-aos="fade-up"
+          data-aos-delay={idx * 120}
+        >
           <div className={`eng-t ${e.swatch}`}>
             <div className="n">{e.kicker}</div>
             <div className="h">{e.name}</div>
@@ -166,7 +177,9 @@ export function Engines() {
             <div className="eng-f">
               <b style={{ fontSize: '16px' }}>{e.proof}</b>
             </div>
-            <div className="eng-go">See how this works &rarr;</div>
+            <div className="eng-go group-hover:translate-x-1 transition-transform duration-200">
+              See how this works &rarr;
+            </div>
           </div>
         </Link>
       ))}
@@ -178,7 +191,14 @@ export function TechGrid() {
   return (
     <div className="tg">
       {TECHS_DATA.map((t, idx) => (
-        <div key={idx} className={`tk rv ${t.isHero ? 'hero' : ''}`}>
+        <div
+          key={idx}
+          className={`tk rv transition-all duration-300 hover:-translate-y-1.5 hover:shadow-sh-lg ${
+            t.isHero ? 'hero' : ''
+          }`}
+          data-aos="fade-up"
+          data-aos-delay={(idx % 3) * 100}
+        >
           <div className="tk-top">
             <div className="tk-name">{bc(t.name)}</div>
             {t.isLive ? (
