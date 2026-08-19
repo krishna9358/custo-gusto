@@ -73,6 +73,10 @@ export const WORK_ITEMS: WorkItem[] = [
   { id: 'w18', alt: 'Gold emblem, thread edge', tech: 'patch', prod: 'apparel', shape: 'ph-sq', title: 'Gold Thread Crest Emblem' },
 ];
 
+export const getWorkItemById = (id: string): WorkItem | undefined => {
+  return WORK_ITEMS.find((item) => item.id === id);
+};
+
 export const TECH_OPTIONS = [
   { value: 'all', label: 'All techniques' },
   { value: 'emb', label: 'Embroidery' },
