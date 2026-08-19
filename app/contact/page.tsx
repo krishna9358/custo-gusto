@@ -59,11 +59,12 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="sec">
+      <section className="sec scroll-mt-24">
         <div className="wrap split">
-          <div>
+          <div id="book" className="p-6 sm:p-8 bg-panel border-2 border-brick/30 shadow-sh-lg rounded-sm scroll-mt-28">
+            <p className="eyebrow" style={{ color: 'var(--brick)' }}>Booking & Price Inquiry</p>
             <h2 className="big" style={{ fontSize: 'clamp(24px, 3.2vw, 34px)' }}>
-              Tell us what you are working on
+              BOOK A DESK / GET A PRICE IN 24 HOURS
             </h2>
             <p className="sub" style={{ marginTop: '10px' }}>
               Four fields, because your time is worth more than our form. You get a reply
