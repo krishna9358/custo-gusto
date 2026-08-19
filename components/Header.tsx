@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Dot } from './Glyphs';
 import { NAV_ITEMS } from '@/data/navigation';
+import { Button } from './Button';
 
 export default function Header() {
   const [navOpen, setNavOpen] = useState(false);
@@ -17,7 +18,7 @@ export default function Header() {
   return (
     <header className="hdr">
       <div className="wrap hdr-in">
-        <Link href="/" className="logo">
+        <Link href="/" className="logo transition-transform duration-200 hover:scale-[1.02]">
           CUSTO GUSTO
         </Link>
         <button
@@ -39,32 +40,38 @@ export default function Header() {
           </svg>
         </button>
         <nav className={`nav ${navOpen ? 'open' : ''}`} id="nav">
-          {NAV_ITEMS.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={pathname === item.href ? 'on' : ''}
-              onClick={() => setNavOpen(false)}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {NAV_ITEMS.map((item) => {
+            const isActive = pathname === item.href;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`relative transition-all duration-200 hover:opacity-100 ${
+                  isActive ? 'on' : ''
+                }`}
+                onClick={() => setNavOpen(false)}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
         <div className={`hdr-cta ${navOpen ? 'open' : ''}`} id="hcta">
-          <Link
-            className="btn btn-live"
-            href="/contact"
+          <Button
+            href="https://wa.me/919654382799"
+            variant="live"
+            target="_blank"
             onClick={() => setNavOpen(false)}
           >
-            <Dot style={{ width: '.5em', height: '.5em', margin: 0 }} /> WhatsApp
-          </Link>
-          <Link
-            className="btn btn-blush"
+            WhatsApp
+          </Button>
+          <Button
             href="/contact"
+            variant="blush"
             onClick={() => setNavOpen(false)}
           >
             Book a desk
-          </Link>
+          </Button>
         </div>
       </div>
     </header>

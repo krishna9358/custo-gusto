@@ -3,6 +3,7 @@ import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ScrollReveal from '@/components/ScrollReveal';
+import AosProvider from '@/components/AosProvider';
 
 export const metadata = {
   title: 'Custo Gusto — Made in front of you. Never repeated.',
@@ -25,6 +26,7 @@ export default function RootLayout({
         <main id="main">{children}</main>
         <Footer />
         <ScrollReveal />
+        <AosProvider />
       </body>
     </html>
   );
