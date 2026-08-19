@@ -145,25 +145,25 @@ h1,h2,h3{margin:0;text-wrap:balance;}
   font-weight:600;margin:0 0 12px;display:flex;align-items:center;gap:9px;}
 .eyebrow .liv{color:var(--bagh);font-weight:700;}
 h1.big{font-family:'Best Curry','Poppins',sans-serif;font-weight:400;
-  font-size:clamp(40px,7.6vw,84px);line-height:.99;color:var(--brick);}
+  font-size:clamp(34px,5.5vw,72px);line-height:1.02;color:var(--brick);text-wrap:balance;overflow-wrap:break-word;}
 h2.big{font-family:'Best Curry','Poppins',sans-serif;font-weight:400;
-  font-size:clamp(29px,4.6vw,52px);line-height:1.04;color:var(--brick);}
+  font-size:clamp(26px,4vw,48px);line-height:1.05;color:var(--brick);text-wrap:balance;overflow-wrap:break-word;}
 h3.mid{font-family:'Best Curry','Poppins',sans-serif;font-weight:400;
   font-size:clamp(21px,2.4vw,27px);line-height:1.12;}
 .lead{font-size:clamp(17px,1.5vw,20.5px);max-width:60ch;color:var(--ink);}
 .sub{color:var(--soft);max-width:62ch;}
 
 /* ---- hero ---- */
-.hero{padding:clamp(32px,4vw,60px) 0 clamp(32px,4vw,60px);position:relative;overflow:hidden;}
-.hero-g{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,56px);align-items:center;position:relative;}
+.hero{padding:clamp(28px,3.5vw,54px) 0 clamp(32px,4vw,56px);position:relative;}
+.hero-g{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,0.85fr);gap:clamp(20px,3.5vw,48px);align-items:center;position:relative;}
 .hero-hi{font-size:clamp(19px,2vw,26px);color:var(--indigo);margin:14px 0 0;}
 .hero p.lead{margin-top:16px;}
 .hero .btns{margin-top:26px;}
-.hero-stk{position:absolute;top:-10px;right:0;z-index:2;}
-.hero-media{position:relative;}
+.hero-stk{position:absolute;top:-6px;right:0;z-index:2;}
+.hero-media{position:relative;max-width:92%;margin-left:auto;}
 .hero-media img{width:100%;height:auto;border:1px solid var(--rule);}
 .hero-badge{position:absolute;left:-14px;bottom:24px;z-index:3;}
-@media (max-width:860px){.hero-g{grid-template-columns:1fr;} .hero-stk{position:static;margin-bottom:16px;display:inline-block;}}
+@media (max-width:860px){.hero-g{grid-template-columns:1fr;} .hero-media{max-width:100%;margin-left:0;} .hero-stk{position:static;margin-bottom:16px;display:inline-block;}}
 
 /* ---- photo slots ---- */
 .ph-cap{font-size:13.5px;color:var(--soft);margin-top:6px;font-weight:500;}
