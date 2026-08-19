@@ -158,6 +158,7 @@ h3.mid{font-family:'Best Curry','Poppins',sans-serif;font-weight:400;
 @media (max-width:860px){.hero-g{grid-template-columns:1fr;} .hero-stk{position:static;margin-bottom:16px;display:inline-block;}}
 
 /* ---- photo slots ---- */
+.ph-cap{font-size:13.5px;color:var(--soft);margin-top:6px;font-weight:500;}
 .slot{background:var(--panel);border:2px dashed var(--rule);position:relative;overflow:hidden;
   display:grid;place-items:center;text-align:center;padding:20px;min-height:150px;}
 .slot::before{content:"";position:absolute;inset:0;opacity:.5;
