@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Dot, bc } from './Glyphs';
 import { Button } from './Button';
+import { ShoeCarousel } from './ShoeCarousel';
 import { ENGINES_DATA } from '@/data/engines';
 import { TECHS_DATA } from '@/data/techniques';
 
@@ -134,24 +135,26 @@ export function HowItWorks() {
   ];
 
   return (
-    <div className="g g3">
-      {steps.map((s, i) => (
-        <div
-          className="tech transition-all duration-300 hover:-translate-y-1.5 hover:shadow-sh-lg hover:border-brick"
-          key={i}
-          data-aos="fade-up"
-          data-aos-delay={i * 120}
-        >
+    <div className="steps-flow">
+      <div className="g g3">
+        {steps.map((s, i) => (
           <div
-            className="tn"
-            style={{ color: 'var(--indigo)', fontSize: '34px', lineHeight: 1 }}
+            className="tech transition-all duration-300 hover:-translate-y-1.5 hover:shadow-sh-lg hover:border-brick"
+            key={i}
+            data-aos="fade-up"
+            data-aos-delay={i * 120}
           >
-            {i + 1}
+            <div
+              className="tn"
+              style={{ color: 'var(--indigo)', fontSize: '34px', lineHeight: 1 }}
+            >
+              {i + 1}
+            </div>
+            <div className="tn">{s[0]}</div>
+            <div className="tb">{s[1]}</div>
           </div>
-          <div className="tn">{s[0]}</div>
-          <div className="tb">{s[1]}</div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
@@ -330,21 +333,26 @@ export function WhyItMatters() {
             </div>
           </div>
           <div className="lg:col-span-5" data-aos="fade-left">
-            <Photo
-              imgKey="why_a1"
-              alt="A sneaker with a name embroidered on the side"
-              shape="ph-sq"
-            />
+            <ShoeCarousel shape="ph-sq" />
             <p className="ph-cap">A sneaker embroidered live with a custom name</p>
           </div>
         </div>
-        <div className="four">
-          {four.map((q, idx) => (
-            <div className="q" key={idx}>
-              <div className="qt">{q[0]}</div>
-              <div className="qb">{q[1]}</div>
-            </div>
-          ))}
+        <div className="four-mq">
+          <div className="four">
+            {four.map((q, idx) => (
+              <div className="q" key={idx}>
+                <div className="qt">{q[0]}</div>
+                <div className="qb">{q[1]}</div>
+              </div>
+            ))}
+            {/* second pass of the same four, so the loop never shows a gap */}
+            {four.map((q, idx) => (
+              <div className="q q-clone" key={`clone-${idx}`} aria-hidden="true">
+                <div className="qt">{q[0]}</div>
+                <div className="qb">{q[1]}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
