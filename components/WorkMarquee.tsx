@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { Photo } from './SharedSections';
 import { WORK_ITEMS } from '@/data/work';

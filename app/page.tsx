@@ -29,20 +29,12 @@ import {
   StatTiles,
   ClosingBand,
 } from '@/components/SharedSections';
-import { COVERAGE_CHIPS } from '@/data/engines';
+import { COVERAGE_CHIPS, coverageSlug } from '@/data/engines';
+import { TRUSTED_LOGOS } from '@/data/clients';
 import { Button } from '@/components/Button';
 
 
 export default function Home() {
-  const trustedLogos = [
-    'Decathlon',
-    'Puma',
-    'Sports Yard',
-    'Benetton',
-    'Mothercare',
-    'one8',
-    'Comic Con',
-  ];
 
   return (
     <>
@@ -136,13 +128,7 @@ export default function Home() {
               </p>
               <div className="chips" style={{ marginTop: '20px' }}>
                 {COVERAGE_CHIPS.map((c, i) => {
-                  const slug =
-                    c.toLowerCase().includes('shoe') ? 'shoes' :
-                    c.toLowerCase().includes('cap') ? 'caps' :
-                    c.toLowerCase().includes('tee') || c.toLowerCase().includes('jacket') ? 'apparel' :
-                    c.toLowerCase().includes('bag') || c.toLowerCase().includes('tote') ? 'bags' :
-                    c.toLowerCase().includes('leather') || c.toLowerCase().includes('foil') ? 'leather' :
-                    c.toLowerCase().includes('hard') ? 'hard' : 'all';
+                  const slug = coverageSlug(c);
                   return (
                     <Link
                       key={i}
@@ -245,7 +231,7 @@ export default function Home() {
             Trusted by
           </p>
           <div className="logos">
-            {trustedLogos.map((l, i) => (
+            {TRUSTED_LOGOS.map((l, i) => (
               <span key={i} className="logo-pill">
                 {l}
               </span>
