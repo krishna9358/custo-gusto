@@ -48,7 +48,7 @@ export default function Home() {
   return (
     <>
       <section className="hero">
-        <div className="wrap">
+        <div className="wrap relative">
           <div className="hero-stk">
             <span className="stk">{bc('1/1')}</span>
           </div>

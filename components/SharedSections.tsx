@@ -307,8 +307,8 @@ export function WhyItMatters() {
   return (
     <section className="sec">
       <div className="wrap">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
-          <div className="lg:col-span-7">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="lg:col-span-7 min-w-0">
             <p className="eyebrow">Why any of this matters</p>
             <h2 className="big">
               EVERYTHING YOU BUY LOSES VALUE. THIS DOESN&rsquo;T.
