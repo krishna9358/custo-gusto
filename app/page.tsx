@@ -27,7 +27,6 @@ import {
   Photo,
   TechGrid,
   StatTiles,
-  One8Photo,
   ClosingBand,
 } from '@/components/SharedSections';
 import { COVERAGE_CHIPS } from '@/data/engines';
@@ -111,24 +110,24 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="sec">
+      <section className="sec sec-machine">
         <div className="wrap">
           <p className="eyebrow">Three ways to work with us</p>
           <h2 className="big">WHERE DO YOU WANT THE MACHINE?</h2>
-          <p className="sub" style={{ marginTop: '14px' }}>
+          <p className="sub" style={{ marginTop: '12px' }}>
             On your shop floor every day, at your launch for a week, or nowhere
             near you at all &mdash; just send us the boxes.
           </p>
-          <div style={{ marginTop: '34px' }}>
+          <div style={{ marginTop: '24px' }}>
             <Engines />
           </div>
         </div>
       </section>
 
-      <section className="sec">
+      <section className="sec sec-touch">
         <div className="wrap">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
-            <div className="lg:col-span-5 lg:sticky lg:top-28 lg:self-start">
+            <div className="lg:col-span-5 touch-left">
               <p className="eyebrow">What can we touch?</p>
               <h2 className="big">ALMOST EVERYTHING.</h2>
               <p className="lead" style={{ marginTop: '14px' }}>
@@ -156,7 +155,7 @@ export default function Home() {
                 })}
               </div>
             </div>
-            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
+            <div className="lg:col-span-7 touch-photos">
               <div data-aos="fade-up">
                 <Photo
                   imgKey="touch_shoes"
@@ -189,6 +188,22 @@ export default function Home() {
                 />
                 <p className="ph-cap">Digital hot foil detail</p>
               </div>
+              <div data-aos="fade-up">
+                <Photo
+                  imgKey="w06"
+                  alt="Embroidery, close enough to count the threads"
+                  shape="ph-sq"
+                />
+                <p className="ph-cap">Tees &amp; jackets — thread density up close</p>
+              </div>
+              <div data-aos="fade-up" data-aos-delay="100">
+                <Photo
+                  imgKey="w12"
+                  alt="A name engraved into steel"
+                  shape="ph-sq"
+                />
+                <p className="ph-cap">Hard goods — engraved into steel</p>
+              </div>
             </div>
           </div>
         </div>
@@ -200,7 +215,7 @@ export default function Home() {
             Six techniques &middot; in-house design always included
           </p>
           <h2 className="big">SIX WAYS TO MARK A THING.</h2>
-          <div style={{ marginTop: '30px' }}>
+          <div className="tg-rail" style={{ marginTop: '30px' }}>
             <TechGrid />
           </div>
           <p className="sub" style={{ marginTop: '20px', fontSize: '15px' }}>
@@ -241,9 +256,38 @@ export default function Home() {
 
       <section className="sec">
         <div className="wrap">
-          <div className="split">
-            <div>
-              <One8Photo shape="ph-16" />
+          <div className="split split-night">
+            <div className="night-grid">
+              <Photo
+                imgKey="svc_c1"
+                alt="An embroidery machine stitching a name into a bag"
+                shape="ph-16"
+              />
+              <Photo
+                imgKey="w17"
+                alt="A pair, embroidered"
+                shape="ph-16"
+              />
+              <Photo
+                imgKey="w14"
+                alt="Caps, a set"
+                shape="ph-16"
+              />
+              <Photo
+                imgKey="svc_a10"
+                alt="Finished pieces in wood, metal, leather and acrylic"
+                shape="ph-16"
+              />
+              <Photo
+                imgKey="svc_e1"
+                alt="A heat press closing onto a garment"
+                shape="ph-16"
+              />
+              <Photo
+                imgKey="w09"
+                alt="Personalised patches"
+                shape="ph-16"
+              />
             </div>
             <div>
               <p className="eyebrow">The biggest night we have had</p>
@@ -253,21 +297,21 @@ export default function Home() {
                 District by Zomato. Four machines, eight operators, three
                 designers.
               </p>
-              <div className="g g3" style={{ marginTop: '22px' }}>
+              <div className="stats-stack">
                 <div className="tile">
                   <div className="v">300+</div>
                   <div className="l">Pieces in one evening</div>
                 </div>
                 <div className="tile">
-                  <div className="v">4</div>
-                  <div className="l">Machines running</div>
-                </div>
-                <div className="tile">
                   <div className="v">5 hrs</div>
                   <div className="l">Start to finish</div>
                 </div>
+                <div className="tile">
+                  <div className="v">4</div>
+                  <div className="l">Machines running</div>
+                </div>
               </div>
-              <div className="btns" style={{ marginTop: '24px' }}>
+              <div className="btns stats-btn">
                 <a
                   className="btn btn-live"
                   href="https://youtube.com/shorts/PFZjzmlq5LI"

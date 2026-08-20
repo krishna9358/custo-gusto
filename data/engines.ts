@@ -44,6 +44,19 @@ export const ENGINES_DATA: EngineItem[] = [
   },
 ];
 
+/* maps a coverage chip onto the product filter used by the work page grid */
+export function coverageSlug(chip: string): string {
+  const c = chip.toLowerCase();
+  if (c.includes('shoe')) return 'shoes';
+  if (c.includes('cap')) return 'caps';
+  if (c.includes('bag') || c.includes('tote')) return 'bags';
+  if (c.includes('leather') || c.includes('belt') || c.includes('strap'))
+    return 'leather';
+  if (c.includes('tag') || c.includes('packaging') || c.includes('stationery'))
+    return 'hard';
+  return 'apparel';
+}
+
 export const COVERAGE_CHIPS: string[] = [
   'All types of shoes',
   'Caps',

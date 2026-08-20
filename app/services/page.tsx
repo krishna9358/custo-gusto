@@ -21,12 +21,12 @@ import {
   TechGrid,
   ClosingBand,
 } from '@/components/SharedSections';
-import { COVERAGE_CHIPS } from '@/data/engines';
+import { COVERAGE_CHIPS, coverageSlug } from '@/data/engines';
 
 export default function ServicesPage() {
   return (
     <>
-      <section className="sec">
+      <section className="sec svc-hero">
         <div className="wrap">
           <p className="eyebrow">What we do</p>
           <h1 className="big" style={{ fontSize: 'clamp(34px, 5.6vw, 64px)' }}>
@@ -168,7 +168,7 @@ export default function ServicesPage() {
         <div className="wrap">
           <p className="eyebrow">The techniques</p>
           <h2 className="big">SIX WAYS TO MARK A THING.</h2>
-          <div style={{ marginTop: '30px' }}>
+          <div className="tg-rail" style={{ marginTop: '30px' }}>
             <TechGrid />
           </div>
         </div>
@@ -180,9 +180,13 @@ export default function ServicesPage() {
           <h2 className="big">90% OF WHAT IS ON YOUR SHELF.</h2>
           <div className="chips" style={{ marginTop: '20px' }}>
             {COVERAGE_CHIPS.map((c, i) => (
-              <span key={i} className={`chip${i === 0 ? ' on' : ''}`}>
+              <Link
+                key={i}
+                href={`/work?prod=${coverageSlug(c)}`}
+                className={`chip${i === 0 ? ' on' : ''}`}
+              >
                 {c}
-              </span>
+              </Link>
             ))}
           </div>
           <p className="sub" style={{ marginTop: '20px' }}>

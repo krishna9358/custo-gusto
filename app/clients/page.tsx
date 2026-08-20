@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     'live embroidery India',
   ],
 };
-import { Dot, Tilde } from '@/components/Glyphs';
+import { Tilde } from '@/components/Glyphs';
 import {
   StatTiles,
   One8Photo,
@@ -22,7 +22,7 @@ import {
 } from '@/components/SharedSections';
 import { Button } from '@/components/Button';
 import { Sticker } from '@/components/Sticker';
-import { TRUSTED_LOGOS, TICKETS_DATA } from '@/data/clients';
+import { TRUSTED_LOGOS, TICKETS_DATA, CASES_DATA } from '@/data/clients';
 
 export default function ClientsPage() {
   return (
@@ -125,7 +125,7 @@ export default function ClientsPage() {
                   variant="live"
                   target="_blank"
                 >
-                  <Dot /> Watch the film
+                  Watch the film
                 </Button>
               </div>
             </div>
@@ -138,49 +138,24 @@ export default function ClientsPage() {
 
       <section className="sec-sm">
         <div className="wrap">
-          <div className="g g2">
-            <div className="case">
-              <div className="ct">Decathlon</div>
-              <div className="cm">Embedded desks &middot; pan-India</div>
-              <p>
-                The proof that a desk works on an ordinary floor, on an
-                ordinary day. Live embroidery desks running inside stores
-                across the country, with customers returning to customise again.
-              </p>
-              <p style={{ marginTop: '10px' }}>
-                <strong>The behaviour that matters:</strong> the average
-                customer at our desks does not take home one piece. They take
-                home three.
-              </p>
-            </div>
-            <div className="case">
-              <div className="ct">Mothercare</div>
-              <div className="cm">Embedded desk &middot; Bandra</div>
-              <p>
-                Names on babywear, blankets and towels. The memory marker
-                &mdash; a gift that gets kept rather than used, and the reason
-                the desk earns its floor space in a category where nothing else
-                is personal.
-              </p>
-            </div>
-            <div className="case">
-              <div className="ct">Puma</div>
-              <div className="cm">Retail desks &middot; five stores</div>
-              <p>
-                One of the first floors that let this run at all. Five stores,
-                real conditions, real customers. The model you are looking at
-                today only exists because someone was willing to give it a
-                floor to be tested on.
-              </p>
-            </div>
-            <div className="case">
-              <div className="ct">Sports Yard &amp; Benetton</div>
-              <div className="cm">Retail &middot; ongoing</div>
-              <p>
-                Live personalisation as a permanent part of the in-store
-                experience &mdash; the layer an online store cannot ship,
-                sitting on the floor where the decision is already being made.
-              </p>
+          <div className="case-mq">
+            <div className="case-track">
+              {CASES_DATA.concat(CASES_DATA).map((c, i) => (
+                <div
+                  className="case"
+                  key={`${c.title}-${i}`}
+                  aria-hidden={i >= CASES_DATA.length ? true : undefined}
+                >
+                  <div className="ct">{c.title}</div>
+                  <div className="cm">{c.meta}</div>
+                  <p>{c.body}</p>
+                  {c.noteLabel && (
+                    <p style={{ marginTop: '10px' }}>
+                      <strong>{c.noteLabel}</strong> {c.noteText}
+                    </p>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </div>

@@ -54,7 +54,7 @@ export default function Lightbox({
       onClick={onClose}
     >
       <div
-        className="relative max-w-4xl w-full bg-panel border border-rule shadow-2xl overflow-hidden p-6 flex flex-col md:flex-row gap-6"
+        className="relative w-[min(1040px,94vw)] h-[min(660px,88vh)] bg-panel border border-rule shadow-2xl overflow-hidden p-6 flex flex-col md:flex-row gap-6"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
@@ -68,12 +68,12 @@ export default function Lightbox({
         </button>
 
         {/* Image Preview Container */}
-        <div className="relative flex-1 flex items-center justify-center bg-ground min-h-[300px] sm:min-h-[400px] overflow-hidden">
+        <div className="relative flex-1 min-h-0 flex items-center justify-center bg-ground overflow-hidden">
           <img
             src={`/img/${item.id}.jpg`}
             alt={item.alt}
             decoding="async"
-            className="max-h-[70vh] w-auto object-contain"
+            className="max-h-full max-w-full w-auto h-auto object-contain"
           />
 
           {/* Navigation Controls */}
@@ -100,7 +100,7 @@ export default function Lightbox({
         </div>
 
         {/* Image Details */}
-        <div className="md:w-80 flex flex-col justify-between space-y-4">
+        <div className="md:w-80 md:shrink-0 flex flex-col justify-between space-y-4 overflow-hidden">
           <div>
             <span className="text-xs uppercase tracking-widest text-brick font-bold">
               {item.tech.toUpperCase()} &bull; {item.prod.toUpperCase()}

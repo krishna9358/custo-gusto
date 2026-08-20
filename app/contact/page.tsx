@@ -15,9 +15,8 @@ export const metadata: Metadata = {
   ],
 };
 import Link from 'next/link';
-import { Dot } from '@/components/Glyphs';
-import { Photo } from '@/components/SharedSections';
 import { ContactForm } from '@/components/ContactForm';
+import Ticker from '@/components/Ticker';
 import { Accordion } from '@/components/Accordion';
 import { Button } from '@/components/Button';
 import { CONTACT_FAQS } from '@/data/faq';
@@ -50,17 +49,22 @@ export default function ContactPage() {
               variant="live"
               target="_blank"
             >
-              <Dot /> WhatsApp us
+              WhatsApp us
             </Button>
-            <Button href="mailto:laksh@custogusto.in" variant="primary">
+            <Button
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=laksh@custogusto.in&su=Custo%20Gusto%20enquiry"
+              variant="primary"
+              icon="mail"
+              target="_blank"
+            >
               Email Laksh
             </Button>
           </div>
         </div>
       </section>
 
-      <section className="sec scroll-mt-24">
-        <div className="wrap split">
+      <section className="sec sec-contact scroll-mt-24">
+        <div className="wrap split contact-split">
           <div id="book" className="p-6 sm:p-8 bg-panel border-2 border-brick/30 shadow-sh-lg rounded-sm scroll-mt-28">
             <p className="eyebrow" style={{ color: 'var(--brick)' }}>Booking & Price Inquiry</p>
             <h2 className="big" style={{ fontSize: 'clamp(24px, 3.2vw, 34px)' }}>
@@ -72,7 +76,7 @@ export default function ContactPage() {
             </p>
             <ContactForm />
           </div>
-          <div>
+          <div className="contact-side">
             <div className="case">
               <div className="ct">Getting to you</div>
               <p style={{ marginTop: '10px' }}>
@@ -103,18 +107,13 @@ export default function ContactPage() {
                 laksh@custogusto.in
               </p>
             </div>
-            <div style={{ marginTop: '16px' }}>
-              <Photo
-                imgKey="contact_e1"
-                alt="A set of finished totes"
-                shape="ph-16"
-              />
-            </div>
           </div>
         </div>
       </section>
 
-      <section className="sec-sm">
+      <Ticker />
+
+      <section className="sec-sm sec-faq-tight">
         <div className="wrap">
           <h2 className="big" style={{ fontSize: 'clamp(24px, 3.2vw, 34px)' }}>
             What people usually ask first

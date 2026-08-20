@@ -71,6 +71,23 @@ export const WORK_ITEMS: WorkItem[] = [
   { id: 'w16', alt: 'Printed tote', tech: 'dtf', prod: 'bags', shape: 'ph-23', title: 'Custom Canvas Tote' },
   { id: 'w17', alt: 'A pair, embroidered', tech: 'emb', prod: 'shoes', shape: 'ph-16', title: 'Matching Embroidered Pair' },
   { id: 'w18', alt: 'Gold emblem, thread edge', tech: 'patch', prod: 'apparel', shape: 'ph-sq', title: 'Gold Thread Crest Emblem' },
+  { id: 'shoe-09-hrithik-product', alt: 'A name embroidered on a sneaker tongue', tech: 'emb', prod: 'shoes', shape: 'ph-sq', title: 'Name on the Tongue' },
+  { id: 'shoe-05-tyagi-09-on-foot', alt: 'A boot embroidered with a name and squad number', tech: 'emb', prod: 'shoes', shape: 'ph-23', title: 'Name and Number, On Foot' },
+  { id: 'shoe-02-vedh-product', alt: 'A name and crest embroidered on canvas', tech: 'emb', prod: 'shoes', shape: 'ph-16', title: 'Crest and Name on Canvas' },
+  { id: 'shoe-07-blue-orange-on-foot', alt: 'Initials embroidered in gold on suede', tech: 'emb', prod: 'shoes', shape: 'ph-23', title: 'Initials in Gold Thread' },
+  { id: 'shoe-10-red-cloud-on-foot', alt: 'A patch stitched onto a sneaker', tech: 'patch', prod: 'shoes', shape: 'ph-23', title: 'Patch on a Sneaker' },
+  { id: 'touch_shoes', alt: 'An embroidered sneaker', tech: 'emb', prod: 'shoes', shape: 'ph-sq', title: 'Embroidered Sneaker Detail' },
+  { id: 'why_a1', alt: 'A sneaker with a name embroidered on the side', tech: 'emb', prod: 'shoes', shape: 'ph-16', title: 'Name Stitched on the Side' },
+  { id: 'touch_caps', alt: 'A cap with a gold emblem', tech: 'emb', prod: 'caps', shape: 'ph-sq', title: 'Gold Emblem Cap Finish' },
+  { id: 'touch_leather', alt: 'An engraved leather wallet', tech: 'laser', prod: 'leather', shape: 'ph-sq', title: 'Laser Engraved Leather' },
+  { id: 'touch_foil', alt: 'Hot foil, close', tech: 'foil', prod: 'leather', shape: 'ph-sq', title: 'Digital Hot Foil Detail' },
+  { id: 'story_e2', alt: 'Monogrammed tees, finished', tech: 'emb', prod: 'apparel', shape: 'ph-16', title: 'Monogrammed Tees' },
+  { id: 'story_e5', alt: 'A patch being heat-set onto a jacket', tech: 'patch', prod: 'apparel', shape: 'ph-16', title: 'Patch Heat-Set on a Jacket' },
+  { id: 'svc_e1', alt: 'A heat press closing onto a garment', tech: 'dtf', prod: 'apparel', shape: 'ph-16', title: 'Transfer Pressed onto a Tee' },
+  { id: 'svc_c1', alt: 'An embroidery machine stitching a bag', tech: 'emb', prod: 'bags', shape: 'ph-16', title: 'Bag on the Machine' },
+  { id: 'contact_e1', alt: 'A set of finished totes', tech: 'emb', prod: 'bags', shape: 'ph-16', title: 'A Set of Finished Totes' },
+  { id: 'story_c2', alt: 'A transfer being applied to a hard surface', tech: 'uv', prod: 'hard', shape: 'ph-16', title: 'Transfer on a Hard Surface' },
+  { id: 'svc_a10', alt: 'Finished pieces in wood, metal, leather and acrylic', tech: 'laser', prod: 'hard', shape: 'ph-16', title: 'Engraved Wood, Metal and Leather' },
 ];
 
 export const getWorkItemById = (id: string): WorkItem | undefined => {
