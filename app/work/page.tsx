@@ -1,6 +1,5 @@
 import React, { Suspense } from 'react';
 import type { Metadata } from 'next';
-import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'The Work — One-of-One Personalised Pieces | Custo Gusto',
@@ -18,6 +17,7 @@ export const metadata: Metadata = {
 import WorkGrid from '@/components/WorkGrid';
 import WorkMarquee from '@/components/WorkMarquee';
 import { ClosingBand } from '@/components/SharedSections';
+import { Button } from '@/components/Button';
 
 export default function WorkPage() {
   return (
@@ -64,12 +64,12 @@ export default function WorkPage() {
             className="btns"
             style={{ marginTop: '26px', justifyContent: 'center' }}
           >
-            <Link className="btn btn-p" href="/services">
+            <Button href="/services" variant="primary">
               The three engines
-            </Link>
-            <Link className="btn btn-g" href="/contact">
+            </Button>
+            <Button href="/contact" variant="ghost">
               Send us a brief
-            </Link>
+            </Button>
           </div>
         </div>
       </section>
