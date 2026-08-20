@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 };
 import { ClosingBand } from '@/components/SharedSections';
 import { Accordion } from '@/components/Accordion';
+import ModelSequence from '@/components/ModelSequence';
 import { Button } from '@/components/Button';
 import { COMMERCIAL_FAQS } from '@/data/faq';
 import { DIALS_DATA } from '@/data/clients';
@@ -22,93 +23,9 @@ import { DIALS_DATA } from '@/data/clients';
 export default function CommercialsPage() {
   return (
     <>
-      <section className="sec">
-        <div className="wrap">
-          <p className="eyebrow">Commercials</p>
-          <h1 className="big" style={{ fontSize: 'clamp(34px, 5.6vw, 64px)' }}>
-            FOUR WAYS TO WORK WITH US.
-          </h1>
-          <p className="lead" style={{ marginTop: '16px' }}>
-            Pick the shape that fits your floor. We bring everything else.
-          </p>
-        </div>
-      </section>
 
-      <section className="sec-sm">
-        <div className="wrap">
-          <div className="g g2">
-            <div className="case">
-              <div className="ct">Rental</div>
-              <div className="cm">End-to-end &middot; fixed monthly</div>
-              <p>
-                The hassle-free one. Machines, expert operator, raw materials
-                and maintenance for a fixed monthly price. Nothing to buy,
-                nothing to learn.
-              </p>
-              <p
-                style={{
-                  marginTop: '10px',
-                  fontSize: '14px',
-                  color: 'var(--soft)',
-                }}
-              >
-                <strong>Best for</strong> a permanent desk on your shop floor.
-              </p>
-            </div>
-            <div className="case">
-              <div className="ct">Ownership + services</div>
-              <div className="cm">Long-term investment</div>
-              <p>
-                You own the machines; we run them. Operation, maintenance and
-                raw materials handled, with the cost efficiency that comes from
-                owning the hardware.
-              </p>
-              <p
-                style={{
-                  marginTop: '10px',
-                  fontSize: '14px',
-                  color: 'var(--soft)',
-                }}
-              >
-                <strong>Best for</strong> multi-store rollouts with a long horizon.
-              </p>
-            </div>
-            <div className="case">
-              <div className="ct">Pay per use</div>
-              <div className="cm">Flexibility, no commitment</div>
-              <p>
-                Pay only for what you use. No long-term commitment, no capital
-                outlay &mdash; the right shape for launches and short windows.
-              </p>
-              <p
-                style={{
-                  marginTop: '10px',
-                  fontSize: '14px',
-                  color: 'var(--soft)',
-                }}
-              >
-                <strong>Best for</strong> launches and festivals.
-              </p>
-            </div>
-            <div className="case">
-              <div className="ct">Subscription</div>
-              <div className="cm">Continuous support</div>
-              <p>
-                Uninterrupted access to the desk and the design back-end, with the
-                service kept current as the calendar changes.
-              </p>
-              <p
-                style={{
-                  marginTop: '10px',
-                  fontSize: '14px',
-                  color: 'var(--soft)',
-                }}
-              >
-                <strong>Best for</strong> seasonal programmes across a year.
-              </p>
-            </div>
-          </div>
-        </div>
+      <section className="sec-models">
+        <ModelSequence />
       </section>
 
       <section className="sec-sm">
@@ -163,9 +80,7 @@ export default function CommercialsPage() {
                   <td>
                     <strong>Job work</strong>
                   </td>
-                  <td>
-                    Machines and hands; you send product or we source it
-                  </td>
+                  <td>Machines and hands; you send product or we source it</td>
                   <td>Per order</td>
                   <td>Gifting, weddings, team kit</td>
                 </tr>
@@ -178,36 +93,38 @@ export default function CommercialsPage() {
       <section className="band band-blush">
         <div className="wrap">
           <h2 className="big">INCLUDED IN EVERY MODEL.</h2>
-          <div className="g g4" style={{ marginTop: '26px' }}>
-            <div>
-              <h3 className="mid">Expert operator</h3>
-              <p style={{ fontSize: '15px', marginTop: '6px' }}>
-                Trained on our system, so every city runs the same.
-              </p>
-            </div>
-            <div>
-              <h3 className="mid">Live designer</h3>
-              <p style={{ fontSize: '15px', marginTop: '6px' }}>
-                In-house design at the desk. Never a separate line.
-              </p>
-            </div>
-            <div>
-              <h3 className="mid">All raw materials</h3>
-              <p style={{ fontSize: '15px', marginTop: '6px' }}>
-                Threads, films, foils, backing. Nothing to source.
-              </p>
-            </div>
-            <div>
-              <h3 className="mid">365-day maintenance</h3>
-              <p style={{ fontSize: '15px', marginTop: '6px' }}>
-                You will not lose a trading day to a machine.
-              </p>
+          <div className="incl-flow" style={{ marginTop: '26px' }}>
+            <div className="g g4">
+              <div>
+                <h3 className="mid">Expert operator</h3>
+                <p style={{ fontSize: '15px', marginTop: '6px' }}>
+                  Trained on our system, so every city runs the same.
+                </p>
+              </div>
+              <div>
+                <h3 className="mid">Live designer</h3>
+                <p style={{ fontSize: '15px', marginTop: '6px' }}>
+                  In-house design at the desk. Never a separate line.
+                </p>
+              </div>
+              <div>
+                <h3 className="mid">All raw materials</h3>
+                <p style={{ fontSize: '15px', marginTop: '6px' }}>
+                  Threads, films, foils, backing. Nothing to source.
+                </p>
+              </div>
+              <div>
+                <h3 className="mid">365-day maintenance</h3>
+                <p style={{ fontSize: '15px', marginTop: '6px' }}>
+                  You will not lose a trading day to a machine.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="sec">
+      <section className="sec sec-dials">
         <div className="wrap">
           <p className="eyebrow">Before you ask</p>
           <h2 className="big">WHAT MOVES THE NUMBER.</h2>
@@ -249,7 +166,7 @@ export default function CommercialsPage() {
         </div>
       </section>
 
-      <section className="sec">
+      <section className="sec sec-faq-tight">
         <div className="wrap">
           <p className="eyebrow">The questions buyers actually ask</p>
           <h2 className="big">ANSWERED BEFORE THE CALL.</h2>

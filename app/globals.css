@@ -85,6 +85,16 @@ h1,h2,h3{margin:0;text-wrap:balance;}
 .btn-live{background:var(--bagh);color:#052419;}
 .btn-blush{background:var(--blush);color:var(--brick);}
 .btns{display:flex;flex-wrap:wrap;gap:13px;}
+/* the indigo outline disappears on the dark panels — use the marigold accent there,
+   except on the light marigold/peri bands where indigo is the readable one */
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .btn-g{color:var(--marigold);border-color:var(--marigold);}
+  :root:not([data-theme="light"]) .band-mar .btn-g,
+  :root:not([data-theme="light"]) .band-peri .btn-g{color:var(--indigo);border-color:var(--indigo);}
+}
+:root[data-theme="dark"] .btn-g{color:var(--marigold);border-color:var(--marigold);}
+:root[data-theme="dark"] .band-mar .btn-g,
+:root[data-theme="dark"] .band-peri .btn-g{color:var(--indigo);border-color:var(--indigo);}
 @media (max-width:480px){
   .btn{padding:12px 18px;font-size:14px;width:100%;justify-content:center;}
   .btns{flex-direction:column;width:100%;}
@@ -144,6 +154,17 @@ h1,h2,h3{margin:0;text-wrap:balance;}
 /* the machine cards + the "almost everything" grid sit tighter together so the
    three-card row fits the viewport and the seam between them is not a void */
 .sec-machine{padding-top:calc(var(--pad)*.66);padding-bottom:calc(var(--pad)*.4);}
+/* commercials + contact: tighter seams where sections used to leave a void */
+.sec-models-head{padding-bottom:calc(var(--pad)*.28);}
+.sec-models{padding:0 0 calc(var(--pad)*.3);}
+.sec-dials{padding-bottom:calc(var(--pad)*.4);}
+.sec-faq-tight{padding-top:calc(var(--pad)*.4);}
+.sec-contact{padding-bottom:calc(var(--pad)*.45);}
+/* .split sets align-items:center further down the file, so this needs the
+   extra class to win: both cards start and end on the same lines */
+.split.contact-split{align-items:stretch;}
+.contact-side{display:flex;}
+.contact-side>.case{flex:1;}
 .sec-touch{padding-top:calc(var(--pad)*.4);}
 /* short laptop screens: claw back a little more so the row of three clears the fold */
 @media (min-width:861px) and (max-height:820px){
@@ -164,22 +185,29 @@ h3.mid{font-family:'Best Curry','Poppins',sans-serif;font-weight:400;
 
 /* ---- hero ---- */
 .hero{padding:clamp(36px,5vw,64px) 0 clamp(40px,6vw,72px);position:relative;height:auto;min-height:auto;overflow:visible;}
-.hero-g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,0.92fr);gap:clamp(22px,3vw,44px);align-items:start;position:relative;height:auto;min-height:auto;}
+.hero-g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(22px,3vw,44px);align-items:start;position:relative;height:auto;min-height:auto;}
 .hero-hi{font-size:clamp(19px,2vw,26px);color:var(--indigo);margin:14px 0 0;}
 .hero p.lead{margin-top:18px;max-width:54ch;}
 .hero .btns{margin-top:28px;}
 .hero-stk{position:absolute;top:clamp(0px,1vw,12px);right:var(--gut);z-index:10;pointer-events:none;}
-/* the hero frame carries the image's own ratio (one8-midstitch.jpg is 688x1266),
-   so nothing is ever cropped or letterboxed. it fills the column's full width
-   and only steps down when the viewport is too short to show all of it */
-.hero-media{--hero-h:clamp(420px,calc(100vh - 40px),940px);position:relative;
-  width:min(100%,calc(var(--hero-h) * 688 / 1266));aspect-ratio:688/1266;
-  margin-left:auto;}
-.hero-media img{width:100%;height:100%;object-fit:contain;border:1px solid var(--rule);}
+/* the hero frame fills its column and scales its height with the viewport; the
+   image covers the frame, so it stays a proper rectangle with no distortion */
+.hero-media{--hero-h:clamp(320px,calc(100vh - 74px - clamp(36px,5vw,64px) - clamp(40px,6vw,72px)),840px);position:relative;
+  width:100%;height:var(--hero-h);margin-left:auto;}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:center;
+  border:1px solid var(--rule);}
 .hero-badge{position:absolute;left:-14px;bottom:24px;z-index:3;}
 @media (max-width:860px){.hero-g{grid-template-columns:1fr;}
-  .hero-media{--hero-h:min(86vh,760px);margin-inline:auto;}
+  .hero-media{--hero-h:min(80vh,660px);margin-inline:auto;}
   .hero-stk{position:static;margin-bottom:12px;display:inline-block;}}
+
+/* ---- what-we-do opening: centred copy over a darkened workshop photo ---- */
+.svc-hero{position:relative;text-align:center;color:var(--on-night);
+  background-image:linear-gradient(rgba(34,37,75,.86),rgba(34,37,75,.93)),url(/img/svc_c1.jpg);
+  background-size:cover;background-position:center;background-repeat:no-repeat;}
+.svc-hero .eyebrow{color:var(--peri);justify-content:center;}
+.svc-hero h1.big{color:var(--marigold);}
+.svc-hero .lead{color:var(--on-night);margin-left:auto;margin-right:auto;}
 
 /* ---- photo slots ---- */
 .ph-cap{font-size:13.5px;color:var(--soft);margin-top:6px;font-weight:500;}
@@ -369,6 +397,27 @@ h3.mid{font-family:'Best Curry','Poppins',sans-serif;font-weight:400;
 .fbtn.on{background:var(--indigo);color:var(--blush);border-color:var(--indigo);}
 .fbtn.on.mar{background:var(--marigold);color:var(--onmar);border-color:var(--marigold);}
 .fbtn.on.bri{background:var(--brick);color:var(--blush);border-color:var(--brick);}
+/* work page image belt: one continuous loop, the set is rendered twice and the
+   track travels exactly one set (reuses the ticker's sl keyframes) */
+.work-belt{overflow:hidden;margin:clamp(18px,2.6vw,30px) 0 clamp(6px,1vw,12px);}
+.work-belt-track{display:flex;width:max-content;animation:sl 46s linear infinite;will-change:transform;}
+.work-belt-item{flex:0 0 clamp(132px,13.5vw,186px);margin-right:clamp(10px,1.2vw,16px);}
+@media (hover:hover){ .work-belt:hover .work-belt-track{animation-play-state:paused;} }
+@media (prefers-reduced-motion:reduce){ .work-belt-track{animation:none;} }
+
+/* clients page: the four case cards run as one continuous loop */
+.case-mq{overflow:hidden;}
+.case-track{display:flex;width:max-content;align-items:stretch;
+  animation:sl 52s linear infinite;will-change:transform;}
+.case-track .case{flex:0 0 clamp(272px,30vw,410px);margin-right:clamp(14px,2vw,24px);}
+@media (hover:hover){ .case-mq:hover .case-track{animation-play-state:paused;} }
+@media (prefers-reduced-motion:reduce){
+  .case-mq .case-track{animation:none;display:grid;width:auto;
+    grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(14px,2vw,24px);}
+  .case-track .case{margin-right:0;}
+  .case-track .case[aria-hidden="true"]{display:none;}
+}
+
 .masonry{columns:3;column-gap:clamp(14px,2vw,22px);margin-top:24px;}
 .masonry>*{break-inside:avoid;margin-bottom:clamp(14px,2vw,22px);}
 @media (max-width:900px){.masonry{columns:2;}}
@@ -417,6 +466,7 @@ tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--panel) 93%,var(--
   font-size:16px;background:var(--panel);border:1.5px solid var(--rule);color:var(--ink);}
 .field textarea{min-height:120px;resize:vertical;}
 .f2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.form-sent{margin-top:12px;font-size:14px;color:var(--bagh);font-weight:600;}
 @media (max-width:600px){.f2{grid-template-columns:1fr;}}
 
 
@@ -502,9 +552,153 @@ tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--panel) 93%,var(--
 .sci[open] summary::after{content:"\2013";}
 .sci p{font-size:14.5px;color:var(--soft);margin-top:9px;line-height:1.5;}
 
+/* ---- story page: pinned scroll-driven sequence ---- */
+.story-seq{position:relative;}
+.story-stage{position:sticky;top:0;height:100vh;display:grid;place-items:center;
+  overflow:hidden;padding:calc(74px + 3vh) 0 4vh;isolation:isolate;}
+.story-bg{position:absolute;inset:0;z-index:-2;background-size:cover;background-position:center;
+  opacity:0;transition:opacity .9s ease-in-out;}
+.story-bg.on{opacity:1;}
+.story-stage::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(rgba(34,37,75,.8),rgba(34,37,75,.9));}
+.story-copy{position:relative;width:100%;text-align:center;color:var(--on-night);}
+/* only the live story exists in the layout, so nothing of the previous one can
+   linger behind a freshly centred heading */
+.story-block{display:none;}
+.story-block.on{display:block;animation:story-enter .45s ease-out;}
+@keyframes story-enter{from{opacity:0;}to{opacity:1;}}
+.story-eyebrow{display:inline-flex;color:var(--peri);}
+.story-copy h1.big,.story-copy h2.big{color:var(--marigold);max-width:24ch;margin:0 auto;
+  font-size:clamp(36px,min(5.8vw,7.2vh),72px);line-height:1.06;}
+/* a collapsed reveal takes up no room at all, which is what keeps the heading
+   dead centre in the viewport until its body text is called for */
+.story-reveal{max-height:0;opacity:0;overflow:hidden;
+  transition:max-height .65s cubic-bezier(.2,.7,.3,1),opacity .5s ease-out,
+    margin-top .65s cubic-bezier(.2,.7,.3,1);}
+.story-copy .story-prose{max-width:60ch;margin-inline:auto;}
+.story-copy .story-prose.on{max-height:70vh;opacity:1;margin-top:clamp(12px,2.2vh,24px);}
+.story-copy .story-prose p{font-size:clamp(16px,min(1.8vw,2.4vh),22px);line-height:1.6;}
+.story-copy .pull{background:none;color:var(--marigold);border-left:0;padding:0;
+  max-width:36ch;margin-inline:auto;text-align:center;
+  font-size:clamp(15px,min(2vw,2.7vh),25px);line-height:1.16;}
+.story-copy .pull.on{max-height:40vh;opacity:1;margin-top:clamp(14px,2.4vh,26px);}
+.story-track{position:relative;margin-top:-100vh;pointer-events:none;}
+.story-mark{height:62vh;}
+.story-tail{height:80vh;}
+@media (prefers-reduced-motion:reduce){
+  .story-bg{transition:none;}
+  .story-block.on{animation:none;}
+  .story-reveal{transition:none;}
+}
+
+/* ---- commercials: pinned viewport, one full-screen slide per scroll step ---- */
+.mdl-seq{position:relative;}
+.mdl-stage{position:sticky;top:0;height:100vh;overflow:hidden;
+  display:grid;place-items:center;isolation:isolate;}
+.mdl-slide{grid-area:1/1;width:100%;height:100%;opacity:0;visibility:hidden;transform:translateY(16px);
+  transition:opacity .5s ease-in-out,transform .5s cubic-bezier(.2,.7,.3,1),visibility .5s;}
+.mdl-slide.on{opacity:1;visibility:visible;transform:none;}
+.mdl-progress{position:absolute;top:calc(74px + 22px);left:var(--gut);z-index:3;
+  font-size:12.5px;letter-spacing:.18em;font-weight:700;color:var(--soft);
+  opacity:0;transition:opacity .4s ease-out;}
+.mdl-progress.on{opacity:1;}
+/* intro slide — full-bleed image with centered heading overlay */
+.mdl-intro{position:relative;display:grid;place-items:center;height:100vh;}
+.mdl-intro-bg{position:absolute;inset:0;z-index:-1;
+  background:url(/img/one8-midstitch.jpg);background-size:cover;background-position:center 32%;}
+.mdl-intro-bg::after{content:"";position:absolute;inset:0;background:rgba(10,12,30,.38);}
+.mdl-intro-copy{position:relative;text-align:center;color:var(--on-night);z-index:1;}
+.mdl-intro-copy .eyebrow{justify-content:center;color:var(--peri);display:none;}
+.mdl-intro-copy h1.big{color:var(--marigold);
+  font-size:clamp(34px,min(6vw,8vh),76px);line-height:1.05;}
+.mdl-intro-copy .lead{color:var(--on-night);margin:clamp(12px,2vh,18px) auto 0;}
+/* model slides — full-screen cards */
+.mdl-card{height:100vh;}
+.mdl-card .wrap.mdl-card-in{max-width:none;padding:0;width:100%;}
+.mdl-card-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  height:100%;gap:0;align-items:stretch;}
+.mdl-copy{display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(32px,5vw,80px) clamp(24px,5vw,72px);}
+.mdl-copy .ct{font-family:'Best Curry','Poppins',sans-serif;
+  font-size:clamp(28px,min(4vw,5.5vh),52px);line-height:1.05;color:var(--brick);}
+.mdl-copy .cm{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);
+  font-weight:600;margin:6px 0 16px;}
+.mdl-copy p{font-size:clamp(14.5px,min(1.5vw,2.1vh),18px);max-width:48ch;}
+.mdl-copy .mdl-best{margin-top:12px;font-size:14.5px;color:var(--soft);}
+.mdl-photo{border:none;box-shadow:none;margin:0;height:100%;}
+.mdl-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.mdl-track{position:relative;margin-top:-100vh;pointer-events:none;}
+.mdl-mark{height:85vh;}
+.mdl-tail{height:70vh;}
+@media (max-width:820px){
+  .mdl-stage{position:static;height:auto;overflow:visible;display:block;}
+  .mdl-slide{opacity:1;visibility:visible;transform:none;transition:none;}
+  .mdl-intro{height:auto;padding:clamp(44px,9vw,72px) 0;}
+  .mdl-card-in{grid-template-columns:1fr;gap:20px;}
+  .mdl-card{margin-top:clamp(28px,6vw,44px);}
+  .mdl-progress{display:none;}
+  .mdl-track{display:none;}
+}
+@media (prefers-reduced-motion:reduce){
+  .mdl-slide{transition:none;}
+}
+
+/* ---- commercials: marigold path threading the four inclusions ---- */
+.incl-flow{position:relative;padding-top:40px;}
+.incl-flow::before{content:"";position:absolute;left:0;right:0;top:13px;height:2px;
+  background:var(--rule);}
+.incl-flow::after{content:"";position:absolute;left:0;top:11px;height:6px;width:25%;
+  border-radius:100px;background:var(--marigold);
+  animation:incl-snake 13s cubic-bezier(.65,0,.35,1) infinite;}
+.incl-flow .g4>div{position:relative;}
+.incl-flow .g4>div::before{content:"";position:absolute;top:-32px;left:calc(50% - 6px);
+  width:12px;height:12px;border-radius:50%;border:2px solid var(--rule);background:var(--panel);
+  transition:none;}
+.incl-flow .g4>div:nth-child(1)::before{animation:incl-node-1 13s ease-in-out infinite;}
+.incl-flow .g4>div:nth-child(2)::before{animation:incl-node-2 13s ease-in-out infinite;}
+.incl-flow .g4>div:nth-child(3)::before{animation:incl-node-3 13s ease-in-out infinite;}
+.incl-flow .g4>div:nth-child(4)::before{animation:incl-node-4 13s ease-in-out infinite;}
+@keyframes incl-snake{
+  0%,16%{transform:translateX(0);opacity:1;}
+  24%,41%{transform:translateX(100%);}
+  49%,66%{transform:translateX(200%);}
+  74%,92%{transform:translateX(300%);opacity:1;}
+  97%{transform:translateX(300%);opacity:0;}
+  97.5%,100%{transform:translateX(0);opacity:0;}
+}
+@keyframes incl-node-1{
+  0%,3%{background:var(--panel);border-color:var(--rule);}
+  7%,94%{background:var(--marigold);border-color:var(--marigold);}
+  98%,100%{background:var(--panel);border-color:var(--rule);}
+}
+@keyframes incl-node-2{
+  0%,21%{background:var(--panel);border-color:var(--rule);}
+  25%,94%{background:var(--marigold);border-color:var(--marigold);}
+  98%,100%{background:var(--panel);border-color:var(--rule);}
+}
+@keyframes incl-node-3{
+  0%,46%{background:var(--panel);border-color:var(--rule);}
+  50%,94%{background:var(--marigold);border-color:var(--marigold);}
+  98%,100%{background:var(--panel);border-color:var(--rule);}
+}
+@keyframes incl-node-4{
+  0%,71%{background:var(--panel);border-color:var(--rule);}
+  75%,94%{background:var(--marigold);border-color:var(--marigold);}
+  98%,100%{background:var(--panel);border-color:var(--rule);}
+}
+/* the path only lines up while the four sit in one row */
+@media (max-width:900px){
+  .incl-flow{padding-top:0;}
+  .incl-flow::before,.incl-flow::after,.incl-flow .g4>div::before{display:none;}
+}
+@media (prefers-reduced-motion:reduce){
+  .incl-flow::after{animation:none;transform:translateX(300%);}
+  .incl-flow .g4>div::before{animation:none;background:var(--marigold);border-color:var(--marigold);}
+}
+
 /* ---- price dials ---- */
 .dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(16px,2vw,24px);margin-top:34px;}
-.dl-c{background:var(--panel);border:1px solid var(--rule);padding:20px;}
+.dl-c{background:var(--panel);border:1px solid var(--rule);padding:20px;border-radius:10px;}
 .dl-t{font-family:'Best Curry','Poppins',sans-serif;font-size:21px;color:var(--brick);}
 .dl-bar{height:8px;background:var(--rule-2);margin:14px 0 9px;position:relative;overflow:hidden;}
 .dl-bar i{position:absolute;left:0;top:0;bottom:0;background:var(--marigold);}

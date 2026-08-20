@@ -37,6 +37,11 @@ export const IMG_KEYS: Record<string, string> = {
   w17: '/img/w17.jpg',
   w18: '/img/w18.jpg',
   why_a1: '/img/why_a1.jpg',
+  'shoe-02-vedh-product': '/img/shoe-02-vedh-product.jpg',
+  'shoe-05-tyagi-09-on-foot': '/img/shoe-05-tyagi-09-on-foot.jpg',
+  'shoe-07-blue-orange-on-foot': '/img/shoe-07-blue-orange-on-foot.jpg',
+  'shoe-09-hrithik-product': '/img/shoe-09-hrithik-product.jpg',
+  'shoe-10-red-cloud-on-foot': '/img/shoe-10-red-cloud-on-foot.jpg',
 };
 
 export function Slot({
@@ -250,7 +255,7 @@ export function ClosingBand({ dare, sub }: { dare: string; sub: string }) {
               variant="live"
               target="_blank"
             >
-              <Dot /> WhatsApp us
+              WhatsApp us
             </Button>
             <Button href="/contact" variant="primary">
               Get a price in 24 hours

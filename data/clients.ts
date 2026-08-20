@@ -76,3 +76,36 @@ export const DIALS_DATA: DialItem[] = [
     desc: 'Travel, stated plainly rather than buried.',
   },
 ];
+
+export interface CaseItem {
+  title: string;
+  meta: string;
+  body: string;
+  noteLabel?: string;
+  noteText?: string;
+}
+
+export const CASES_DATA: CaseItem[] = [
+  {
+    title: 'Decathlon',
+    meta: 'Embedded desks · pan-India',
+    body: 'The proof that a desk works on an ordinary floor, on an ordinary day. Live embroidery desks running inside stores across the country, with customers returning to customise again.',
+    noteLabel: 'The behaviour that matters:',
+    noteText: 'the average customer at our desks does not take home one piece. They take home three.',
+  },
+  {
+    title: 'Mothercare',
+    meta: 'Embedded desk · Bandra',
+    body: 'Names on babywear, blankets and towels. The memory marker — a gift that gets kept rather than used, and the reason the desk earns its floor space in a category where nothing else is personal.',
+  },
+  {
+    title: 'Puma',
+    meta: 'Retail desks · five stores',
+    body: 'One of the first floors that let this run at all. Five stores, real conditions, real customers. The model you are looking at today only exists because someone was willing to give it a floor to be tested on.',
+  },
+  {
+    title: 'Sports Yard & Benetton',
+    meta: 'Retail · ongoing',
+    body: 'Live personalisation as a permanent part of the in-store experience — the layer an online store cannot ship, sitting on the floor where the decision is already being made.',
+  },
+];
