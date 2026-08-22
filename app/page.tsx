@@ -275,37 +275,41 @@ export default function Home() {
                 shape="ph-16"
               />
             </div>
-            <div>
-              <p className="eyebrow">The biggest night we have had</p>
-              <h2 className="big">THE NIGHT THE QUEUE DID NOT MOVE.</h2>
-              <p className="lead" style={{ marginTop: '14px' }}>
-                Virat Kohli&rsquo;s one8 Global Premiere at Yashobhoomi, with
-                District by Zomato. Four machines, eight operators, three
-                designers.
-              </p>
-              <div className="stats-stack">
-                <div className="tile">
-                  <div className="v">300+</div>
-                  <div className="l">Pieces in one evening</div>
-                </div>
-                <div className="tile">
-                  <div className="v">5 hrs</div>
-                  <div className="l">Start to finish</div>
-                </div>
-                <div className="tile">
-                  <div className="v">4</div>
-                  <div className="l">Machines running</div>
-                </div>
+            <div className="night-side">
+              <div className="night-text">
+                <p className="eyebrow">The biggest night we have had</p>
+                <h2 className="big">THE NIGHT THE QUEUE DID NOT MOVE.</h2>
+                <p className="lead" style={{ marginTop: '12px' }}>
+                  Virat Kohli&rsquo;s one8 Global Premiere at Yashobhoomi, with
+                  District by Zomato. Four machines, eight operators, three
+                  designers.
+                </p>
               </div>
-              <div className="btns stats-btn">
-                <a
-                  className="btn btn-live"
-                  href="https://youtube.com/shorts/PFZjzmlq5LI"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Dot /> Watch what the world saw
-                </a>
+              <div className="night-lower">
+                <div className="stats-stack">
+                  <div className="tile">
+                    <div className="v">300+</div>
+                    <div className="l">Pieces in one evening</div>
+                  </div>
+                  <div className="tile">
+                    <div className="v">5 hrs</div>
+                    <div className="l">Start to finish</div>
+                  </div>
+                  <div className="tile">
+                    <div className="v">4</div>
+                    <div className="l">Machines running</div>
+                  </div>
+                </div>
+                <div className="btns stats-btn">
+                  <a
+                    className="btn btn-live"
+                    href="https://youtube.com/shorts/PFZjzmlq5LI"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Dot /> Watch what the world saw
+                  </a>
+                </div>
               </div>
             </div>
           </div>

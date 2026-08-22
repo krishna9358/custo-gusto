@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   ],
 };
 import { ClosingBand } from '@/components/SharedSections';
-import { Accordion } from '@/components/Accordion';
+import { AccordionGroup } from '@/components/Accordion';
 import { GENERAL_FAQS } from '@/data/faq';
 
 export default function FaqPage() {
@@ -27,9 +27,7 @@ export default function FaqPage() {
             EVERYTHING PEOPLE ASK.
           </h1>
           <div style={{ marginTop: '32px', maxWidth: '820px' }}>
-            {GENERAL_FAQS.map((q, idx) => (
-              <Accordion key={idx} question={q.q} answer={q.a} />
-            ))}
+            <AccordionGroup items={GENERAL_FAQS} />
           </div>
         </div>
       </section>

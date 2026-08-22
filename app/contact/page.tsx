@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 import Link from 'next/link';
 import { ContactForm } from '@/components/ContactForm';
 import Ticker from '@/components/Ticker';
-import { Accordion } from '@/components/Accordion';
+import { AccordionGroup } from '@/components/Accordion';
 import { Button } from '@/components/Button';
 import { CONTACT_FAQS } from '@/data/faq';
 
@@ -119,9 +119,7 @@ export default function ContactPage() {
             What people usually ask first
           </h2>
           <div style={{ marginTop: '22px', maxWidth: '820px' }}>
-            {CONTACT_FAQS.map((f, idx) => (
-              <Accordion key={idx} question={f.q} answer={f.a} />
-            ))}
+            <AccordionGroup items={CONTACT_FAQS} />
             <p style={{ marginTop: '16px' }}>
               <Link href="/faq" style={{ color: 'var(--brick)', fontWeight: 600 }}>
                 All questions &rarr;

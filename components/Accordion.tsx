@@ -8,6 +8,8 @@ interface AccordionProps {
   answer: string;
   className?: string;
   defaultOpen?: boolean;
+  isOpen?: boolean;
+  onToggle?: () => void;
 }
 
 export function Accordion({
@@ -15,8 +17,20 @@ export function Accordion({
   answer,
   className = '',
   defaultOpen = false,
+  isOpen: controlledIsOpen,
+  onToggle,
 }: AccordionProps) {
-  const [isOpen, setIsOpen] = useState(defaultOpen);
+  const [uncontrolledIsOpen, setUncontrolledIsOpen] = useState(defaultOpen);
+  const isControlled = controlledIsOpen !== undefined;
+  const isOpen = isControlled ? controlledIsOpen : uncontrolledIsOpen;
+
+  const handleToggle = () => {
+    if (onToggle) {
+      onToggle();
+    } else {
+      setUncontrolledIsOpen(!uncontrolledIsOpen);
+    }
+  };
 
   return (
     <div
@@ -25,7 +39,7 @@ export function Accordion({
       <button
         type="button"
         className="w-full text-left p-[16px_20px] font-semibold text-[16px] flex justify-between items-center gap-4 cursor-pointer select-none group"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={handleToggle}
         aria-expanded={isOpen}
       >
         <span className="group-hover:text-brick transition-colors duration-200">
@@ -46,6 +60,34 @@ export function Accordion({
           {answer}
         </div>
       </div>
+    </div>
+  );
+}
+
+export function AccordionGroup({
+  items,
+  defaultOpenIndex = -1,
+  className = '',
+}: {
+  items: { q: string; a: string }[];
+  defaultOpenIndex?: number;
+  className?: string;
+}) {
+  const [openIndex, setOpenIndex] = useState<number | null>(
+    defaultOpenIndex >= 0 ? defaultOpenIndex : null
+  );
+
+  return (
+    <div className={className}>
+      {items.map((item, idx) => (
+        <Accordion
+          key={idx}
+          question={item.q}
+          answer={item.a}
+          isOpen={openIndex === idx}
+          onToggle={() => setOpenIndex(openIndex === idx ? null : idx)}
+        />
+      ))}
     </div>
   );
 }

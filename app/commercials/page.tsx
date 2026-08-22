@@ -14,11 +14,30 @@ export const metadata: Metadata = {
   ],
 };
 import { ClosingBand } from '@/components/SharedSections';
-import { Accordion } from '@/components/Accordion';
+import { AccordionGroup } from '@/components/Accordion';
 import ModelSequence from '@/components/ModelSequence';
 import { Button } from '@/components/Button';
 import { COMMERCIAL_FAQS } from '@/data/faq';
 import { DIALS_DATA } from '@/data/clients';
+
+const INCLUSIONS = [
+  {
+    title: 'Expert operator',
+    desc: 'Trained on our system, so every city runs the same.',
+  },
+  {
+    title: 'Live designer',
+    desc: 'In-house design at the desk. Never a separate line.',
+  },
+  {
+    title: 'All raw materials',
+    desc: 'Threads, films, foils, backing. Nothing to source.',
+  },
+  {
+    title: '365-day maintenance',
+    desc: 'You will not lose a trading day to a machine.',
+  },
+];
 
 export default function CommercialsPage() {
   return (
@@ -93,33 +112,25 @@ export default function CommercialsPage() {
       <section className="band band-blush">
         <div className="wrap">
           <h2 className="big">INCLUDED IN EVERY MODEL.</h2>
-          <div className="incl-flow" style={{ marginTop: '26px' }}>
-            <div className="g g4">
-              <div>
-                <h3 className="mid">Expert operator</h3>
-                <p style={{ fontSize: '15px', marginTop: '6px' }}>
-                  Trained on our system, so every city runs the same.
-                </p>
+        </div>
+        <div className="incl-marquee" style={{ marginTop: '28px' }}>
+          <div className="incl-track">
+            {[0, 1, 2, 3].map((group) => (
+              <div
+                className="incl-group"
+                key={group}
+                aria-hidden={group > 0 ? true : undefined}
+              >
+                {INCLUSIONS.map((item, idx) => (
+                  <div key={idx} className="incl-card">
+                    <h3 className="mid">{item.title}</h3>
+                    <p style={{ fontSize: '15px', marginTop: '6px' }}>
+                      {item.desc}
+                    </p>
+                  </div>
+                ))}
               </div>
-              <div>
-                <h3 className="mid">Live designer</h3>
-                <p style={{ fontSize: '15px', marginTop: '6px' }}>
-                  In-house design at the desk. Never a separate line.
-                </p>
-              </div>
-              <div>
-                <h3 className="mid">All raw materials</h3>
-                <p style={{ fontSize: '15px', marginTop: '6px' }}>
-                  Threads, films, foils, backing. Nothing to source.
-                </p>
-              </div>
-              <div>
-                <h3 className="mid">365-day maintenance</h3>
-                <p style={{ fontSize: '15px', marginTop: '6px' }}>
-                  You will not lose a trading day to a machine.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -171,9 +182,7 @@ export default function CommercialsPage() {
           <p className="eyebrow">The questions buyers actually ask</p>
           <h2 className="big">ANSWERED BEFORE THE CALL.</h2>
           <div style={{ marginTop: '26px', maxWidth: '820px' }}>
-            {COMMERCIAL_FAQS.map((f, i) => (
-              <Accordion key={i} question={f.q} answer={f.a} />
-            ))}
+            <AccordionGroup items={COMMERCIAL_FAQS} />
           </div>
         </div>
       </section>
