@@ -3,6 +3,7 @@ import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import AosProvider from '@/components/AosProvider';
+import LoadingScreen from '@/components/LoadingScreen';
 
 export const metadata = {
   title: 'Custo Gusto — Made in front of you. Never repeated.',
@@ -22,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <LoadingScreen />
         <a className="skip" href="#main">
           Skip to content
         </a>
