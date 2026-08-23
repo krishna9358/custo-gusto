@@ -32,9 +32,11 @@ export default function ClientsPage() {
         style={{ paddingTop: 'calc(var(--pad)*.8)' }}
       >
         <div className="wrap">
-          <p className="eyebrow">Clients</p>
+          <p className="eyebrow" data-aos="fade-up">Clients</p>
           <h1
             className="big"
+            data-aos="fade-up"
+            data-aos-delay="100"
             style={{
               color: 'var(--marigold)',
               fontSize: 'clamp(34px, 5.6vw, 64px)',
@@ -44,6 +46,8 @@ export default function ClientsPage() {
           </h1>
           <p
             className="lead"
+            data-aos="fade-up"
+            data-aos-delay="150"
             style={{
               marginTop: '16px',
               color: 'var(--on-night)',
@@ -57,6 +61,8 @@ export default function ClientsPage() {
             <StatTiles night={true} />
           </div>
           <p
+            data-aos="fade-up"
+            data-aos-delay="200"
             style={{
               marginTop: '30px',
               fontSize: '12px',
@@ -67,7 +73,7 @@ export default function ClientsPage() {
           >
             Trusted by
           </p>
-          <div className="logos">
+          <div className="logos" data-aos="fade-up" data-aos-delay="250">
             {TRUSTED_LOGOS.map((l, i) => (
               <span key={i} className="logo-pill">
                 {l}
@@ -75,6 +81,8 @@ export default function ClientsPage() {
             ))}
           </div>
           <p
+            data-aos="fade-up"
+            data-aos-delay="300"
             style={{
               marginTop: '24px',
               fontSize: '14.5px',
@@ -90,7 +98,7 @@ export default function ClientsPage() {
       <section className="sec">
         <div className="wrap">
           <div className="split">
-            <div>
+            <div data-aos="fade-up">
               <p className="eyebrow">The biggest night we have had</p>
               <h2 className="big">one8 Global Premiere</h2>
               <p className="lead" style={{ marginTop: '14px' }}>
@@ -104,22 +112,22 @@ export default function ClientsPage() {
                 queue never emptied &mdash; that was the point.
               </p>
               <div className="g g3" style={{ marginTop: '20px' }}>
-                <div className="tile">
+                <div className="tile" data-aos="fade-up" data-aos-delay="100">
                   <div className="v">300+</div>
                   <div className="l">Pieces, one evening</div>
                 </div>
-                <div className="tile">
+                <div className="tile" data-aos="fade-up" data-aos-delay="150">
                   <div className="v">
                     <Tilde />5 hrs
                   </div>
                   <div className="l">Start to finish</div>
                 </div>
-                <div className="tile">
+                <div className="tile" data-aos="fade-up" data-aos-delay="200">
                   <div className="v">15</div>
                   <div className="l">Pieces per machine, per hour</div>
                 </div>
               </div>
-              <div className="btns" style={{ marginTop: '22px' }}>
+              <div className="btns" style={{ marginTop: '22px' }} data-aos="fade-up" data-aos-delay="250">
                 <Button
                   href="https://youtube.com/shorts/PFZjzmlq5LI"
                   variant="live"
@@ -129,7 +137,7 @@ export default function ClientsPage() {
                 </Button>
               </div>
             </div>
-            <div>
+            <div data-aos="fade-left" data-aos-delay="150">
               <One8Photo shape="ph-23" />
             </div>
           </div>
@@ -138,7 +146,7 @@ export default function ClientsPage() {
 
       <section className="sec-sm">
         <div className="wrap">
-          <div className="case-mq">
+          <div className="case-mq" data-aos="fade-up">
             <div className="case-track">
               {CASES_DATA.concat(CASES_DATA).map((c, i) => (
                 <div
@@ -163,27 +171,27 @@ export default function ClientsPage() {
 
       <section className="sec">
         <div className="wrap rwrap">
-          <div className="rm-stk">
+          <div className="rm-stk" data-aos="fade-down">
             <Sticker isHindi style={{ fontSize: '13px' }}>
               आपका. सिर्फ़ आपका.
             </Sticker>
           </div>
-          <p className="eyebrow">Beyond retail</p>
-          <h2 className="big">THE SAME DESK, DIFFERENT ROOMS.</h2>
-          <p className="sub" style={{ marginTop: '12px', maxWidth: '52ch' }}>
+          <p className="eyebrow" data-aos="fade-up">Beyond retail</p>
+          <h2 className="big" data-aos="fade-up" data-aos-delay="100">THE SAME DESK, DIFFERENT ROOMS.</h2>
+          <p className="sub" style={{ marginTop: '12px', maxWidth: '52ch' }} data-aos="fade-up" data-aos-delay="150">
             A festival floor, a hotel lobby, a wedding. Same machines, same
             people, entirely different night.
           </p>
           <div className="tks">
             {TICKETS_DATA.map((r, i) => (
-              <div className="tk2" key={i}>
+              <div className="tk2" key={i} data-aos="fade-up" data-aos-delay={i * 100}>
                 <div className="tk2-t">{r.title}</div>
                 <div className="tk2-d">{r.desc}</div>
                 <span className="tk2-f">{r.tag}</span>
               </div>
             ))}
           </div>
-          <div className="rm-cta" style={{ marginTop: '30px' }}>
+          <div className="rm-cta" style={{ marginTop: '30px' }} data-aos="fade-up" data-aos-delay="200">
             <Button href="/contact" variant="primary">
               Tell us about your event
             </Button>

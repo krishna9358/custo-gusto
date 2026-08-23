@@ -42,15 +42,14 @@ const INCLUSIONS = [
 export default function CommercialsPage() {
   return (
     <>
-
       <section className="sec-models">
         <ModelSequence />
       </section>
 
       <section className="sec-sm">
         <div className="wrap">
-          <h2 className="big">SIDE BY SIDE.</h2>
-          <div className="tw">
+          <h2 className="big" data-aos="fade-up">SIDE BY SIDE.</h2>
+          <div className="tw" data-aos="fade-up" data-aos-delay="100">
             <table>
               <thead>
                 <tr>
@@ -111,9 +110,9 @@ export default function CommercialsPage() {
 
       <section className="band band-blush">
         <div className="wrap">
-          <h2 className="big">INCLUDED IN EVERY MODEL.</h2>
+          <h2 className="big" data-aos="fade-up">INCLUDED IN EVERY MODEL.</h2>
         </div>
-        <div className="incl-marquee" style={{ marginTop: '28px' }}>
+        <div className="incl-marquee" style={{ marginTop: '28px' }} data-aos="fade-up" data-aos-delay="100">
           <div className="incl-track">
             {[0, 1, 2, 3].map((group) => (
               <div
@@ -137,16 +136,16 @@ export default function CommercialsPage() {
 
       <section className="sec sec-dials">
         <div className="wrap">
-          <p className="eyebrow">Before you ask</p>
-          <h2 className="big">WHAT MOVES THE NUMBER.</h2>
-          <p className="lead" style={{ marginTop: '14px', maxWidth: '56ch' }}>
+          <p className="eyebrow" data-aos="fade-up">Before you ask</p>
+          <h2 className="big" data-aos="fade-up" data-aos-delay="100">WHAT MOVES THE NUMBER.</h2>
+          <p className="lead" style={{ marginTop: '14px', maxWidth: '56ch' }} data-aos="fade-up" data-aos-delay="150">
             Four things, and you control all of them. Push any one up and the
             price follows. We are not the cheapest and will not pretend to be
             &mdash; but nothing here is a mystery.
           </p>
           <div className="dl">
             {DIALS_DATA.map((d, idx) => (
-              <div className="dl-c" key={idx}>
+              <div className="dl-c" key={idx} data-aos="fade-up" data-aos-delay={idx * 100}>
                 <div className="dl-t">{d.title}</div>
                 <div className="dl-bar">
                   <i style={{ width: `${d.pct}%` }}></i>
@@ -160,6 +159,8 @@ export default function CommercialsPage() {
             ))}
           </div>
           <p
+            data-aos="fade-up"
+            data-aos-delay="200"
             style={{
               marginTop: '26px',
               fontWeight: 600,
@@ -169,7 +170,7 @@ export default function CommercialsPage() {
             Tell us where you sit on all four. A real number comes back within
             24 hours, no meeting first.
           </p>
-          <div className="btns" style={{ marginTop: '16px' }}>
+          <div className="btns" style={{ marginTop: '16px' }} data-aos="fade-up" data-aos-delay="250">
             <Button href="/contact" variant="primary">
               Get a price in 24 hours
             </Button>
@@ -179,8 +180,8 @@ export default function CommercialsPage() {
 
       <section className="sec sec-faq-tight">
         <div className="wrap">
-          <p className="eyebrow">The questions buyers actually ask</p>
-          <h2 className="big">ANSWERED BEFORE THE CALL.</h2>
+          <p className="eyebrow" data-aos="fade-up">The questions buyers actually ask</p>
+          <h2 className="big" data-aos="fade-up" data-aos-delay="100">ANSWERED BEFORE THE CALL.</h2>
           <div style={{ marginTop: '26px', maxWidth: '820px' }}>
             <AccordionGroup items={COMMERCIAL_FAQS} />
           </div>

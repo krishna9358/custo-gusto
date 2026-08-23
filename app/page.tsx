@@ -35,25 +35,24 @@ import { Button } from '@/components/Button';
 
 
 export default function Home() {
-
   return (
     <>
       <section className="hero">
         <div className="wrap relative">
-          <div className="hero-stk">
+          <div className="hero-stk" data-aos="fade-down">
             <span className="stk">{bc('1/1')}</span>
           </div>
           <div className="hero-g">
             <div>
-              <p className="eyebrow">
+              <p className="eyebrow" data-aos="fade-up">
                 <span className="liv">
                   <Dot /> LIVE
                 </span>{' '}
                 &mdash; at 13 desks across India
               </p>
-              <h1 className="big">NOTHING LIKE IT EXISTS.</h1>
-              <p className="hero-hi hi">आपका. सिर्फ़ आपका.</p>
-              <p className="lead">
+              <h1 className="big" data-aos="fade-up" data-aos-delay="100">NOTHING LIKE IT EXISTS.</h1>
+              <p className="hero-hi hi" data-aos="fade-up" data-aos-delay="150">आपका. सिर्फ़ आपका.</p>
+              <p className="lead" data-aos="fade-up" data-aos-delay="200">
                 Your name. Your number. A date that mattered. A drawing nobody
                 else has.
                 <br />
@@ -62,7 +61,7 @@ export default function Home() {
                 <br />
                 <strong>One of one. Never made again.</strong>
               </p>
-              <div className="btns">
+              <div className="btns" data-aos="fade-up" data-aos-delay="250">
                 <Button href="/work" variant="primary">
                   See the work
                 </Button>
@@ -75,7 +74,7 @@ export default function Home() {
                 </Button>
               </div>
             </div>
-            <div className="hero-media">
+            <div className="hero-media" data-aos="fade-left" data-aos-delay="150">
               <img
                 src="/img/one8-midstitch.jpg"
                 alt="A red one8 sneaker held in front of a ZSK embroidery machine mid-stitch at the one8 Global Premiere."
@@ -94,8 +93,8 @@ export default function Home() {
 
       <section className="sec-sm">
         <div className="wrap">
-          <p className="eyebrow">What actually happens</p>
-          <h2 className="big">THREE STEPS. ABOUT FIVE MINUTES.</h2>
+          <p className="eyebrow" data-aos="fade-up">What actually happens</p>
+          <h2 className="big" data-aos="fade-up" data-aos-delay="100">THREE STEPS. ABOUT FIVE MINUTES.</h2>
           <div style={{ marginTop: '28px' }}>
             <HowItWorks />
           </div>
@@ -104,9 +103,9 @@ export default function Home() {
 
       <section className="sec sec-machine">
         <div className="wrap">
-          <p className="eyebrow">Three ways to work with us</p>
-          <h2 className="big">WHERE DO YOU WANT THE MACHINE?</h2>
-          <p className="sub" style={{ marginTop: '12px' }}>
+          <p className="eyebrow" data-aos="fade-up">Three ways to work with us</p>
+          <h2 className="big" data-aos="fade-up" data-aos-delay="100">WHERE DO YOU WANT THE MACHINE?</h2>
+          <p className="sub" style={{ marginTop: '12px' }} data-aos="fade-up" data-aos-delay="150">
             On your shop floor every day, at your launch for a week, or nowhere
             near you at all &mdash; just send us the boxes.
           </p>
@@ -119,14 +118,14 @@ export default function Home() {
       <section className="sec sec-touch">
         <div className="wrap">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
-            <div className="lg:col-span-5 touch-left">
+            <div className="lg:col-span-5 touch-left" data-aos="fade-up">
               <p className="eyebrow">What can we touch?</p>
               <h2 className="big">ALMOST EVERYTHING.</h2>
               <p className="lead" style={{ marginTop: '14px' }}>
                 We customise over 90% of what is already on your shelf. Shoes
                 lead &mdash; they always lead.
               </p>
-              <div className="chips" style={{ marginTop: '20px' }}>
+              <div className="chips" style={{ marginTop: '20px' }} data-aos="fade-up" data-aos-delay="100">
                 {COVERAGE_CHIPS.map((c, i) => {
                   const slug = coverageSlug(c);
                   return (
@@ -197,14 +196,14 @@ export default function Home() {
 
       <section className="sec">
         <div className="wrap">
-          <p className="eyebrow">
+          <p className="eyebrow" data-aos="fade-up">
             Six techniques &middot; in-house design always included
           </p>
-          <h2 className="big">SIX WAYS TO MARK A THING.</h2>
+          <h2 className="big" data-aos="fade-up" data-aos-delay="100">SIX WAYS TO MARK A THING.</h2>
           <div className="tg-rail" style={{ marginTop: '30px' }}>
             <TechGrid />
           </div>
-          <p className="sub" style={{ marginTop: '20px', fontSize: '15px' }}>
+          <p className="sub" style={{ marginTop: '20px', fontSize: '15px' }} data-aos="fade-up" data-aos-delay="150">
             In-house design is included in every engagement and is never a
             separate line. It is what makes each piece one-of-one instead of a
             template.
@@ -214,12 +213,14 @@ export default function Home() {
 
       <section className="band band-night">
         <div className="wrap">
-          <p className="eyebrow">Three years, thirteen desks, counting</p>
-          <h2 className="big">THE NUMBERS BEHIND THE CRAFT</h2>
+          <p className="eyebrow" data-aos="fade-up">Three years, thirteen desks, counting</p>
+          <h2 className="big" data-aos="fade-up" data-aos-delay="100">THE NUMBERS BEHIND THE CRAFT</h2>
           <div style={{ marginTop: '32px' }}>
             <StatTiles night={true} />
           </div>
           <p
+            data-aos="fade-up"
+            data-aos-delay="200"
             style={{
               marginTop: '30px',
               fontSize: '12px',
@@ -230,7 +231,7 @@ export default function Home() {
           >
             Trusted by
           </p>
-          <div className="logos">
+          <div className="logos" data-aos="fade-up" data-aos-delay="250">
             {TRUSTED_LOGOS.map((l, i) => (
               <span key={i} className="logo-pill">
                 {l}
@@ -244,39 +245,51 @@ export default function Home() {
         <div className="wrap">
           <div className="split split-night">
             <div className="night-grid">
-              <Photo
-                imgKey="svc_c1"
-                alt="An embroidery machine stitching a name into a bag"
-                shape="ph-16"
-              />
-              <Photo
-                imgKey="w17"
-                alt="A pair, embroidered"
-                shape="ph-16"
-              />
-              <Photo
-                imgKey="w14"
-                alt="Caps, a set"
-                shape="ph-16"
-              />
-              <Photo
-                imgKey="svc_a10"
-                alt="Finished pieces in wood, metal, leather and acrylic"
-                shape="ph-16"
-              />
-              <Photo
-                imgKey="svc_e1"
-                alt="A heat press closing onto a garment"
-                shape="ph-16"
-              />
-              <Photo
-                imgKey="w09"
-                alt="Personalised patches"
-                shape="ph-16"
-              />
+              <div data-aos="fade-up">
+                <Photo
+                  imgKey="svc_c1"
+                  alt="An embroidery machine stitching a name into a bag"
+                  shape="ph-16"
+                />
+              </div>
+              <div data-aos="fade-up" data-aos-delay="80">
+                <Photo
+                  imgKey="w17"
+                  alt="A pair, embroidered"
+                  shape="ph-16"
+                />
+              </div>
+              <div data-aos="fade-up" data-aos-delay="120">
+                <Photo
+                  imgKey="w14"
+                  alt="Caps, a set"
+                  shape="ph-16"
+                />
+              </div>
+              <div data-aos="fade-up" data-aos-delay="80">
+                <Photo
+                  imgKey="svc_a10"
+                  alt="Finished pieces in wood, metal, leather and acrylic"
+                  shape="ph-16"
+                />
+              </div>
+              <div data-aos="fade-up" data-aos-delay="120">
+                <Photo
+                  imgKey="svc_e1"
+                  alt="A heat press closing onto a garment"
+                  shape="ph-16"
+                />
+              </div>
+              <div data-aos="fade-up" data-aos-delay="160">
+                <Photo
+                  imgKey="w09"
+                  alt="Personalised patches"
+                  shape="ph-16"
+                />
+              </div>
             </div>
             <div className="night-side">
-              <div className="night-text">
+              <div className="night-text" data-aos="fade-up">
                 <p className="eyebrow">The biggest night we have had</p>
                 <h2 className="big">THE NIGHT THE QUEUE DID NOT MOVE.</h2>
                 <p className="lead" style={{ marginTop: '12px' }}>
@@ -287,20 +300,20 @@ export default function Home() {
               </div>
               <div className="night-lower">
                 <div className="stats-stack">
-                  <div className="tile">
+                  <div className="tile" data-aos="fade-up" data-aos-delay="100">
                     <div className="v">300+</div>
                     <div className="l">Pieces in one evening</div>
                   </div>
-                  <div className="tile">
+                  <div className="tile" data-aos="fade-up" data-aos-delay="150">
                     <div className="v">5 hrs</div>
                     <div className="l">Start to finish</div>
                   </div>
-                  <div className="tile">
+                  <div className="tile" data-aos="fade-up" data-aos-delay="200">
                     <div className="v">4</div>
                     <div className="l">Machines running</div>
                   </div>
                 </div>
-                <div className="btns stats-btn">
+                <div className="btns stats-btn" data-aos="fade-up" data-aos-delay="250">
                   <a
                     className="btn btn-live"
                     href="https://youtube.com/shorts/PFZjzmlq5LI"
@@ -323,3 +336,4 @@ export default function Home() {
     </>
   );
 }
+

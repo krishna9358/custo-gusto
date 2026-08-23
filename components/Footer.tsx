@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className="ftr">
       <div className="wrap">
         <div className="ftr-g">
-          <div>
+          <div data-aos="fade-up">
             <div className="d" style={{ fontSize: '26px' }}>
               CUSTO GUSTO
             </div>
@@ -33,7 +33,7 @@ export default function Footer() {
               आपका. सिर्फ़ आपका.
             </p>
           </div>
-          <div>
+          <div data-aos="fade-up" data-aos-delay="100">
             <h4>Pages</h4>
             {FOOTER_PAGES.map((page) => (
               <Link key={page.href} href={page.href}>
@@ -41,7 +41,7 @@ export default function Footer() {
               </Link>
             ))}
           </div>
-          <div>
+          <div data-aos="fade-up" data-aos-delay="150">
             <h4>Talk to us</h4>
             <a href="https://wa.me/919654382799" target="_blank" rel="noopener noreferrer">+91 96543 82799</a>
             <a href="mailto:laksh@custogusto.in">laksh@custogusto.in</a>
@@ -56,7 +56,7 @@ export default function Footer() {
             </a>
           </div>
         </div>
-        <div className="ftr-b">
+        <div className="ftr-b" data-aos="fade-up" data-aos-delay="200">
           <span>&copy; 2026 Custo Gusto. All rights reserved.</span>
           <span>Made in front of you. Never repeated.</span>
         </div>

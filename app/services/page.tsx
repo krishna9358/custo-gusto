@@ -28,11 +28,11 @@ export default function ServicesPage() {
     <>
       <section className="sec svc-hero">
         <div className="wrap">
-          <p className="eyebrow">What we do</p>
-          <h1 className="big" style={{ fontSize: 'clamp(34px, 5.6vw, 64px)' }}>
+          <p className="eyebrow" data-aos="fade-up">What we do</p>
+          <h1 className="big" data-aos="fade-up" data-aos-delay="100" style={{ fontSize: 'clamp(34px, 5.6vw, 64px)' }}>
             WE BRING THE MACHINE TO THE MOMENT.
           </h1>
-          <p className="lead" style={{ marginTop: '18px' }}>
+          <p className="lead" data-aos="fade-up" data-aos-delay="150" style={{ marginTop: '18px' }}>
             Three ways to put a machine in front of your customer. Machines,
             operators, designers, materials and operations are ours. You provide
             space and product.
@@ -49,7 +49,7 @@ export default function ServicesPage() {
       <section className="sec">
         <div className="wrap">
           <div className="split">
-            <div>
+            <div data-aos="fade-up">
               <span className="stk stk-i">A DESK THAT STAYS</span>
               <h2 className="big" style={{ marginTop: '18px' }}>
                 On your floor.
@@ -75,7 +75,7 @@ export default function ServicesPage() {
                 </Link>
               </div>
             </div>
-            <div>
+            <div data-aos="fade-left" data-aos-delay="150">
               <Photo
                 imgKey="svc_e1"
                 alt="A heat press closing onto a garment"
@@ -89,14 +89,14 @@ export default function ServicesPage() {
       <section className="band band-mar">
         <div className="wrap">
           <div className="split">
-            <div>
+            <div data-aos="fade-right" data-aos-delay="150">
               <Photo
                 imgKey="svc_c1"
                 alt="An embroidery machine stitching a bag"
                 shape="ph-16"
               />
             </div>
-            <div>
+            <div data-aos="fade-up">
               <span className="stk stk-b">A DESK THAT TRAVELS</span>
               <h2
                 className="big"
@@ -128,7 +128,7 @@ export default function ServicesPage() {
       <section className="sec">
         <div className="wrap">
           <div className="split">
-            <div>
+            <div data-aos="fade-up">
               <span className="stk">NO DESK AT ALL</span>
               <h2 className="big" style={{ marginTop: '18px' }}>
                 Send it to us.
@@ -153,7 +153,7 @@ export default function ServicesPage() {
                 </Link>
               </div>
             </div>
-            <div>
+            <div data-aos="fade-left" data-aos-delay="150">
               <Photo
                 imgKey="svc_a10"
                 alt="Finished pieces in wood, metal, leather and acrylic"
@@ -166,8 +166,8 @@ export default function ServicesPage() {
 
       <section className="sec">
         <div className="wrap">
-          <p className="eyebrow">The techniques</p>
-          <h2 className="big">SIX WAYS TO MARK A THING.</h2>
+          <p className="eyebrow" data-aos="fade-up">The techniques</p>
+          <h2 className="big" data-aos="fade-up" data-aos-delay="100">SIX WAYS TO MARK A THING.</h2>
           <div className="tg-rail" style={{ marginTop: '30px' }}>
             <TechGrid />
           </div>
@@ -176,9 +176,9 @@ export default function ServicesPage() {
 
       <section className="sec-sm">
         <div className="wrap">
-          <p className="eyebrow">Product coverage</p>
-          <h2 className="big">90% OF WHAT IS ON YOUR SHELF.</h2>
-          <div className="chips" style={{ marginTop: '20px' }}>
+          <p className="eyebrow" data-aos="fade-up">Product coverage</p>
+          <h2 className="big" data-aos="fade-up" data-aos-delay="100">90% OF WHAT IS ON YOUR SHELF.</h2>
+          <div className="chips" style={{ marginTop: '20px' }} data-aos="fade-up" data-aos-delay="150">
             {COVERAGE_CHIPS.map((c, i) => (
               <Link
                 key={i}
@@ -189,7 +189,7 @@ export default function ServicesPage() {
               </Link>
             ))}
           </div>
-          <p className="sub" style={{ marginTop: '20px' }}>
+          <p className="sub" style={{ marginTop: '20px' }} data-aos="fade-up" data-aos-delay="200">
             Everything at a live desk is made for one person, in front of that
             person. No bulk printing, no generic giveaways, and no generic
             patches &mdash; if a patch is not personalised, it is not ours.

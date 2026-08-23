@@ -29,21 +29,23 @@ export default function ContactPage() {
         style={{ paddingBottom: 'calc(var(--pad)*.6)' }}
       >
         <div className="wrap">
-          <p className="eyebrow" style={{ color: 'var(--onmar)', opacity: 0.8 }}>
+          <p className="eyebrow" data-aos="fade-up" style={{ color: 'var(--onmar)', opacity: 0.8 }}>
             Contact
           </p>
           <h1
             className="big"
+            data-aos="fade-up"
+            data-aos-delay="100"
             style={{ color: 'var(--indigo)', fontSize: 'clamp(34px, 5.8vw, 66px)' }}
           >
             TELL US WHAT YOU WANT MADE.
           </h1>
-          <p className="lead" style={{ marginTop: '16px', color: 'var(--onmar)' }}>
+          <p className="lead" data-aos="fade-up" data-aos-delay="150" style={{ marginTop: '16px', color: 'var(--onmar)' }}>
             A shop floor, a launch in six weeks, or two hundred things that need to be
             ready by Friday. Say which one it is and you will have an answer today
             &mdash; WhatsApp is the fastest way.
           </p>
-          <div className="btns" style={{ marginTop: '28px' }}>
+          <div className="btns" data-aos="fade-up" data-aos-delay="200" style={{ marginTop: '28px' }}>
             <Button
               href="https://wa.me/919654382799"
               variant="live"
@@ -65,7 +67,11 @@ export default function ContactPage() {
 
       <section className="sec sec-contact scroll-mt-24">
         <div className="wrap split contact-split">
-          <div id="book" className="p-6 sm:p-8 bg-panel border-2 border-brick/30 shadow-sh-lg rounded-sm scroll-mt-28">
+          <div
+            id="book"
+            className="p-6 sm:p-8 bg-panel border-2 border-brick/30 shadow-sh-lg rounded-sm scroll-mt-28"
+            data-aos="fade-up"
+          >
             <p className="eyebrow" style={{ color: 'var(--brick)' }}>Booking & Price Inquiry</p>
             <h2 className="big" style={{ fontSize: 'clamp(24px, 3.2vw, 34px)' }}>
               BOOK A DESK / GET A PRICE IN 24 HOURS
@@ -76,7 +82,7 @@ export default function ContactPage() {
             </p>
             <ContactForm />
           </div>
-          <div className="contact-side">
+          <div className="contact-side" data-aos="fade-left" data-aos-delay="150">
             <div className="case">
               <div className="ct">Getting to you</div>
               <p style={{ marginTop: '10px' }}>
@@ -115,12 +121,12 @@ export default function ContactPage() {
 
       <section className="sec-sm sec-faq-tight">
         <div className="wrap">
-          <h2 className="big" style={{ fontSize: 'clamp(24px, 3.2vw, 34px)' }}>
+          <h2 className="big" data-aos="fade-up" style={{ fontSize: 'clamp(24px, 3.2vw, 34px)' }}>
             What people usually ask first
           </h2>
           <div style={{ marginTop: '22px', maxWidth: '820px' }}>
             <AccordionGroup items={CONTACT_FAQS} />
-            <p style={{ marginTop: '16px' }}>
+            <p data-aos="fade-up" data-aos-delay="100" style={{ marginTop: '16px' }}>
               <Link href="/faq" style={{ color: 'var(--brick)', fontWeight: 600 }}>
                 All questions &rarr;
               </Link>

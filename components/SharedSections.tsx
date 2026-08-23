@@ -106,13 +106,13 @@ export function StatTiles({ night }: { night?: boolean }) {
     <>
       <div className="sr">
         {row.map((t, idx) => (
-          <div key={idx}>
+          <div key={idx} data-aos="fade-up" data-aos-delay={idx * 100}>
             <div className="v">{t[0]}</div>
             <div className="l">{t[1]}</div>
           </div>
         ))}
       </div>
-      <div className="revband">
+      <div className="revband" data-aos="fade-up" data-aos-delay="300">
         <span className="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
         <span className="bg">A PERFECT 5.0</span>
         <span className="tx">
@@ -244,7 +244,7 @@ export function ClosingBand({ dare, sub }: { dare: string; sub: string }) {
   return (
     <section className="band band-mar">
       <div className="wrap close-g">
-        <div>
+        <div data-aos="fade-up">
           <h2 className="big">{dare}</h2>
           <p style={{ marginTop: '14px', maxWidth: '46ch', fontSize: '17.5px' }}>
             {sub}
@@ -268,7 +268,7 @@ export function ClosingBand({ dare, sub }: { dare: string; sub: string }) {
             No meeting needed to get a number. We reply the same day.
           </p>
         </div>
-        <div style={{ display: 'grid', gap: '12px' }}>
+        <div style={{ display: 'grid', gap: '12px' }} data-aos="fade-left" data-aos-delay="150">
           <div className="close-c">
             <div className="k">Watch the one8 film</div>
             <div className="v">
@@ -316,7 +316,7 @@ export function WhyItMatters() {
     <section className="sec">
       <div className="wrap">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          <div className="lg:col-span-7 min-w-0">
+          <div className="lg:col-span-7 min-w-0" data-aos="fade-up">
             <p className="eyebrow">Why any of this matters</p>
             <h2 className="big">
               EVERYTHING YOU BUY LOSES VALUE. THIS DOESN&rsquo;T.
@@ -337,12 +337,12 @@ export function WhyItMatters() {
               <small>Your story.</small>
             </div>
           </div>
-          <div className="lg:col-span-5" data-aos="fade-left">
+          <div className="lg:col-span-5" data-aos="fade-left" data-aos-delay="150">
             <ShoeCarousel shape="ph-sq" />
             <p className="ph-cap">A sneaker embroidered live with a custom name</p>
           </div>
         </div>
-        <div className="four-mq">
+        <div className="four-mq" data-aos="fade-up" data-aos-delay="200">
           <div className="four">
             {four.map((q, idx) => (
               <div className="q" key={idx}>

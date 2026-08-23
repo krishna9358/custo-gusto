@@ -23,11 +23,11 @@ export default function WorkPage() {
     <>
       <section className="sec-sm">
         <div className="wrap">
-          <p className="eyebrow">The work</p>
-          <h1 className="big" style={{ fontSize: 'clamp(34px, 5.6vw, 64px)' }}>
+          <p className="eyebrow" data-aos="fade-up">The work</p>
+          <h1 className="big" data-aos="fade-up" data-aos-delay="100" style={{ fontSize: 'clamp(34px, 5.6vw, 64px)' }}>
             EVERY ONE OF THESE EXISTS ONCE.
           </h1>
-          <p className="lead" style={{ marginTop: '16px' }}>
+          <p className="lead" data-aos="fade-up" data-aos-delay="150" style={{ marginTop: '16px' }}>
             Made live, at a desk, for one person. Filter by technique or by
             product.
           </p>
@@ -36,7 +36,7 @@ export default function WorkPage() {
             <WorkGrid />
           </Suspense>
 
-          <p className="sub" style={{ marginTop: '26px', fontSize: '14.5px' }}>
+          <p className="sub" data-aos="fade-up" data-aos-delay="100" style={{ marginTop: '26px', fontSize: '14.5px' }}>
             Each block carries its shot code from the production list.
             Photography is being shot now; the layout is final.
           </p>
@@ -45,8 +45,10 @@ export default function WorkPage() {
 
       <section className="band band-blush">
         <div className="wrap" style={{ textAlign: 'center' }}>
-          <h2 className="big">SEEN SOMETHING YOU WANT ON YOUR FLOOR?</h2>
+          <h2 className="big" data-aos="fade-up">SEEN SOMETHING YOU WANT ON YOUR FLOOR?</h2>
           <p
+            data-aos="fade-up"
+            data-aos-delay="100"
             style={{
               marginTop: '14px',
               maxWidth: '52ch',
@@ -59,6 +61,8 @@ export default function WorkPage() {
           </p>
           <div
             className="btns"
+            data-aos="fade-up"
+            data-aos-delay="150"
             style={{ marginTop: '26px', justifyContent: 'center' }}
           >
             <Button href="/services" variant="primary">

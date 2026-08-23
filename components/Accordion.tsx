@@ -10,6 +10,7 @@ interface AccordionProps {
   defaultOpen?: boolean;
   isOpen?: boolean;
   onToggle?: () => void;
+  aosDelay?: number;
 }
 
 export function Accordion({
@@ -19,6 +20,7 @@ export function Accordion({
   defaultOpen = false,
   isOpen: controlledIsOpen,
   onToggle,
+  aosDelay,
 }: AccordionProps) {
   const [uncontrolledIsOpen, setUncontrolledIsOpen] = useState(defaultOpen);
   const isControlled = controlledIsOpen !== undefined;
@@ -35,6 +37,8 @@ export function Accordion({
   return (
     <div
       className={`acc border border-rule bg-panel mb-2.5 shadow-sh transition-all duration-300 ${className}`.trim()}
+      data-aos="fade-up"
+      data-aos-delay={aosDelay}
     >
       <button
         type="button"
@@ -86,6 +90,7 @@ export function AccordionGroup({
           answer={item.a}
           isOpen={openIndex === idx}
           onToggle={() => setOpenIndex(openIndex === idx ? null : idx)}
+          aosDelay={(idx % 6) * 60}
         />
       ))}
     </div>

@@ -22,8 +22,8 @@ export default function FaqPage() {
     <>
       <section className="sec">
         <div className="wrap">
-          <p className="eyebrow">Questions</p>
-          <h1 className="big" style={{ fontSize: 'clamp(34px, 5.6vw, 60px)' }}>
+          <p className="eyebrow" data-aos="fade-up">Questions</p>
+          <h1 className="big" data-aos="fade-up" data-aos-delay="100" style={{ fontSize: 'clamp(34px, 5.6vw, 60px)' }}>
             EVERYTHING PEOPLE ASK.
           </h1>
           <div style={{ marginTop: '32px', maxWidth: '820px' }}>

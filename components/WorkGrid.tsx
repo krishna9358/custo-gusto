@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
+import AOS from 'aos';
 import { Photo } from './SharedSections';
 import { WORK_ITEMS, TECH_OPTIONS, PROD_OPTIONS, WorkItem } from '@/data/work';
 import Lightbox from './Lightbox';
@@ -31,6 +32,13 @@ export default function WorkGrid({ items = WORK_ITEMS }: { items?: WorkItem[] })
     }
   }, [searchParams]);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      AOS.refresh();
+    }, 50);
+    return () => clearTimeout(timer);
+  }, [techFilter, prodFilter]);
+
   const visibleItems = items.filter((i) => {
     const okT =
       techFilter === 'all' || i.tech === techFilter || i.tech === 'mixed';
@@ -41,7 +49,7 @@ export default function WorkGrid({ items = WORK_ITEMS }: { items?: WorkItem[] })
 
   return (
     <>
-      <div className="filters" id="f-tech">
+      <div className="filters" id="f-tech" data-aos="fade-up">
         {TECH_OPTIONS.map((opt) => (
           <button
             key={opt.value}
@@ -54,7 +62,7 @@ export default function WorkGrid({ items = WORK_ITEMS }: { items?: WorkItem[] })
           </button>
         ))}
       </div>
-      <div className="filters" id="f-prod">
+      <div className="filters" id="f-prod" data-aos="fade-up" data-aos-delay="80">
         {PROD_OPTIONS.map((opt) => (
           <button
             key={opt.value}
@@ -68,11 +76,13 @@ export default function WorkGrid({ items = WORK_ITEMS }: { items?: WorkItem[] })
         ))}
       </div>
       <div className="masonry scroll-mt-28" id="grid">
-        {visibleItems.map((i) => (
+        {visibleItems.map((i, idx) => (
           <div
             key={i.id}
             data-t={i.tech}
             data-p={i.prod}
+            data-aos="fade-up"
+            data-aos-delay={(idx % 6) * 60}
             className="cursor-pointer group"
             onClick={() => setSelectedItem(i)}
           >
