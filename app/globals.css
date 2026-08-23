@@ -50,9 +50,23 @@
     transition: none !important;
   }
 }
+html{
+  max-width:100%;
+  overflow-x:hidden;
+  overflow-x:clip;
+}
 body{margin:0;background:var(--ground);color:var(--ink);
   font-family:'Poppins','Segoe UI',system-ui,sans-serif;font-size:17px;line-height:1.62;
-  -webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  -webkit-font-smoothing:antialiased;
+  max-width:100%;
+  overflow-x:hidden;
+  overflow-x:clip;
+  position:relative;}
+main{
+  width:100%;
+  max-width:100%;
+  overflow-x:clip;
+}
 .d{font-family:'Best Curry','Poppins',sans-serif;font-weight:400;letter-spacing:.005em;}
 .hi{font-family:'Yatra One',serif;font-weight:400;}
 .wrap{max-width:var(--w);margin:0 auto;padding:0 var(--gut);}
@@ -146,7 +160,8 @@ h1,h2,h3{margin:0;text-wrap:balance;}
     display:block;
     position:fixed;
     inset:0;
-    width:100vw;
+    width:100%;
+    max-width:100%;
     height:100vh;
     height:100dvh;
     z-index:55;
@@ -665,7 +680,7 @@ tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--panel) 93%,var(--
 .tg{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(16px,2vw,24px);}
 /* homepage only: the same six cards run as a native horizontal rail — three full
    cards plus a peek of the fourth, overflow contained to this row */
-.tg-rail{--tg-gap:clamp(16px,2vw,24px);}
+.tg-rail{--tg-gap:clamp(16px,2vw,24px);width:100%;max-width:100%;}
 .tg-rail .tg{display:flex;gap:var(--tg-gap);overflow-x:auto;overflow-y:hidden;
   scroll-snap-type:x proximity;overscroll-behavior-x:contain;
   padding:8px 0 14px;margin:-8px 0 -6px;
