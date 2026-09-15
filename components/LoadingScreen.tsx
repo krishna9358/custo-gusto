@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { LemonLogo } from './Glyphs';
 
 export default function LoadingScreen() {
   const [loading, setLoading] = useState(true);
@@ -43,7 +44,10 @@ export default function LoadingScreen() {
     >
       <div className="loader-content">
         <div className="loader-logo-wrap">
-          <div className="loader-logo">CUSTO GUSTO</div>
+          <div className="loader-logo inline-flex items-center justify-center gap-2">
+            <span>CUSTO GUSTO</span>
+            <LemonLogo />
+          </div>
           <div className="loader-bar-wrap">
             <div className="loader-bar" />
           </div>

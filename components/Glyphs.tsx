@@ -38,6 +38,25 @@ export const WhatsAppIcon = ({
   </svg>
 );
 
+export const LemonLogo = ({
+  className = 'lemon-logo',
+  style,
+}: {
+  className?: string;
+  style?: React.CSSProperties;
+}) => (
+  <img
+    src="/img/lemon-logo.png"
+    alt="Custo Gusto Lemon Mascot"
+    className={`lemon-logo ${className}`.trim()}
+    style={style}
+    loading="lazy"
+    decoding="async"
+  />
+);
+
+
+
 export function bc(s: string): React.ReactNode[] {
   if (!s) return [];
   const parts = s.split(/([~\/●])/g);
