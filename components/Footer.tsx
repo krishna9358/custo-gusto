@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { FOOTER_PAGES } from '@/data/navigation';
+import { LemonLogo } from './Glyphs';
 
 export default function Footer() {
   return (
@@ -8,8 +9,9 @@ export default function Footer() {
       <div className="wrap">
         <div className="ftr-g">
           <div data-aos="fade-up">
-            <div className="d" style={{ fontSize: '26px' }}>
-              CUSTO GUSTO
+            <div className="d inline-flex items-center gap-2" style={{ fontSize: '26px' }}>
+              <span>CUSTO GUSTO</span>
+              <LemonLogo />
             </div>
             <p
               style={{
@@ -43,24 +45,20 @@ export default function Footer() {
           </div>
           <div data-aos="fade-up" data-aos-delay="150">
             <h4>Talk to us</h4>
-            <a href="https://wa.me/919654382799" target="_blank" rel="noopener noreferrer">+91 96543 82799</a>
+            <a href="tel:+919654382799">+91 96543 82799</a>
             <a href="mailto:laksh@custogusto.in">laksh@custogusto.in</a>
             <Link href="/contact">Noida &middot; Bangalore &middot; Delhi</Link>
-            <a
-              href="https://wa.me/919654382799"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ marginTop: '10px', color: 'var(--bagh)', fontWeight: 600 }}
-            >
-              WhatsApp us &rarr;
-            </a>
           </div>
         </div>
         <div className="ftr-b" data-aos="fade-up" data-aos-delay="200">
-          <span>&copy; 2026 Custo Gusto. All rights reserved.</span>
+          <span>
+            &copy; 2026 Custo Gusto{' '}
+            <LemonLogo style={{ height: '1.05em', verticalAlign: '-0.15em' }} />. All rights reserved.
+          </span>
           <span>Made in front of you. Never repeated.</span>
         </div>
       </div>
     </footer>
   );
 }
+

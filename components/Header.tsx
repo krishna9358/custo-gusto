@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { NAV_ITEMS } from '@/data/navigation';
 import { Button } from './Button';
+import { LemonLogo } from './Glyphs';
 
 export default function Header() {
   const [navOpen, setNavOpen] = useState(false);
@@ -32,10 +33,11 @@ export default function Header() {
       <div className="wrap hdr-in">
         <Link
           href="/"
-          className="logo transition-transform duration-200 hover:scale-[1.02]"
+          className="logo inline-flex items-center gap-2 transition-transform duration-200 hover:scale-[1.02]"
           onClick={() => setNavOpen(false)}
         >
-          CUSTO GUSTO
+          <span>CUSTO GUSTO</span>
+          <LemonLogo />
         </Link>
 
         {/* Hamburger toggle button */}
@@ -69,13 +71,6 @@ export default function Header() {
 
         {/* Desktop CTA */}
         <div className="hdr-cta desktop-cta" id="hcta">
-          <Button
-            href="https://wa.me/919654382799"
-            variant="live"
-            target="_blank"
-          >
-            WhatsApp
-          </Button>
           <Button href="/contact#book" variant="blush">
             Book a desk
           </Button>
@@ -114,14 +109,6 @@ export default function Header() {
             })}
           </nav>
           <div className="mob-cta">
-            <Button
-              href="https://wa.me/919654382799"
-              variant="live"
-              target="_blank"
-              onClick={() => setNavOpen(false)}
-            >
-              WhatsApp
-            </Button>
             <Button
               href="/contact#book"
               variant="blush"

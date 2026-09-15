@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { LemonLogo } from './Glyphs';
 
 /* one entry per story: the background stays put while the copy is revealed
    line by line as the reader scrolls */
@@ -74,7 +75,9 @@ export default function StorySequence() {
             </h1>
             <div className={`story-reveal story-prose${on(0, 1)}`}>
               <p>
-                Custo Gusto started during COVID, when retail had stopped and an
+                Custo Gusto{' '}
+                <LemonLogo style={{ height: '1.05em', verticalAlign: '-0.12em' }} />{' '}
+                started during COVID, when retail had stopped and an
                 embroidery business with thirty years behind it had machines
                 standing still. A father and daughter took one of them onto a
                 shop floor and asked a simple question: what if the customer

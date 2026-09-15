@@ -250,13 +250,6 @@ export function ClosingBand({ dare, sub }: { dare: string; sub: string }) {
             {sub}
           </p>
           <div className="btns" style={{ marginTop: '26px' }}>
-            <Button
-              href="https://wa.me/919654382799"
-              variant="live"
-              target="_blank"
-            >
-              WhatsApp us
-            </Button>
             <Button href="/contact" variant="primary">
               Get a price in 24 hours
             </Button>

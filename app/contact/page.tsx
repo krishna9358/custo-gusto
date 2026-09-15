@@ -42,17 +42,9 @@ export default function ContactPage() {
           </h1>
           <p className="lead" data-aos="fade-up" data-aos-delay="150" style={{ marginTop: '16px', color: 'var(--onmar)' }}>
             A shop floor, a launch in six weeks, or two hundred things that need to be
-            ready by Friday. Say which one it is and you will have an answer today
-            &mdash; WhatsApp is the fastest way.
+            ready by Friday. Say which one it is and you will have an answer today.
           </p>
           <div className="btns" data-aos="fade-up" data-aos-delay="200" style={{ marginTop: '28px' }}>
-            <Button
-              href="https://wa.me/919654382799"
-              variant="live"
-              target="_blank"
-            >
-              WhatsApp us
-            </Button>
             <Button
               href="https://mail.google.com/mail/?view=cm&fs=1&to=laksh@custogusto.in&su=Custo%20Gusto%20enquiry"
               variant="primary"

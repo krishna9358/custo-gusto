@@ -7,12 +7,13 @@ interface ButtonProps {
   href?: string;
   variant?: 'primary' | 'ghost' | 'live' | 'blush';
   icon?: 'whatsapp' | 'play' | 'mail' | 'arrow' | 'none';
-  children: React.ReactNode;
+  children?: React.ReactNode;
   target?: string;
   rel?: string;
   type?: 'button' | 'submit' | 'reset';
   className?: string;
   onClick?: () => void;
+  'aria-label'?: string;
 }
 
 export function Button({
@@ -25,7 +26,11 @@ export function Button({
   type = 'button',
   className = '',
   onClick,
+  'aria-label': ariaLabel,
 }: ButtonProps) {
+  const isWhatsApp = icon === 'whatsapp' || (href && href.includes('wa.me'));
+  const isIconOnly = isWhatsApp && (!children || children === 'WhatsApp' || children === 'WhatsApp us');
+
   const variantClass =
     variant === 'primary'
       ? 'btn-p'
@@ -35,15 +40,17 @@ export function Button({
       ? 'btn-live'
       : 'btn-blush';
 
+  const iconOnlyClass = isIconOnly ? 'btn-icon' : '';
+
   const combinedClass =
-    `btn ${variantClass} group inline-flex items-center gap-2 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 ${className}`.trim();
+    `btn ${variantClass} ${iconOnlyClass} group inline-flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 ${className}`.trim();
 
   // Determine icon to render
   let IconComponent: React.ReactNode = null;
 
-  if (icon === 'whatsapp' || (href && href.includes('wa.me'))) {
+  if (isWhatsApp) {
     IconComponent = (
-      <WhatsAppIcon className="w-4 h-4 transition-transform duration-200 group-hover:scale-110" />
+      <WhatsAppIcon className="w-5 h-5 transition-transform duration-200 group-hover:scale-110" />
     );
   } else if (icon === 'play' || (href && href.includes('youtube.com'))) {
     IconComponent = (
@@ -59,10 +66,12 @@ export function Button({
     );
   }
 
+  const effectiveAriaLabel = ariaLabel || (isIconOnly ? 'WhatsApp' : undefined);
+
   const content = (
     <>
       {IconComponent}
-      <span>{children}</span>
+      {!isIconOnly && children && <span>{children}</span>}
     </>
   );
 
@@ -75,21 +84,33 @@ export function Button({
           target={target}
           rel={rel || (target === '_blank' ? 'noopener noreferrer' : undefined)}
           onClick={onClick}
+          aria-label={effectiveAriaLabel}
         >
           {content}
         </a>
       );
     }
     return (
-      <Link href={href} className={combinedClass} onClick={onClick}>
+      <Link
+        href={href}
+        className={combinedClass}
+        onClick={onClick}
+        aria-label={effectiveAriaLabel}
+      >
         {content}
       </Link>
     );
   }
 
   return (
-    <button type={type} className={combinedClass} onClick={onClick}>
+    <button
+      type={type}
+      className={combinedClass}
+      onClick={onClick}
+      aria-label={effectiveAriaLabel}
+    >
       {content}
     </button>
   );
 }
+

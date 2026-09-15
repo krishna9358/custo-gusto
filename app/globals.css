@@ -147,9 +147,78 @@ h1,h2,h3{margin:0;text-wrap:balance;}
 :root[data-theme="dark"] .btn-g{color:var(--marigold);border-color:var(--marigold);}
 :root[data-theme="dark"] .band-mar .btn-g,
 :root[data-theme="dark"] .band-peri .btn-g{color:var(--indigo);border-color:var(--indigo);}
+/* ---- compact icon button (WhatsApp) ---- */
+.btn-icon{padding:0 !important;width:44px;height:44px;min-width:44px;min-height:44px;max-width:44px;
+  display:inline-flex;align-items:center;justify-content:center;flex:none;box-sizing:border-box;}
+.btn-icon svg{width:20px;height:20px;display:block;}
+.hdr-cta .btn-icon{width:39px;height:39px;min-width:39px;min-height:39px;max-width:39px;padding:0 !important;}
+.hdr-cta .btn-icon svg{width:18px;height:18px;}
+.mob-cta .btn-icon{width:48px;height:48px;min-width:48px;min-height:48px;max-width:48px;padding:0 !important;flex:none;}
+.mob-cta .btn-icon svg{width:22px;height:22px;}
+
+/* ---- lemon brand mascot logo ---- */
+.lemon-logo{display:inline-block;height:1.35em;width:auto;vertical-align:middle;object-fit:contain;flex-shrink:0;}
+.logo .lemon-logo{height:1.38em;margin-left:5px;}
+.d .lemon-logo{height:1.35em;margin-left:5px;}
+.loader-logo .lemon-logo{height:1.35em;margin-left:6px;}
+.ftr-b .lemon-logo{height:1.2em;margin-left:3px;vertical-align:-0.18em;}
+.story-prose .lemon-logo{height:1.25em;margin-left:3px;margin-right:1px;vertical-align:-0.18em;}
+
+/* ---- fixed circular floating WhatsApp button ---- */
+.wa-fab{
+  position:fixed;
+  bottom:clamp(20px, 3.5vw, 30px);
+  right:clamp(20px, 3.5vw, 30px);
+  z-index:90;
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  background:var(--bagh);
+  color:#052419;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 3px 12px rgba(0,0,0,0.18), 0 1px 4px rgba(0,0,0,0.08);
+  text-decoration:none;
+  cursor:pointer;
+  outline:none;
+  transition:transform .2s ease, filter .2s ease, box-shadow .2s ease;
+}
+.wa-fab:hover{
+  transform:scale(1.06) translateY(-2px);
+  filter:brightness(1.05);
+  box-shadow:0 5px 18px rgba(0,0,0,0.22), 0 2px 6px rgba(0,0,0,0.12);
+  color:#000;
+}
+.wa-fab:active{
+  transform:scale(0.96) translateY(0);
+}
+.wa-fab-icon{
+  width:28px;
+  height:28px;
+  fill:currentColor;
+  display:block;
+  transition:transform .2s ease;
+}
+.wa-fab:hover .wa-fab-icon{
+  transform:scale(1.05);
+}
+
 @media (max-width:480px){
   .btn{padding:12px 18px;font-size:14px;width:100%;justify-content:center;}
+  .btn-icon{width:44px !important;height:44px !important;min-width:44px !important;min-height:44px !important;max-width:44px !important;padding:0 !important;flex:none !important;}
   .btns{flex-direction:column;width:100%;}
+  .btns .btn-icon{align-self:flex-start;}
+  .wa-fab{
+    bottom:max(16px, env(safe-area-inset-bottom, 16px));
+    right:max(16px, env(safe-area-inset-right, 16px));
+    width:52px;
+    height:52px;
+  }
+  .wa-fab-icon{
+    width:26px;
+    height:26px;
+  }
 }
 
 /* ---- stickers ---- */
@@ -994,7 +1063,9 @@ tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--panel) 93%,var(--
   animation: loaderPulse 1.8s ease-in-out infinite;
 }
 
-:root[data-theme="dark"] .loader-logo,
+:root[data-theme="dark"] .loader-logo {
+  color: var(--marigold);
+}
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .loader-logo {
     color: var(--marigold);

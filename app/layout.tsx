@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import AosProvider from '@/components/AosProvider';
 import LoadingScreen from '@/components/LoadingScreen';
+import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 
 export const metadata = {
   title: 'Custo Gusto — Made in front of you. Never repeated.',
@@ -30,8 +31,10 @@ export default function RootLayout({
         <Header />
         <main id="main">{children}</main>
         <Footer />
+        <FloatingWhatsApp />
         <AosProvider />
       </body>
     </html>
   );
 }
+
