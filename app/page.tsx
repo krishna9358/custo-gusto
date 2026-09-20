@@ -32,6 +32,7 @@ import {
 import { COVERAGE_CHIPS, coverageSlug } from '@/data/engines';
 import { TRUSTED_LOGOS } from '@/data/clients';
 import { Button } from '@/components/Button';
+import { TouchCarousel } from '@/components/TouchCarousel';
 
 
 export default function Home() {
@@ -132,7 +133,7 @@ export default function Home() {
                     <Link
                       key={i}
                       href={`/work?prod=${slug}`}
-                      className={`chip transition-transform duration-200 hover:scale-105 ${i === 0 ? 'on' : ''}`}
+                      className="chip transition-transform duration-200 hover:scale-105"
                     >
                       {c}
                     </Link>
@@ -140,7 +141,14 @@ export default function Home() {
                 })}
               </div>
             </div>
-            <div className="lg:col-span-7 touch-photos">
+
+            {/* Mobile Carousel */}
+            <div className="block lg:hidden w-full" data-aos="fade-up">
+              <TouchCarousel />
+            </div>
+
+            {/* Desktop Photo Stack */}
+            <div className="hidden lg:grid lg:col-span-7 touch-photos">
               <div data-aos="fade-up">
                 <Photo
                   imgKey="touch_shoes"
