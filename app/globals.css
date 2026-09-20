@@ -535,10 +535,10 @@ h3.mid{font-family:'Best Curry','Poppins',sans-serif;font-weight:400;
 .stars{color:var(--marigold);font-size:19px;letter-spacing:2px;line-height:1;margin-bottom:7px;}
 
 /* ---- "almost everything": sticky left panel, one photo at a time on the right ---- */
-.touch-photos{display:grid;grid-template-columns:1fr;gap:16px;}
+.touch-photos{display:none;}
 @media (min-width:1024px){
   /* one photo fills the frame before the next arrives */
-  .touch-photos{gap:clamp(28px,15vh,170px);}
+  .touch-photos{display:grid;grid-template-columns:1fr;gap:clamp(28px,15vh,170px);}
   .touch-left{position:sticky;top:74px;align-self:start;
     min-height:calc(100vh - 74px);display:flex;flex-direction:column;justify-content:center;}
 }
