@@ -22,7 +22,8 @@ import {
 } from '@/components/SharedSections';
 import { Button } from '@/components/Button';
 import { Sticker } from '@/components/Sticker';
-import { TRUSTED_LOGOS, TICKETS_DATA, CASES_DATA } from '@/data/clients';
+import { ClientsCarousel } from '@/components/ClientsCarousel';
+import { TRUSTED_LOGOS, TICKETS_DATA } from '@/data/clients';
 
 export default function ClientsPage() {
   return (
@@ -95,7 +96,7 @@ export default function ClientsPage() {
         </div>
       </section>
 
-      <section className="sec">
+      <section className="sec" id="one8" style={{ paddingBottom: 'calc(var(--pad) * 0.25)' }}>
         <div className="wrap">
           <div className="split">
             <div data-aos="fade-up">
@@ -144,32 +145,13 @@ export default function ClientsPage() {
         </div>
       </section>
 
-      <section className="sec-sm">
+      <section style={{ padding: 'calc(var(--pad) * 0.2) 0' }}>
         <div className="wrap">
-          <div className="case-mq" data-aos="fade-up">
-            <div className="case-track">
-              {CASES_DATA.concat(CASES_DATA).map((c, i) => (
-                <div
-                  className="case"
-                  key={`${c.title}-${i}`}
-                  aria-hidden={i >= CASES_DATA.length ? true : undefined}
-                >
-                  <div className="ct">{c.title}</div>
-                  <div className="cm">{c.meta}</div>
-                  <p>{c.body}</p>
-                  {c.noteLabel && (
-                    <p style={{ marginTop: '10px' }}>
-                      <strong>{c.noteLabel}</strong> {c.noteText}
-                    </p>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
+          <ClientsCarousel />
         </div>
       </section>
 
-      <section className="sec">
+      <section className="sec" style={{ paddingTop: 'calc(var(--pad) * 0.25)' }}>
         <div className="wrap rwrap">
           <div className="rm-stk" data-aos="fade-down">
             <Sticker isHindi style={{ fontSize: '13px' }}>

@@ -9,6 +9,7 @@ export default function Ticker() {
     '~5 MIN LIVE',
     '500+ FIVE STAR REVIEWS',
     '13 LIVE DESKS',
+    '5 LIVE EVENTS',
     'NEVER REPEATED',
   ];
 

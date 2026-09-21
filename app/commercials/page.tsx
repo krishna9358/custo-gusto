@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Commercial Engagement Models & Pricing | Custo Gusto',
   description:
-    'Four business shapes: fixed monthly rental, ownership plus services, pay-per-use for events, and subscription. Transparent pricing and nationwide rollout.',
+    'Three business shapes: fixed monthly rental, pay-per-use for events, and job work orders. Transparent pricing and nationwide rollout.',
   keywords: [
     'retail desk rental',
     'event activation pricing',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 };
 import { ClosingBand } from '@/components/SharedSections';
 import { AccordionGroup } from '@/components/Accordion';
-import ModelSequence from '@/components/ModelSequence';
+import { CommercialCards } from '@/components/CommercialCards';
 import { Button } from '@/components/Button';
 import { COMMERCIAL_FAQS } from '@/data/faq';
 import { DIALS_DATA } from '@/data/clients';
@@ -42,11 +42,39 @@ const INCLUSIONS = [
 export default function CommercialsPage() {
   return (
     <>
-      <section className="sec-models">
-        <ModelSequence />
+      <section className="sec comm-hero">
+        <div className="wrap">
+          <p className="eyebrow" data-aos="fade-up">Commercials</p>
+          <h1
+            className="big"
+            data-aos="fade-up"
+            data-aos-delay="100"
+            style={{
+              fontSize: 'clamp(34px, 5.6vw, 64px)',
+            }}
+          >
+            THREE WAYS TO WORK WITH US.
+          </h1>
+          <p
+            className="lead"
+            data-aos="fade-up"
+            data-aos-delay="150"
+            style={{
+              marginTop: '18px',
+            }}
+          >
+            Pick the shape that fits your floor. We bring everything else.
+          </p>
+        </div>
       </section>
 
       <section className="sec-sm">
+        <div className="wrap">
+          <CommercialCards />
+        </div>
+      </section>
+
+      <section className="sec-sm" style={{ paddingBottom: 'calc(var(--pad) * 0.2)' }}>
         <div className="wrap">
           <h2 className="big" data-aos="fade-up">SIDE BY SIDE.</h2>
           <div className="tw" data-aos="fade-up" data-aos-delay="100">
@@ -68,15 +96,10 @@ export default function CommercialsPage() {
                     Machines, operator, designer, materials, 365-day maintenance
                   </td>
                   <td>6 months+</td>
-                  <td>Permanent retail desk</td>
-                </tr>
-                <tr>
                   <td>
-                    <strong>Ownership + services</strong>
+                    <div>Permanent retail desk</div>
+                    <div style={{ marginTop: '4px' }}>Multi-store rollout</div>
                   </td>
-                  <td>Operation, maintenance, materials, design back-end</td>
-                  <td>Long term</td>
-                  <td>Multi-store rollout</td>
                 </tr>
                 <tr>
                   <td>
@@ -84,15 +107,10 @@ export default function CommercialsPage() {
                   </td>
                   <td>Everything, for the window you book</td>
                   <td>3&ndash;14 days</td>
-                  <td>Launches, drops, festivals</td>
-                </tr>
-                <tr>
                   <td>
-                    <strong>Subscription</strong>
+                    <div>Launches, drops, festivals</div>
+                    <div style={{ marginTop: '4px' }}>Seasonal programmes</div>
                   </td>
-                  <td>Ongoing access plus design back-end</td>
-                  <td>Rolling</td>
-                  <td>Seasonal programmes</td>
                 </tr>
                 <tr>
                   <td>
@@ -108,9 +126,11 @@ export default function CommercialsPage() {
         </div>
       </section>
 
-      <section className="band band-blush">
+      <section style={{ padding: 'calc(var(--pad) * 0.2) 0' }}>
         <div className="wrap">
-          <h2 className="big" data-aos="fade-up">INCLUDED IN EVERY MODEL.</h2>
+          <h2 className="big" data-aos="fade-up" style={{ color: 'var(--brick)' }}>
+            INCLUDED IN EVERY MODEL.
+          </h2>
         </div>
         <div className="incl-marquee" style={{ marginTop: '28px' }} data-aos="fade-up" data-aos-delay="100">
           <div className="incl-track">
@@ -134,7 +154,7 @@ export default function CommercialsPage() {
         </div>
       </section>
 
-      <section className="sec sec-dials">
+      <section className="sec sec-dials" style={{ paddingTop: 'calc(var(--pad) * 0.2)' }}>
         <div className="wrap">
           <p className="eyebrow" data-aos="fade-up">Before you ask</p>
           <h2 className="big" data-aos="fade-up" data-aos-delay="100">WHAT MOVES THE NUMBER.</h2>
@@ -152,6 +172,7 @@ export default function CommercialsPage() {
                 </div>
                 <div className="dl-ends">
                   <span>{d.min}</span>
+                  {d.mid && <span>{d.mid}</span>}
                   <span>{d.max}</span>
                 </div>
                 <div className="dl-d">{d.desc}</div>

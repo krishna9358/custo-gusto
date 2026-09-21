@@ -45,7 +45,7 @@ export const GENERAL_FAQS: FaqItem[] = [
   },
   {
     q: 'What is the pricing structure?',
-    a: 'There are four engagement models: rental, ownership plus services, pay-per-use, and subscription. Job work is priced per order. Which one fits depends on your floor and your calendar, so we would rather agree a shape first and then put real numbers against it.',
+    a: 'There are three engagement models: rental, pay-per-use, and job work. Which one fits depends on your floor and your calendar, so we would rather agree a shape first and then put real numbers against it.',
   },
   {
     q: 'Do you offer long-term and short-term models?',

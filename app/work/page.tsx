@@ -17,6 +17,7 @@ export const metadata: Metadata = {
 import WorkGrid from '@/components/WorkGrid';
 import { ClosingBand } from '@/components/SharedSections';
 import { Button } from '@/components/Button';
+import { ScrollToTop } from '@/components/ScrollToTop';
 
 export default function WorkPage() {
   return (
@@ -79,6 +80,7 @@ export default function WorkPage() {
         dare="MADE ONCE. NEVER AGAIN."
         sub="Every piece on this page belongs to one person and exists nowhere else."
       />
+      <ScrollToTop />
     </>
   );
 }

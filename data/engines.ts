@@ -6,6 +6,7 @@ export interface EngineItem {
   solution: string;
   proof: string;
   href: string;
+  cta?: string;
 }
 
 export const ENGINES_DATA: EngineItem[] = [
@@ -18,7 +19,8 @@ export const ENGINES_DATA: EngineItem[] = [
     solution:
       'We put a desk on your floor with a machine, an operator and a designer on it, and we keep it running every day. It gives a person a reason to come in that nothing online can match.',
     proof: '13 desks running today',
-    href: '/services',
+    href: '/commercials',
+    cta: 'See Models',
   },
   {
     swatch: 'e-mar',
@@ -29,7 +31,8 @@ export const ENGINES_DATA: EngineItem[] = [
     solution:
       'We bring the whole desk to your event for a few days and make something for each guest while they watch. They leave holding it, and they film it themselves.',
     proof: '300+ made in one evening',
-    href: '/services',
+    href: '/clients#one8',
+    cta: 'See One8 Story',
   },
   {
     swatch: 'e-bri',
@@ -40,7 +43,8 @@ export const ENGINES_DATA: EngineItem[] = [
     solution:
       'Send us the product, or we will find it. Tell us what goes on it. We make it here and send it back finished.',
     proof: 'Six ways to mark a thing',
-    href: '/services',
+    href: '/contact',
+    cta: 'Send us a Brief',
   },
 ];
 

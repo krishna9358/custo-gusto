@@ -8,6 +8,7 @@ export interface DialItem {
   title: string;
   pct: number;
   min: string;
+  mid?: string;
   max: string;
   desc: string;
 }
@@ -49,9 +50,10 @@ export const TICKETS_DATA: TicketItem[] = [
 export const DIALS_DATA: DialItem[] = [
   {
     title: 'Days',
-    pct: 82,
+    pct: 100,
     min: '3 days',
-    max: '6 months',
+    mid: '6 months',
+    max: 'Years',
     desc: 'The biggest single factor, by a distance.',
   },
   {
@@ -63,8 +65,9 @@ export const DIALS_DATA: DialItem[] = [
   },
   {
     title: 'Techniques',
-    pct: 40,
-    min: 'Transfers',
+    pct: 100,
+    min: 'Print',
+    mid: 'Laser',
     max: 'Embroidery',
     desc: 'Thread and foil take longer than pressing.',
   },

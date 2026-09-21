@@ -1,10 +1,15 @@
-import React from 'react';
+'use client';
+
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Dot, bc } from './Glyphs';
 import { Button } from './Button';
 import { ShoeCarousel } from './ShoeCarousel';
 import { ENGINES_DATA } from '@/data/engines';
 import { TECHS_DATA } from '@/data/techniques';
+import { TICKETS_DATA } from '@/data/clients';
+import { Sticker } from './Sticker';
 
 export const IMG_KEYS: Record<string, string> = {
   contact_e1: '/img/contact_e1.jpg',
@@ -42,6 +47,12 @@ export const IMG_KEYS: Record<string, string> = {
   'shoe-07-blue-orange-on-foot': '/img/shoe-07-blue-orange-on-foot.jpg',
   'shoe-09-hrithik-product': '/img/shoe-09-hrithik-product.jpg',
   'shoe-10-red-cloud-on-foot': '/img/shoe-10-red-cloud-on-foot.jpg',
+  '01-shoe-cursive-10-embroidered': '/img/01-shoe-cursive-10-embroidered.jpg',
+  '05-dtf-heat-press-process': '/img/05-dtf-heat-press-process.jpg',
+  'dhf-09-hands-loading-machine': '/img/dhf-09-hands-loading-machine.jpg',
+  '04-machine-rotary-tumbler': '/img/04-machine-rotary-tumbler.jpg',
+  '02-uv-phone-case-wide': '/img/02-uv-phone-case-wide.jpg',
+  '04-orange-character-model-portrait': '/img/04-orange-character-model-portrait.jpg',
 };
 
 export function Slot({
@@ -186,7 +197,7 @@ export function Engines() {
               <b style={{ fontSize: '16px' }}>{e.proof}</b>
             </div>
             <div className="eng-go group-hover:translate-x-1 transition-transform duration-200">
-              See how this works &rarr;
+              {e.cta || 'See how this works'} &rarr;
             </div>
           </div>
         </Link>
@@ -195,48 +206,181 @@ export function Engines() {
   );
 }
 
-export function TechGrid() {
+export function SameDeskDifferentRooms() {
   return (
-    <div className="tg">
-      {TECHS_DATA.map((t, idx) => (
-        <div
-          key={idx}
-          className={`tk rv transition-all duration-300 hover:-translate-y-1.5 hover:shadow-sh-lg ${
-            t.isHero ? 'hero' : ''
-          }`}
-          data-aos="fade-up"
-          data-aos-delay={(idx % 3) * 100}
-        >
-          <div className="tk-top">
-            <div className="tk-name">{bc(t.name)}</div>
-            {t.isLive ? (
-              <span className="tk-live on">
-                <Dot /> Live
-              </span>
-            ) : (
-              <span className="tk-live off">Applied live</span>
-            )}
-          </div>
-          <div className="tk-hook">{t.hook}</div>
-          <p className="tk-desc">{t.body}</p>
-          <div className="tk-goes">Goes on</div>
-          <div className="chips2">
-            {t.chips.map((c, i) => (
-              <span key={i} className="chip">
-                {c}
-              </span>
-            ))}
-          </div>
-          <div className="tk-foot">
-            <span className="tk-time">{t.time}</span>
-          </div>
-          <details className="sci">
-            <summary>How it actually works</summary>
-            <p dangerouslySetInnerHTML={{ __html: t.technical }} />
-          </details>
+    <section className="sec">
+      <div className="wrap rwrap">
+        <div className="rm-stk" data-aos="fade-down">
+          <Sticker isHindi style={{ fontSize: '13px' }}>
+            आपका. सिर्फ़ आपका.
+          </Sticker>
         </div>
-      ))}
-    </div>
+        <p className="eyebrow" data-aos="fade-up">Beyond retail</p>
+        <h2 className="big" data-aos="fade-up" data-aos-delay="100">THE SAME DESK, DIFFERENT ROOMS.</h2>
+        <p className="sub" style={{ marginTop: '12px', maxWidth: '52ch' }} data-aos="fade-up" data-aos-delay="150">
+          A festival floor, a hotel lobby, a wedding. Same machines, same
+          people, entirely different night.
+        </p>
+        <div className="tks">
+          {TICKETS_DATA.map((r, i) => (
+            <div className="tk2" key={i} data-aos="fade-up" data-aos-delay={i * 100}>
+              <div className="tk2-t">{r.title}</div>
+              <div className="tk2-d">{r.desc}</div>
+              <span className="tk2-f">{r.tag}</span>
+            </div>
+          ))}
+        </div>
+        <div className="rm-cta" style={{ marginTop: '30px' }} data-aos="fade-up" data-aos-delay="200">
+          <Button href="/contact" variant="primary">
+            Tell us about your event
+          </Button>
+          <Button href="/work" variant="ghost">
+            See the work
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function TechGrid({
+  eyebrow = 'Six techniques · in-house design always included',
+  title = 'SIX WAYS TO MARK A THING.',
+  subtitle,
+}: {
+  eyebrow?: string;
+  title?: string;
+  subtitle?: string;
+}) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const checkScrollLimits = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const { scrollLeft, scrollWidth, clientWidth } = el;
+    setCanScrollLeft(scrollLeft > 4);
+    setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 4);
+  }, []);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    checkScrollLimits();
+    el.addEventListener('scroll', checkScrollLimits, { passive: true });
+    window.addEventListener('resize', checkScrollLimits);
+    return () => {
+      el.removeEventListener('scroll', checkScrollLimits);
+      window.removeEventListener('resize', checkScrollLimits);
+    };
+  }, [checkScrollLimits]);
+
+  const handleScroll = (direction: 'left' | 'right') => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const firstCard = el.firstElementChild as HTMLElement | null;
+    const scrollStep = firstCard ? firstCard.offsetWidth + 20 : el.clientWidth * 0.8;
+    el.scrollBy({
+      left: direction === 'left' ? -scrollStep : scrollStep,
+      behavior: 'smooth',
+    });
+  };
+
+  return (
+    <>
+      <div className="tg-head" data-aos="fade-up">
+        <div>
+          {eyebrow && <p className="eyebrow">{eyebrow}</p>}
+          <h2 className="big" data-aos="fade-up" data-aos-delay="100" style={{ color: 'var(--brick)' }}>{title}</h2>
+        </div>
+        <div className="tg-nav" aria-label="Carousel navigation" data-aos="fade-up" data-aos-delay="120">
+          <button
+            type="button"
+            aria-label="Previous technique"
+            onClick={() => handleScroll('left')}
+            disabled={!canScrollLeft}
+            className={`tg-nav-btn ${!canScrollLeft ? 'disabled' : ''}`}
+          >
+            <ChevronLeft className="w-5 h-5" strokeWidth={2.2} />
+          </button>
+          <button
+            type="button"
+            aria-label="Next technique"
+            onClick={() => handleScroll('right')}
+            disabled={!canScrollRight}
+            className={`tg-nav-btn ${!canScrollRight ? 'disabled' : ''}`}
+          >
+            <ChevronRight className="w-5 h-5" strokeWidth={2.2} />
+          </button>
+        </div>
+      </div>
+
+      <div className="tg-rail" style={{ marginTop: '30px' }}>
+        <div className="tg" ref={scrollRef}>
+          {TECHS_DATA.map((t, idx) => (
+            <div
+              key={idx}
+              className={`tk ${t.isHero ? 'hero' : ''}`}
+              data-aos="fade-up"
+              data-aos-delay={(idx % 3) * 100}
+            >
+              <div className="tk-media">
+                <img
+                  src={t.image}
+                  alt={t.name}
+                  className="tk-img"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+
+              <div className="tk-inner">
+                <div className="tk-top">
+                  <div className="tk-name">{bc(t.name)}</div>
+                  {t.isLive ? (
+                    <span className="tk-live on">
+                      <Dot /> Live
+                    </span>
+                  ) : (
+                    <span className="tk-live off">Applied live</span>
+                  )}
+                </div>
+                <div className="tk-hook">{t.hook}</div>
+                <p className="tk-desc">{t.body}</p>
+                {t.chips && t.chips.length > 0 && (
+                  <div className="scale-card-tags" style={{ marginTop: '2px' }}>
+                    {t.chips.map((c, i) => (
+                      <span key={i} className="scale-tag">
+                        {c}
+                      </span>
+                    ))}
+                  </div>
+                )}
+                <div className="tk-foot">
+                  <span className="tk-time">{t.time}</span>
+                </div>
+                <details className="sci">
+                  <summary>How it actually works</summary>
+                  <p dangerouslySetInnerHTML={{ __html: t.technical }} />
+                </details>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {subtitle && (
+        <p
+          className="sub"
+          style={{ marginTop: '20px', fontSize: '15px' }}
+          data-aos="fade-up"
+          data-aos-delay="150"
+        >
+          {subtitle}
+        </p>
+      )}
+    </>
   );
 }
 
