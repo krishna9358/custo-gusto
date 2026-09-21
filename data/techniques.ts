@@ -7,6 +7,7 @@ export interface TechItem {
   isLive: boolean;
   technical: string;
   isHero: boolean;
+  image: string;
 }
 
 export const TECHS_DATA: TechItem[] = [
@@ -20,6 +21,7 @@ export const TECHS_DATA: TechItem[] = [
     technical:
       'A needle and thread worked into the material itself by machine. Nothing is printed and nothing sits on top — the design is built out of the fabric.',
     isHero: true,
+    image: '/img/01-shoe-cursive-10-embroidered.jpg',
   },
   {
     name: 'DTF print',
@@ -31,6 +33,7 @@ export const TECHS_DATA: TechItem[] = [
     technical:
       'Direct-to-film. Artwork prints onto a carrier film, adhesive is cured onto the wet ink, then the whole thing is fused into the fabric under heat. The printing happens beforehand; the pressing happens in front of you.',
     isHero: false,
+    image: '/img/05-dtf-heat-press-process.jpg',
   },
   {
     name: 'Digital hot foil',
@@ -42,6 +45,7 @@ export const TECHS_DATA: TechItem[] = [
     technical:
       'Metallic foil bonded to the surface with heat. Because no metal plate has to be cut first, even hairline detail comes out clean.',
     isHero: false,
+    image: '/img/dhf-09-hands-loading-machine.jpg',
   },
   {
     name: 'Laser engraving',
@@ -53,6 +57,7 @@ export const TECHS_DATA: TechItem[] = [
     technical:
       'A laser burns the design into the surface. Nothing is added and nothing sits on top, so there is no layer that can lift, wash off or wear away.',
     isHero: false,
+    image: '/img/04-machine-rotary-tumbler.jpg',
   },
   {
     name: 'UV stickers',
@@ -64,6 +69,7 @@ export const TECHS_DATA: TechItem[] = [
     technical:
       'The same idea as DTF, built for hard surfaces. The design is UV-printed onto a film and cured on the spot, a second film is laminated over it, then it is pressed onto the object and the film peeled away. <strong>No heat at all</strong> — which is why it will sit on glass, metal and curves a press could never reach.',
     isHero: false,
+    image: '/img/02-uv-phone-case-wide.jpg',
   },
   {
     name: 'Iron-on patches',
@@ -75,5 +81,6 @@ export const TECHS_DATA: TechItem[] = [
     technical:
       'Embroidered separately, then heat-set into place. The patch is cut for one person; only the pressing happens at the desk.',
     isHero: false,
+    image: '/img/04-orange-character-model-portrait.jpg',
   },
 ];

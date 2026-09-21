@@ -33,6 +33,7 @@ import { COVERAGE_CHIPS, coverageSlug } from '@/data/engines';
 import { TRUSTED_LOGOS } from '@/data/clients';
 import { Button } from '@/components/Button';
 import { TouchCarousel } from '@/components/TouchCarousel';
+import { ScaleCasesSection } from '@/components/ScaleCasesSection';
 
 
 export default function Home() {
@@ -204,18 +205,10 @@ export default function Home() {
 
       <section className="sec">
         <div className="wrap">
-          <p className="eyebrow" data-aos="fade-up">
-            Six techniques &middot; in-house design always included
-          </p>
-          <h2 className="big" data-aos="fade-up" data-aos-delay="100">SIX WAYS TO MARK A THING.</h2>
-          <div className="tg-rail" style={{ marginTop: '30px' }}>
-            <TechGrid />
-          </div>
-          <p className="sub" style={{ marginTop: '20px', fontSize: '15px' }} data-aos="fade-up" data-aos-delay="150">
-            In-house design is included in every engagement and is never a
-            separate line. It is what makes each piece one-of-one instead of a
-            template.
-          </p>
+          <TechGrid
+            eyebrow="Six techniques &middot; in-house design always included"
+            subtitle="In-house design is included in every engagement and is never a separate line. It is what makes each piece one-of-one instead of a template."
+          />
         </div>
       </section>
 
@@ -251,89 +244,7 @@ export default function Home() {
 
       <section className="sec">
         <div className="wrap">
-          <div className="split split-night">
-            <div className="night-grid">
-              <div data-aos="fade-up">
-                <Photo
-                  imgKey="svc_c1"
-                  alt="An embroidery machine stitching a name into a bag"
-                  shape="ph-16"
-                />
-              </div>
-              <div data-aos="fade-up" data-aos-delay="80">
-                <Photo
-                  imgKey="w17"
-                  alt="A pair, embroidered"
-                  shape="ph-16"
-                />
-              </div>
-              <div data-aos="fade-up" data-aos-delay="120">
-                <Photo
-                  imgKey="w14"
-                  alt="Caps, a set"
-                  shape="ph-16"
-                />
-              </div>
-              <div data-aos="fade-up" data-aos-delay="80">
-                <Photo
-                  imgKey="svc_a10"
-                  alt="Finished pieces in wood, metal, leather and acrylic"
-                  shape="ph-16"
-                />
-              </div>
-              <div data-aos="fade-up" data-aos-delay="120">
-                <Photo
-                  imgKey="svc_e1"
-                  alt="A heat press closing onto a garment"
-                  shape="ph-16"
-                />
-              </div>
-              <div data-aos="fade-up" data-aos-delay="160">
-                <Photo
-                  imgKey="w09"
-                  alt="Personalised patches"
-                  shape="ph-16"
-                />
-              </div>
-            </div>
-            <div className="night-side">
-              <div className="night-text" data-aos="fade-up">
-                <p className="eyebrow">The biggest night we have had</p>
-                <h2 className="big">THE NIGHT THE QUEUE DID NOT MOVE.</h2>
-                <p className="lead" style={{ marginTop: '12px' }}>
-                  Virat Kohli&rsquo;s one8 Global Premiere at Yashobhoomi, with
-                  District by Zomato. Four machines, eight operators, three
-                  designers.
-                </p>
-              </div>
-              <div className="night-lower">
-                <div className="stats-stack">
-                  <div className="tile" data-aos="fade-up" data-aos-delay="100">
-                    <div className="v">300+</div>
-                    <div className="l">Pieces in one evening</div>
-                  </div>
-                  <div className="tile" data-aos="fade-up" data-aos-delay="150">
-                    <div className="v">5 hrs</div>
-                    <div className="l">Start to finish</div>
-                  </div>
-                  <div className="tile" data-aos="fade-up" data-aos-delay="200">
-                    <div className="v">4</div>
-                    <div className="l">Machines running</div>
-                  </div>
-                </div>
-                <div className="btns stats-btn" data-aos="fade-up" data-aos-delay="250">
-                  <a
-                    className="btn btn-live"
-                    href="https://youtube.com/shorts/PFZjzmlq5LI"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Dot /> Watch what the world saw
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <ScaleCasesSection />
         </div>
       </section>
 
