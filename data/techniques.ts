@@ -71,16 +71,4 @@ export const TECHS_DATA: TechItem[] = [
     isHero: false,
     image: '/img/02-uv-phone-case-wide.jpg',
   },
-  {
-    name: 'Iron-on patches',
-    hook: 'Built for a queue.',
-    body: 'When there is a line out the door and every single person still walks away with their own. The fast one, for the days when speed is the whole point.',
-    chips: ['Jackets', 'Bags', 'Caps', 'Uniforms'],
-    time: '1 minute',
-    isLive: false,
-    technical:
-      'Embroidered separately, then heat-set into place. The patch is cut for one person; only the pressing happens at the desk.',
-    isHero: false,
-    image: '/img/04-orange-character-model-portrait.jpg',
-  },
 ];

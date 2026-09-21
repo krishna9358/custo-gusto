@@ -4,7 +4,7 @@ import { WhatsAppIcon } from './Glyphs';
 export default function FloatingWhatsApp() {
   return (
     <a
-      href="https://wa.me/919654382799"
+      href="https://wa.me/918130868884"
       target="_blank"
       rel="noopener noreferrer"
       className="wa-fab"

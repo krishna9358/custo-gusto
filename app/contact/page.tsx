@@ -51,7 +51,7 @@ export default function ContactPage() {
               icon="mail"
               target="_blank"
             >
-              Email Laksh
+              Email Us
             </Button>
           </div>
         </div>
@@ -97,7 +97,7 @@ export default function ContactPage() {
               <p style={{ marginTop: '14px' }}>
                 <strong>Phone</strong>
                 <br />
-                +91 96543 82799
+                +91 81308 68884
               </p>
               <p style={{ marginTop: '12px' }}>
                 <strong>Email</strong>

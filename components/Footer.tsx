@@ -45,8 +45,14 @@ export default function Footer() {
           </div>
           <div data-aos="fade-up" data-aos-delay="150">
             <h4>Talk to us</h4>
-            <a href="tel:+919654382799">+91 96543 82799</a>
-            <a href="mailto:laksh@custogusto.in">laksh@custogusto.in</a>
+            <a href="tel:+918130868884">+91 81308 68884</a>
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=laksh@custogusto.in"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              laksh@custogusto.in
+            </a>
             <Link href="/contact">Noida &middot; Bangalore &middot; Delhi</Link>
           </div>
         </div>

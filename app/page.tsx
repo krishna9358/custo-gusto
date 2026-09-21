@@ -21,7 +21,6 @@ export const metadata: Metadata = {
 import { Dot, bc } from '@/components/Glyphs';
 import Ticker from '@/components/Ticker';
 import {
-  WhyItMatters,
   HowItWorks,
   Engines,
   Photo,
@@ -29,7 +28,6 @@ import {
   StatTiles,
   ClosingBand,
 } from '@/components/SharedSections';
-import { COVERAGE_CHIPS, coverageSlug } from '@/data/engines';
 import { TRUSTED_LOGOS } from '@/data/clients';
 import { Button } from '@/components/Button';
 import { TouchCarousel } from '@/components/TouchCarousel';
@@ -78,8 +76,8 @@ export default function Home() {
             </div>
             <div className="hero-media" data-aos="fade-left" data-aos-delay="150">
               <img
-                src="/img/one8-midstitch.jpg"
-                alt="A red one8 sneaker held in front of a ZSK embroidery machine mid-stitch at the one8 Global Premiere."
+                src="/img/hero-live.jpg"
+                alt="Custo Gusto live customisation counter with embroidery and customization machines"
               />
               <div className="hero-badge">
                 <span className="stk stk-b">{bc('MADE LIVE ●')}</span>
@@ -90,8 +88,6 @@ export default function Home() {
       </section>
 
       <Ticker />
-
-      <WhyItMatters />
 
       <section className="sec-sm">
         <div className="wrap">
@@ -127,19 +123,10 @@ export default function Home() {
                 We customise over 90% of what is already on your shelf. Shoes
                 lead &mdash; they always lead.
               </p>
-              <div className="chips" style={{ marginTop: '20px' }} data-aos="fade-up" data-aos-delay="100">
-                {COVERAGE_CHIPS.map((c, i) => {
-                  const slug = coverageSlug(c);
-                  return (
-                    <Link
-                      key={i}
-                      href={`/work?prod=${slug}`}
-                      className="chip transition-transform duration-200 hover:scale-105"
-                    >
-                      {c}
-                    </Link>
-                  );
-                })}
+              <div className="btns" style={{ marginTop: '24px' }} data-aos="fade-up" data-aos-delay="100">
+                <Button href="/work" variant="primary">
+                  View All
+                </Button>
               </div>
             </div>
 
