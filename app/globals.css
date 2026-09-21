@@ -416,21 +416,21 @@ h3.mid{font-family:'Best Curry','Poppins',sans-serif;font-weight:400;
 .sub{color:var(--soft);max-width:62ch;}
 
 /* ---- hero ---- */
-.hero{padding:clamp(36px,5vw,64px) 0 clamp(40px,6vw,72px);position:relative;height:auto;min-height:auto;overflow:hidden;}
+.hero{padding:clamp(24px,3.2vw,42px) 0 clamp(28px,3.8vw,48px);position:relative;height:auto;min-height:auto;overflow:hidden;}
 .hero-g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(22px,3vw,44px);align-items:start;position:relative;height:auto;min-height:auto;}
 .hero-hi{font-size:clamp(19px,2vw,26px);color:var(--indigo);margin:14px 0 0;}
 .hero p.lead{margin-top:18px;max-width:54ch;}
 .hero .btns{margin-top:28px;}
 .hero-stk{position:absolute;top:clamp(0px,1vw,12px);right:var(--gut);z-index:10;pointer-events:none;}
 /* the hero frame fills its column and scales its height with the viewport; the
-   image covers the frame, so it stays a proper rectangle with no distortion */
-.hero-media{--hero-h:clamp(320px,calc(100vh - 74px - clamp(36px,5vw,64px) - clamp(40px,6vw,72px)),840px);position:relative;
-  width:100%;height:var(--hero-h);margin-left:auto;}
+   image maintains its aspect ratio cleanly */
+.hero-media{position:relative;width:100%;height:clamp(355px,calc(100vh - 74px - 145px),420px);margin-left:auto;}
 .hero-media img{width:100%;height:100%;object-fit:cover;object-position:center;
-  border:1px solid var(--rule);}
+  border:1px solid var(--rule);display:block;}
 .hero-badge{position:absolute;left:-14px;bottom:24px;z-index:3;}
 @media (max-width:860px){.hero-g{grid-template-columns:1fr;}
-  .hero-media{--hero-h:min(80vh,660px);margin-inline:auto;}
+  .hero-media{height:auto;aspect-ratio:16/9;margin-inline:auto;}
+  .hero-media img{height:auto;aspect-ratio:16/9;}
   .hero-stk{position:static;margin-bottom:12px;display:inline-block;}}
 
 /* ---- what-we-do opening: centred copy over a darkened workshop photo ---- */
@@ -501,6 +501,30 @@ h3.mid{font-family:'Best Curry','Poppins',sans-serif;font-weight:400;
 .eng-go{font-weight:600;color:var(--indigo);font-size:14.5px;display:inline-flex;align-items:center;gap:6px;transition:transform .2s ease-out,color .2s ease-out;}
 .eng:hover .eng-go{color:var(--brick);}
 
+/* ---- media-first engine cards (Where Do You Want Your Machine?) ---- */
+.eng-card{position:relative;background:var(--panel);border:1px solid var(--rule);padding:18px;
+  border-radius:12px;box-shadow:var(--sh);display:flex;flex-direction:column;gap:14px;overflow:hidden;
+  transition:transform .28s cubic-bezier(.2,.7,.3,1),box-shadow .28s,border-color .28s;}
+@media (hover:hover){
+  .eng-card:hover{transform:translateY(-6px);box-shadow:var(--sh-lg);border-color:var(--brick);}
+  .eng-card:hover .eng-img{transform:scale(1.05);}
+}
+.eng-card:active{transform:scale(.99);}
+.eng-media{position:relative;width:100%;aspect-ratio:16/10;border-radius:8px;
+  overflow:hidden;background:var(--night);cursor:pointer;}
+.eng-img{width:100%;height:100%;object-fit:cover;object-position:center;
+  transition:transform .5s cubic-bezier(.2,.7,.3,1);}
+.eng-inner{display:flex;flex-direction:column;flex:1;gap:10px;}
+.eng-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+.eng-kicker{font-size:12px;letter-spacing:.11em;text-transform:uppercase;color:var(--soft);font-weight:600;}
+.eng-name{font-family:'Best Curry','Poppins',sans-serif;font-size:clamp(20px,1.8vw,24px);color:var(--brick);line-height:1.15;margin-top:2px;}
+.eng-problem{font-size:15px;line-height:1.55;font-weight:500;color:var(--ink);margin:0;}
+.eng-solution{font-size:14.5px;line-height:1.55;color:var(--soft);margin:0;}
+.eng-foot{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:14px;border-top:1px solid var(--rule);gap:10px;flex-wrap:nowrap;}
+.eng-proof{font-size:14px;font-weight:700;color:var(--brick);white-space:nowrap;}
+.eng-cta-link{font-size:13.5px;font-weight:600;color:var(--indigo);text-decoration:none;display:inline-flex;align-items:center;gap:4px;white-space:nowrap;flex-shrink:0;}
+.eng-cta-link:hover{color:var(--brick);text-decoration:underline;}
+
 
 /* ---- stat tiles ---- */
 .tile{background:transparent;border:2px solid var(--brick);padding:20px 18px;text-align:center;}
@@ -515,11 +539,15 @@ h3.mid{font-family:'Best Curry','Poppins',sans-serif;font-weight:400;
 
 /* ---- "almost everything": sticky left panel, one photo at a time on the right ---- */
 .touch-photos{display:none;}
+.touch-left{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
+.touch-left .eyebrow{justify-content:center;}
+.touch-left .lead{margin-left:auto;margin-right:auto;}
+.touch-left .btns{justify-content:center;margin:0;}
 @media (min-width:1024px){
   /* one photo fills the frame before the next arrives */
   .touch-photos{display:grid;grid-template-columns:1fr;gap:clamp(28px,15vh,170px);}
   .touch-left{position:sticky;top:74px;align-self:start;
-    min-height:calc(100vh - 74px);display:flex;flex-direction:column;justify-content:center;}
+    min-height:calc(100vh - 74px);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
 }
 
 /* ---- one8 night: 2x2 photo collage + connected stat column ---- */
@@ -563,7 +591,7 @@ h3.mid{font-family:'Best Curry','Poppins',sans-serif;font-weight:400;
 .close-c:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(69,39,17,.12);}
 .close-c .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;opacity:.75;}
 .close-c .v{font-size:16px;font-weight:600;margin-top:3px;}
-.close-c a{text-decoration:none;}
+.close-c a{text-decoration:none;color:inherit;}
 .close-c a:hover{text-decoration:underline;}
 
 /* ---- technique rows ---- */
@@ -728,16 +756,14 @@ tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--panel) 93%,var(--
 .pull small{display:block;font-family:'Poppins',sans-serif;font-size:14.5px;font-weight:500;
   margin-top:6px;opacity:.82;}
 /* the four cards run as one continuous loop: the set is rendered twice and the
-   track slides exactly one set, so card 4 is always followed by card 1 again */
-.four-mq{overflow:hidden;}
-.four-mq .four{display:flex;flex-wrap:nowrap;width:max-content;gap:0;
-  animation:four-scroll 22s linear infinite;will-change:transform;}
+   track slides seamlessly with auto-scroll and manual arrow controls */
+.four-mq{overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-ms-overflow-style:none;scroll-behavior:smooth;}
+.four-mq::-webkit-scrollbar{display:none;}
+.four-mq .four{display:flex;flex-wrap:nowrap;width:max-content;gap:0;margin-top:12px;}
 .four-mq .four .q{flex:0 0 clamp(230px,19vw,268px);margin-right:clamp(14px,2vw,22px);}
-@keyframes four-scroll{from{transform:translate3d(0,0,0);}to{transform:translate3d(-50%,0,0);}}
-@media (hover:hover){ .four-mq:hover .four{animation-play-state:paused;} }
 @media (prefers-reduced-motion:reduce){
   .four-mq{overflow:visible;}
-  .four-mq .four{animation:none;transform:none;display:grid;width:auto;
+  .four-mq .four{display:grid;width:auto;
     grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:clamp(14px,2vw,22px);}
   .four-mq .four .q{margin-right:0;}
   .four-mq .four .q-clone{display:none;}
@@ -866,9 +892,9 @@ tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--panel) 93%,var(--
 
 .scale-card-body{display:flex;flex-direction:column;flex:1;gap:10px;}
 .scale-card-title{font-size:12.5px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;
-  color:var(--brick);line-height:1.25;}
+  color:var(--indigo);line-height:1.25;}
 .scale-card-highlight{font-family:'Best Curry','Poppins',sans-serif;font-size:clamp(20px,1.8vw,24px);
-  color:var(--ink);line-height:1.15;}
+  color:var(--brick);line-height:1.15;}
 .scale-card-desc{font-size:14.5px;line-height:1.55;color:var(--soft);margin:0;
   display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
 .scale-card-footer{margin-top:auto;padding-top:12px;border-top:1px solid var(--rule-2);
@@ -1035,9 +1061,10 @@ tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--panel) 93%,var(--
 }
 
 /* ---- commercials: infinite continuous horizontal marquee for inclusions ---- */
-.incl-marquee{width:100%;overflow:hidden;position:relative;padding:6px 0 14px;}
-.incl-track{display:flex;width:max-content;will-change:transform;animation:incl-marquee-scroll 26s linear infinite;}
-.incl-marquee:hover .incl-track{animation-play-state:paused;}
+.incl-marquee{width:100%;overflow-x:auto;overflow-y:hidden;position:relative;padding:6px 0 14px;
+  scrollbar-width:none;-ms-overflow-style:none;scroll-behavior:smooth;}
+.incl-marquee::-webkit-scrollbar{display:none;}
+.incl-track{display:flex;width:max-content;gap:0;}
 .incl-group{display:flex;gap:clamp(16px,2vw,24px);padding-right:clamp(16px,2vw,24px);flex-shrink:0;}
 .incl-card{flex:0 0 clamp(260px,24vw,320px);background:var(--panel);border:1.5px solid var(--brick);
   padding:18px 20px 16px;border-radius:0;box-shadow:var(--sh);display:flex;flex-direction:column;justify-content:center;
@@ -1047,12 +1074,9 @@ tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--panel) 93%,var(--
 }
 .incl-card h3.mid{font-family:'Best Curry','Poppins',sans-serif;color:var(--brick);font-size:20px;line-height:1.15;margin:0;}
 .incl-card p{color:var(--soft);margin-bottom:0;margin-top:8px;line-height:1.5;font-size:14.5px;}
-@keyframes incl-marquee-scroll{
-  from{transform:translateX(0);}
-  to{transform:translateX(-25%);}
-}
 @media (prefers-reduced-motion:reduce){
-  .incl-track{animation:none;overflow-x:auto;}
+  .incl-marquee{overflow:visible;}
+  .incl-track{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(16px,2vw,24px);}
 }
 
 /* ---- price dials ---- */
@@ -1071,6 +1095,11 @@ tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--panel) 93%,var(--
 .sr>div:first-child{border-left:0;padding-left:0;}
 .sr .v{font-family:'Best Curry','Poppins',sans-serif;font-size:clamp(38px,5vw,58px);color:var(--marigold);line-height:.95;}
 .sr .l{font-size:13px;letter-spacing:.06em;color:var(--on-night);opacity:.8;margin-top:9px;line-height:1.4;}
+@media (max-width:640px){
+  .sr{display:flex;flex-direction:column;gap:24px;border-left:1px solid rgba(255,201,60,.35);padding-left:20px;}
+  .sr>div{border-left:0;padding:0;}
+  .sr>div:first-child{border-left:0;padding-left:0;}
+}
 .revband{margin-top:32px;background:var(--marigold);color:var(--onmar);padding:20px 26px;
   display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
 .revband .st{font-size:22px;letter-spacing:3px;line-height:1;}

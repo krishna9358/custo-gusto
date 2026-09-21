@@ -88,10 +88,11 @@ export function ScaleCasesSection({
           {eyebrow && (
             <p
               className="eyebrow"
+              style={{ color: 'var(--indigo)' }}
               dangerouslySetInnerHTML={{ __html: eyebrow }}
             />
           )}
-          <h2 className="big" data-aos="fade-up" data-aos-delay="100">
+          <h2 className="big" data-aos="fade-up" data-aos-delay="100" style={{ color: 'var(--brick)' }}>
             {title}
           </h2>
         </div>
@@ -196,7 +197,7 @@ export function ScaleCasesSection({
       {/* Watch our events YouTube CTA Button */}
       <div style={{ marginTop: '28px' }} data-aos="fade-up" data-aos-delay="150">
         <a
-          href="https://www.youtube.com/@CustoGusto-desk/videos"
+          href="https://www.youtube.com/@CustoGusto-desk"
           target="_blank"
           rel="noopener noreferrer"
           className="scale-events-btn"

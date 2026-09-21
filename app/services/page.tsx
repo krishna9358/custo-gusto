@@ -21,7 +21,6 @@ import {
   TechGrid,
   ClosingBand,
 } from '@/components/SharedSections';
-import { COVERAGE_CHIPS, coverageSlug } from '@/data/engines';
 
 export default function ServicesPage() {
   return (
@@ -51,29 +50,6 @@ export default function ServicesPage() {
       <section className="sec" style={{ paddingTop: 0 }}>
         <div className="wrap">
           <TechGrid eyebrow="The techniques" />
-        </div>
-      </section>
-
-      <section className="sec-sm">
-        <div className="wrap">
-          <p className="eyebrow" data-aos="fade-up">Product coverage</p>
-          <h2 className="big" data-aos="fade-up" data-aos-delay="100">90% OF WHAT IS ON YOUR SHELF.</h2>
-          <div className="chips" style={{ marginTop: '20px' }} data-aos="fade-up" data-aos-delay="150">
-            {COVERAGE_CHIPS.map((c, i) => (
-              <Link
-                key={i}
-                href={`/work?prod=${coverageSlug(c)}`}
-                className="chip"
-              >
-                {c}
-              </Link>
-            ))}
-          </div>
-          <p className="sub" style={{ marginTop: '20px' }} data-aos="fade-up" data-aos-delay="200">
-            Everything at a live desk is made for one person, in front of that
-            person. No bulk printing, no generic giveaways, and no generic
-            patches &mdash; if a patch is not personalised, it is not ours.
-          </p>
         </div>
       </section>
 

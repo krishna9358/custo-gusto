@@ -1,5 +1,5 @@
 export interface EngineItem {
-  swatch: string;
+  swatch?: string;
   kicker: string;
   name: string;
   problem: string;
@@ -7,6 +7,7 @@ export interface EngineItem {
   proof: string;
   href: string;
   cta?: string;
+  videoUrl?: string;
 }
 
 export const ENGINES_DATA: EngineItem[] = [
@@ -21,6 +22,7 @@ export const ENGINES_DATA: EngineItem[] = [
     proof: '13 desks running today',
     href: '/commercials',
     cta: 'See Models',
+    videoUrl: 'https://youtube.com/shorts/FVEds-elTt8?si=qD91m4yvIQ3Yh4hQ',
   },
   {
     swatch: 'e-mar',
@@ -32,7 +34,8 @@ export const ENGINES_DATA: EngineItem[] = [
       'We bring the whole desk to your event for a few days and make something for each guest while they watch. They leave holding it, and they film it themselves.',
     proof: '300+ made in one evening',
     href: '/clients#one8',
-    cta: 'See One8 Story',
+    cta: 'See One8',
+    videoUrl: 'https://youtube.com/shorts/FVEds-elTt8?si=qD91m4yvIQ3Yh4hQ',
   },
   {
     swatch: 'e-bri',
@@ -45,6 +48,7 @@ export const ENGINES_DATA: EngineItem[] = [
     proof: 'Six ways to mark a thing',
     href: '/contact',
     cta: 'Send us a Brief',
+    videoUrl: 'https://youtube.com/shorts/FVEds-elTt8?si=qD91m4yvIQ3Yh4hQ',
   },
 ];
 

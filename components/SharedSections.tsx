@@ -2,7 +2,7 @@
 
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Play, X } from 'lucide-react';
 import { Dot, bc } from './Glyphs';
 import { Button } from './Button';
 import { ShoeCarousel } from './ShoeCarousel';
@@ -176,33 +176,121 @@ export function HowItWorks() {
 }
 
 export function Engines() {
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
+
+  const getYouTubeId = (url?: string) => {
+    if (!url) return null;
+    const match = url.match(
+      /(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))([\w-]{11})/
+    );
+    return match ? match[1] : null;
+  };
+
+  const getYouTubeThumbnail = (url?: string) => {
+    const id = getYouTubeId(url);
+    return id ? `https://img.youtube.com/vi/${id}/hqdefault.jpg` : '';
+  };
+
+  const getYouTubeEmbedUrl = (url: string) => {
+    const id = getYouTubeId(url);
+    return id
+      ? `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`
+      : url;
+  };
+
   return (
-    <div className="g g3">
-      {ENGINES_DATA.map((e, idx) => (
-        <Link
-          key={idx}
-          className="eng group transition-all duration-300 hover:-translate-y-1.5 hover:shadow-sh-lg"
-          href={e.href}
-          data-aos="fade-up"
-          data-aos-delay={idx * 120}
+    <>
+      <div className="g g3">
+        {ENGINES_DATA.map((e, idx) => {
+          const thumb = getYouTubeThumbnail(e.videoUrl);
+          return (
+            <div
+              key={idx}
+              className="eng-card group"
+              data-aos="fade-up"
+              data-aos-delay={idx * 120}
+            >
+              {e.videoUrl && (
+                <div
+                  className="eng-media"
+                  onClick={() => setActiveVideo(e.videoUrl!)}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`Play video for ${e.name}`}
+                  onKeyDown={(ev) => {
+                    if (ev.key === 'Enter' || ev.key === ' ') {
+                      ev.preventDefault();
+                      setActiveVideo(e.videoUrl!);
+                    }
+                  }}
+                >
+                  <img
+                    src={thumb || '/img/01-shoe-cursive-10-embroidered.jpg'}
+                    alt={e.name}
+                    className="eng-img"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="scale-video-overlay">
+                    <div className="scale-play-btn">
+                      <Play className="w-5 h-5 fill-current translate-x-0.5" />
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              <div className="eng-inner">
+                <div className="eng-top">
+                  <div>
+                    <div className="eng-kicker">{e.kicker}</div>
+                    <div className="eng-name">{bc(e.name)}</div>
+                  </div>
+                </div>
+                <p className="eng-problem">{e.problem}</p>
+                <p className="eng-solution">{e.solution}</p>
+                <div className="eng-foot">
+                  <span className="eng-proof">{e.proof}</span>
+                  <Link
+                    href={e.href}
+                    className="eng-cta-link group-hover:translate-x-1 transition-transform duration-200"
+                  >
+                    {e.cta || 'See how this works'} &rarr;
+                  </Link>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {activeVideo && (
+        <div
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
+          onClick={() => setActiveVideo(null)}
         >
-          <div className={`eng-t ${e.swatch}`}>
-            <div className="n">{e.kicker}</div>
-            <div className="h">{e.name}</div>
+          <div
+            className="relative w-full max-w-4xl aspect-video bg-black rounded-xl overflow-hidden shadow-2xl border border-rule/30"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              aria-label="Close Video"
+              className="absolute top-3 right-3 z-10 p-2 rounded-full bg-black/70 hover:bg-brick text-white transition-colors"
+              onClick={() => setActiveVideo(null)}
+            >
+              <X className="w-5 h-5" />
+            </button>
+            <iframe
+              src={getYouTubeEmbedUrl(activeVideo)}
+              title="Engine Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              className="w-full h-full border-0"
+            />
           </div>
-          <div className="eng-b">
-            <p style={{ fontWeight: 500, color: 'var(--ink)' }}>{e.problem}</p>
-            <p style={{ color: 'var(--soft)' }}>{e.solution}</p>
-            <div className="eng-f">
-              <b style={{ fontSize: '16px' }}>{e.proof}</b>
-            </div>
-            <div className="eng-go group-hover:translate-x-1 transition-transform duration-200">
-              {e.cta || 'See how this works'} &rarr;
-            </div>
-          </div>
-        </Link>
-      ))}
-    </div>
+        </div>
+      )}
+    </>
   );
 }
 
@@ -407,23 +495,36 @@ export function ClosingBand({ dare, sub }: { dare: string; sub: string }) {
         </div>
         <div style={{ display: 'grid', gap: '12px' }} data-aos="fade-left" data-aos-delay="150">
           <div className="close-c">
-            <div className="k">Watch the one8 film</div>
-            <div className="v">
+            <div className="k">CHECK US OUT</div>
+            <div className="v" style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginTop: '6px' }}>
               <a
-                href="https://youtube.com/shorts/PFZjzmlq5LI"
+                href="https://www.youtube.com/@CustoGusto-desk"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                300 pieces, one evening &rarr;
+                YouTube &rarr;
+              </a>
+              <a
+                href="https://www.instagram.com/custogusto.embroidery/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Instagram &rarr;
               </a>
             </div>
           </div>
           <div className="close-c">
-            <div className="k">Talk to Laksh</div>
+            <div className="k">TALK TO US</div>
             <div className="v">
-              +91 96543 82799
+              +91 81308 68884
               <br />
-              laksh@custogusto.in
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=laksh@custogusto.in"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                laksh@custogusto.in
+              </a>
             </div>
           </div>
         </div>
@@ -448,6 +549,61 @@ export function WhyItMatters() {
       'And they do. That is the part you cannot buy media for.',
     ],
   ];
+
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const isHoveredRef = useRef(false);
+  const userInteractingTimeout = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    let animationFrameId: number;
+    let lastTime = performance.now();
+
+    const step = (now: number) => {
+      const delta = now - lastTime;
+      lastTime = now;
+
+      if (!isHoveredRef.current && el) {
+        const halfWidth = el.scrollWidth / 2;
+        el.scrollLeft += delta * 0.035;
+        if (el.scrollLeft >= halfWidth) {
+          el.scrollLeft -= halfWidth;
+        } else if (el.scrollLeft <= 0) {
+          el.scrollLeft += halfWidth;
+        }
+      }
+      animationFrameId = requestAnimationFrame(step);
+    };
+
+    animationFrameId = requestAnimationFrame(step);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      if (userInteractingTimeout.current) clearTimeout(userInteractingTimeout.current);
+    };
+  }, []);
+
+  const handleScroll = (direction: 'left' | 'right') => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    isHoveredRef.current = true;
+    if (userInteractingTimeout.current) clearTimeout(userInteractingTimeout.current);
+    userInteractingTimeout.current = setTimeout(() => {
+      isHoveredRef.current = false;
+    }, 2800);
+
+    const firstCard = el.querySelector('.q') as HTMLElement | null;
+    const scrollStep = firstCard ? firstCard.offsetWidth + 20 : 280;
+
+    el.scrollBy({
+      left: direction === 'left' ? -scrollStep : scrollStep,
+      behavior: 'smooth',
+    });
+  };
 
   return (
     <section className="sec">
@@ -479,7 +635,36 @@ export function WhyItMatters() {
             <p className="ph-cap">A sneaker embroidered live with a custom name</p>
           </div>
         </div>
-        <div className="four-mq" data-aos="fade-up" data-aos-delay="200">
+
+        <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '24px', marginBottom: '0px' }} data-aos="fade-up">
+          <div className="tg-nav" aria-label="Why it matters carousel navigation">
+            <button
+              type="button"
+              aria-label="Previous card"
+              onClick={() => handleScroll('left')}
+              className="tg-nav-btn"
+            >
+              <ChevronLeft className="w-5 h-5" strokeWidth={2.2} />
+            </button>
+            <button
+              type="button"
+              aria-label="Next card"
+              onClick={() => handleScroll('right')}
+              className="tg-nav-btn"
+            >
+              <ChevronRight className="w-5 h-5" strokeWidth={2.2} />
+            </button>
+          </div>
+        </div>
+
+        <div
+          className="four-mq"
+          ref={scrollRef}
+          onMouseEnter={() => { isHoveredRef.current = true; }}
+          onMouseLeave={() => { isHoveredRef.current = false; }}
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
           <div className="four">
             {four.map((q, idx) => (
               <div className="q" key={idx}>

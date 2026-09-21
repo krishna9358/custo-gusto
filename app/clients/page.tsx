@@ -14,7 +14,6 @@ export const metadata: Metadata = {
     'live embroidery India',
   ],
 };
-import { Tilde } from '@/components/Glyphs';
 import {
   StatTiles,
   ClosingBand,
@@ -22,7 +21,7 @@ import {
 import { Button } from '@/components/Button';
 import { Sticker } from '@/components/Sticker';
 import { ClientsCarousel } from '@/components/ClientsCarousel';
-import { TRUSTED_LOGOS, TICKETS_DATA } from '@/data/clients';
+import { TICKETS_DATA } from '@/data/clients';
 
 export default function ClientsPage() {
   return (
@@ -60,38 +59,6 @@ export default function ClientsPage() {
           <div style={{ marginTop: '36px' }}>
             <StatTiles night={true} />
           </div>
-          <p
-            data-aos="fade-up"
-            data-aos-delay="200"
-            style={{
-              marginTop: '30px',
-              fontSize: '12px',
-              letterSpacing: '.14em',
-              textTransform: 'uppercase',
-              opacity: 0.7,
-            }}
-          >
-            Trusted by
-          </p>
-          <div className="logos" data-aos="fade-up" data-aos-delay="250">
-            {TRUSTED_LOGOS.map((l, i) => (
-              <span key={i} className="logo-pill">
-                {l}
-              </span>
-            ))}
-          </div>
-          <p
-            data-aos="fade-up"
-            data-aos-delay="300"
-            style={{
-              marginTop: '24px',
-              fontSize: '14.5px',
-              opacity: 0.75,
-              maxWidth: '60ch',
-            }}
-          >
-            Four more footwear and lifestyle brands are in conversation.
-          </p>
         </div>
       </section>
 

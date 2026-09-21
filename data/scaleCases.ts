@@ -16,7 +16,7 @@ export const SCALE_CASES_DATA: ScaleCaseItem[] = [
     description:
       'At the one8 Global Premiere with Virat Kohli (Yashobhoomi, with District by Zomato), we ran 4 machines and a live design desk. Guests picked their pair, designed it with us, and walked out wearing a one-of-one in minutes.',
     techniques: ['Live embroidery', 'Footwear', 'Brand launch'],
-    videoUrl: 'https://www.youtube.com/shorts/PFZjzmlq5LI',
+    videoUrl: 'https://youtube.com/shorts/FVEds-elTt8?si=qD91m4yvIQ3Yh4hQ',
   },
   {
     id: 'uniqlo-in-store',
@@ -25,7 +25,7 @@ export const SCALE_CASES_DATA: ScaleCaseItem[] = [
     description:
       'We turned Uniqlo clothes and bags into personal pieces, live in the store. The store saw its own sales rise across the three days.',
     techniques: ['Apparel & bags', 'Retail activation'],
-    videoUrl: 'https://youtu.be/9Z110fUe90Q',
+    videoUrl: 'https://youtube.com/shorts/SHvAwvWKkWY?si=U7mc1lgwngymNU7E',
   },
   {
     id: '52-degrees-comic-con',
@@ -34,7 +34,7 @@ export const SCALE_CASES_DATA: ScaleCaseItem[] = [
     description:
       'We partner with cap brand 52 Degrees at Comic Con editions every year. Fans design a cap around their fandom and get it made live at the booth — the crowd around the machine does the marketing.',
     techniques: ['Live embroidery', 'Caps', 'Fan events'],
-    videoUrl: 'https://youtu.be/9Z110fUe90Q',
+    videoUrl: 'https://youtube.com/shorts/jQ0MTVmFfFg?si=FfxWIcCoyBGlS5qj-',
   },
   {
     id: 'mothercare-winter-wonderland',
@@ -43,7 +43,7 @@ export const SCALE_CASES_DATA: ScaleCaseItem[] = [
     description:
       'At Winter Wonderland, parents personalised Mothercare kidswear with custom embroidery, stitched live. A gift that becomes a keepsake.',
     techniques: ['Live embroidery', 'Kidswear', 'Festive event'],
-    videoUrl: 'https://youtu.be/9Z110fUe90Q',
+    videoUrl: 'https://youtu.be/9Z110fUe90Q?si=q31UeGxDbMf4Iwez',
   },
   {
     id: 'edamame-winter-wonderland',
@@ -52,7 +52,7 @@ export const SCALE_CASES_DATA: ScaleCaseItem[] = [
     description:
       'Alongside Mothercare, we ran live print customization for Edamame’s kids’ range — full-colour designs, applied on the spot, for families moving through the event.',
     techniques: ['Print customization', 'Kidswear', 'Festive event'],
-    videoUrl: 'https://youtu.be/9Z110fUe90Q',
+    videoUrl: 'https://youtube.com/shorts/8pAUlRTw35Y?si=0aoYgtmpGa_Rf-ii-',
   },
   {
     id: 'rcb-fan-jerseys',
@@ -61,6 +61,6 @@ export const SCALE_CASES_DATA: ScaleCaseItem[] = [
     description:
       'For five years we’ve put fans’ names on the back of their RCB jerseys. More than a lakh fans now wear a jersey that’s theirs alone.',
     techniques: ['Print customization', 'Sports fandom', 'Long-running partnership'],
-    videoUrl: 'https://youtu.be/9Z110fUe90Q',
+    videoUrl: 'https://youtube.com/shorts/JJKBfhEdrHU?si=1efsV0EaJKgOSAEX',
   },
 ];
