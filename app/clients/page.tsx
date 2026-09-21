@@ -17,7 +17,6 @@ export const metadata: Metadata = {
 import { Tilde } from '@/components/Glyphs';
 import {
   StatTiles,
-  One8Photo,
   ClosingBand,
 } from '@/components/SharedSections';
 import { Button } from '@/components/Button';
@@ -96,56 +95,7 @@ export default function ClientsPage() {
         </div>
       </section>
 
-      <section className="sec" id="one8" style={{ paddingBottom: 'calc(var(--pad) * 0.25)' }}>
-        <div className="wrap">
-          <div className="split">
-            <div data-aos="fade-up">
-              <p className="eyebrow">The biggest night we have had</p>
-              <h2 className="big">one8 Global Premiere</h2>
-              <p className="lead" style={{ marginTop: '14px' }}>
-                Virat Kohli&rsquo;s brand launch at Yashobhoomi, produced with
-                District by Zomato. The product launch, at the highest level
-                India runs one.
-              </p>
-              <p className="sub" style={{ marginTop: '12px' }}>
-                Four machines, eight operators, three designers. 300+
-                one-of-one pieces in a single evening, roughly five hours. The
-                queue never emptied &mdash; that was the point.
-              </p>
-              <div className="g g3" style={{ marginTop: '20px' }}>
-                <div className="tile" data-aos="fade-up" data-aos-delay="100">
-                  <div className="v">300+</div>
-                  <div className="l">Pieces, one evening</div>
-                </div>
-                <div className="tile" data-aos="fade-up" data-aos-delay="150">
-                  <div className="v">
-                    <Tilde />5 hrs
-                  </div>
-                  <div className="l">Start to finish</div>
-                </div>
-                <div className="tile" data-aos="fade-up" data-aos-delay="200">
-                  <div className="v">15</div>
-                  <div className="l">Pieces per machine, per hour</div>
-                </div>
-              </div>
-              <div className="btns" style={{ marginTop: '22px' }} data-aos="fade-up" data-aos-delay="250">
-                <Button
-                  href="https://youtube.com/shorts/PFZjzmlq5LI"
-                  variant="live"
-                  target="_blank"
-                >
-                  Watch the film
-                </Button>
-              </div>
-            </div>
-            <div data-aos="fade-left" data-aos-delay="150">
-              <One8Photo shape="ph-23" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section style={{ padding: 'calc(var(--pad) * 0.2) 0' }}>
+      <section className="sec" style={{ paddingBottom: 'calc(var(--pad) * 0.25)' }}>
         <div className="wrap">
           <ClientsCarousel />
         </div>

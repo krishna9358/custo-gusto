@@ -4,7 +4,7 @@ import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { CASES_DATA } from '@/data/clients';
 
-const SWATCHES = ['e-ind', 'e-mar', 'e-bri', 'e-ind'];
+const SWATCHES = ['e-ind', 'e-mar', 'e-bri'];
 
 export function ClientsCarousel() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -48,8 +48,18 @@ export function ClientsCarousel() {
 
   return (
     <div>
-      <div className="flex justify-end mb-4" data-aos="fade-up">
-        <div className="tg-nav" aria-label="Client case studies navigation">
+      <div className="tg-head" data-aos="fade-up">
+        <div>
+          <h2 className="big" data-aos="fade-up" data-aos-delay="100">
+            TRUSTED BY
+          </h2>
+        </div>
+        <div
+          className="tg-nav"
+          aria-label="Client case studies navigation"
+          data-aos="fade-up"
+          data-aos-delay="120"
+        >
           <button
             type="button"
             aria-label="Previous client"
@@ -71,7 +81,7 @@ export function ClientsCarousel() {
         </div>
       </div>
 
-      <div className="client-carousel-rail">
+      <div className="client-carousel-rail" style={{ marginTop: '30px' }}>
         <div className="client-carousel-track" ref={scrollRef}>
           {CASES_DATA.map((c, i) => (
             <div

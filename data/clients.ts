@@ -90,6 +90,11 @@ export interface CaseItem {
 
 export const CASES_DATA: CaseItem[] = [
   {
+    title: 'one8 Global Premiere',
+    meta: 'The biggest night we have had',
+    body: 'Virat Kohli’s brand launch at Yashobhoomi, produced with District by Zomato. The product launch, at the highest level India runs one. Four machines, eight operators, three designers. 300+ one-of-one pieces in a single evening, roughly five hours. The queue never emptied — that was the point.',
+  },
+  {
     title: 'Decathlon',
     meta: 'Embedded desks · pan-India',
     body: 'The proof that a desk works on an ordinary floor, on an ordinary day. Live embroidery desks running inside stores across the country, with customers returning to customise again.',
