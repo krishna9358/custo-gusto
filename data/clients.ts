@@ -87,6 +87,7 @@ export interface CaseItem {
   noteLabel?: string;
   noteText?: string;
   tag?: string;
+  image?: string;
   videoUrl?: string;
 }
 
@@ -95,7 +96,7 @@ export const CASES_DATA: CaseItem[] = [
     title: 'one8 Global Premiere',
     meta: 'The biggest night we have had',
     body: 'Virat Kohli’s brand launch at Yashobhoomi, produced with District by Zomato. The product launch, at the highest level India runs one. Four machines, eight operators, three designers. 300+ one-of-one pieces in a single evening, roughly five hours. The queue never emptied — that was the point.',
-    videoUrl: 'https://youtube.com/shorts/FVEds-elTt8?si=qD91m4yvIQ3Yh4hQ',
+    videoUrl: 'https://www.youtube.com/shorts/T0763nGCmkM',
   },
   {
     title: 'Decathlon',
@@ -103,30 +104,38 @@ export const CASES_DATA: CaseItem[] = [
     body: 'The proof that a desk works on an ordinary floor, on an ordinary day. Live embroidery desks running inside stores across the country, with customers returning to customise again.',
     noteLabel: 'The behaviour that matters:',
     noteText: 'the average customer at our desks does not take home one piece. They take home three.',
-    videoUrl: 'https://youtube.com/shorts/JJKBfhEdrHU?ssi=1efsV0EaJKgOSAEX',
+    videoUrl: 'https://www.youtube.com/shorts/y3J-sEqtXcg',
   },
   {
     title: 'Mothercare',
     meta: 'Embedded desk · Bandra',
     body: 'Names on babywear, blankets and towels. The memory marker — a gift that gets kept rather than used, and the reason the desk earns its floor space in a category where nothing else is personal.',
-    videoUrl: 'https://youtu.be/9Z110fUe90Q?si=q31UeGxDbMf4Iwez',
+    videoUrl: 'https://www.youtube.com/watch?v=9Z110fUe90Q',
   },
   {
     title: 'Puma',
     meta: 'Retail desks · five stores',
     body: 'One of the first floors that let this run at all. Five stores, real conditions, real customers. The model you are looking at today only exists because someone was willing to give it a floor to be tested on.',
-    videoUrl: 'https://youtube.com/shorts/JJKBfhEdrHU?ssi=1efsV0EaJKgOSAEX',
+    image: '/img/puma.jpg',
   },
   {
-    title: 'Sports Yard & Benetton',
+    title: 'Sports Yard',
     meta: 'Retail · ongoing',
     body: 'Live personalisation as a permanent part of the in-store experience — the layer an online store cannot ship, sitting on the floor where the decision is already being made.',
-    videoUrl: 'https://youtube.com/shorts/JJKBfhEdrHU?sssi=1efsV0EaJKgOSAEX',
+    image: '/img/sports-yard.jpg',
+  },
+  {
+    title: 'Benetton',
+    meta: 'In-store embroidery · select stores',
+    body: 'Live embroidery customization integrated into select stores, enabling customers to add personal touches to apparel and experience the brand live on the floor.',
+    noteLabel: 'The impact:',
+    noteText: 'a 20% increase in customized product sales, and 15% higher average spend on personalized items.',
+    image: '/img/benetton.jpg',
   },
   {
     title: 'Uniqlo — In-store customization',
-    meta: '700+ one-of-one designs in 3 days',
+    meta: '700+ designs in 3 days',
     body: 'We turned Uniqlo clothes and bags into personal pieces, live in the store. The store saw its own sales rise across the three days.',
-    videoUrl: 'https://youtube.com/shorts/SHvAwvWKkWY?si=U7mc1lgwngymNU7E',
+    videoUrl: 'https://www.youtube.com/shorts/SHvAwvWKkWY',
   },
 ];

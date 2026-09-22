@@ -22,7 +22,7 @@ export const ENGINES_DATA: EngineItem[] = [
     proof: '13 desks running today',
     href: '/commercials',
     cta: 'See Models',
-    videoUrl: 'https://youtube.com/shorts/FVEds-elTt8?si=qD91m4yvIQ3Yh4hQ',
+    videoUrl: 'https://www.youtube.com/shorts/5260Rdjhrew',
   },
   {
     swatch: 'e-mar',
@@ -35,7 +35,7 @@ export const ENGINES_DATA: EngineItem[] = [
     proof: '300+ made in one evening',
     href: '/clients#one8',
     cta: 'See One8',
-    videoUrl: 'https://youtube.com/shorts/FVEds-elTt8?si=qD91m4yvIQ3Yh4hQ',
+    videoUrl: 'https://www.youtube.com/shorts/T0763nGCmkM',
   },
   {
     swatch: 'e-bri',
@@ -48,7 +48,7 @@ export const ENGINES_DATA: EngineItem[] = [
     proof: 'Six ways to mark a thing',
     href: '/contact',
     cta: 'Send us a Brief',
-    videoUrl: 'https://youtube.com/shorts/FVEds-elTt8?si=qD91m4yvIQ3Yh4hQ',
+    videoUrl: 'https://www.youtube.com/shorts/hN99mmgi4Vo',
   },
 ];
 

@@ -837,6 +837,11 @@ tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--panel) 93%,var(--
 .sci p{font-size:13.5px;color:var(--soft);margin-top:8px;line-height:1.5;}
 
 /* ---- client cards carousel ---- */
+.client-card-media{position:relative;width:100%;border-radius:8px;overflow:hidden;background:transparent;}
+.client-card-img{width:100%;height:auto;display:block;}
+.client-card-img-one8{aspect-ratio:4/3;object-fit:cover;object-position:center 32%;}
+.client-card-media-video{aspect-ratio:4/3 !important;}
+
 .client-carousel-rail{--cc-gap:clamp(16px,2vw,24px);width:100%;max-width:100%;overflow:hidden;}
 .client-carousel-track{display:flex;gap:var(--cc-gap);overflow-x:auto;overflow-y:hidden;
   scroll-snap-type:x proximity;overscroll-behavior-x:contain;
@@ -847,6 +852,13 @@ tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--panel) 93%,var(--
 @media (max-width:1180px){.client-carousel-track > *{flex-basis:calc((100% - 2 * var(--cc-gap)) / 2.3);}}
 @media (max-width:860px){.client-carousel-track > *{flex-basis:calc((100% - var(--cc-gap)) / 1.4);}}
 @media (max-width:600px){.client-carousel-track > *{flex-basis:calc(100% - 20px);}}
+
+@media (max-width:640px){
+  .client-tg-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:nowrap;gap:12px;}
+  .client-tg-nav{display:inline-flex;align-items:center;gap:8px;margin-top:20px;margin-left:auto;flex-shrink:0;}
+  .client-tg-nav .tg-nav-btn{width:36px;height:36px;}
+  .client-tg-nav .tg-nav-btn svg{width:17px;height:17px;}
+}
 
 /* ---- made live at scale carousel & cards ---- */
 .scale-nav{display:inline-flex;align-items:center;gap:10px;flex-shrink:0;}

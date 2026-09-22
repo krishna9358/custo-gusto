@@ -16,7 +16,7 @@ export const SCALE_CASES_DATA: ScaleCaseItem[] = [
     description:
       'At the one8 Global Premiere with Virat Kohli (Yashobhoomi, with District by Zomato), we ran 4 machines and a live design desk. Guests picked their pair, designed it with us, and walked out wearing a one-of-one in minutes.',
     techniques: ['Live embroidery', 'Footwear', 'Brand launch'],
-    videoUrl: 'https://youtube.com/shorts/FVEds-elTt8?si=qD91m4yvIQ3Yh4hQ',
+    videoUrl: 'https://www.youtube.com/shorts/T0763nGCmkM',
   },
   {
     id: 'uniqlo-in-store',
