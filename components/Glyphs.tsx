@@ -38,6 +38,103 @@ export const WhatsAppIcon = ({
   </svg>
 );
 
+export const InstagramIcon = ({
+  className = 'w-4 h-4',
+  style,
+}: {
+  className?: string;
+  style?: React.CSSProperties;
+}) => (
+  <svg
+    viewBox="0 0 24 24"
+    className={className}
+    style={style}
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+  </svg>
+);
+
+export const YouTubeBrandIcon = ({
+  className = 'w-8 h-6',
+  style,
+}: {
+  className?: string;
+  style?: React.CSSProperties;
+}) => (
+  <svg
+    viewBox="0 0 32 23"
+    className={className}
+    style={style}
+    fill="none"
+    aria-hidden="true"
+  >
+    <path
+      d="M31.34 3.56a4.01 4.01 0 0 0-2.82-2.84C26.03 0 16 0 16 0S5.97 0 3.48.72A4.01 4.01 0 0 0 .66 3.56C0 6.08 0 11.28 0 11.28s0 5.2.66 7.72a4.01 4.01 0 0 0 2.82 2.84C5.97 22.56 16 22.56 16 22.56s10.03 0 12.52-.72a4.01 4.01 0 0 0 2.82-2.84c.66-2.52.66-7.72.66-7.72s0-5.2-.66-7.72z"
+      fill="#FF0000"
+    />
+    <polygon points="12.8,16.08 21.12,11.28 12.8,6.48" fill="#FFFFFF" />
+  </svg>
+);
+
+export const InstagramBrandIcon = ({
+  className = 'w-7 h-7',
+  style,
+}: {
+  className?: string;
+  style?: React.CSSProperties;
+}) => (
+  <svg
+    viewBox="0 0 28 28"
+    className={className}
+    style={style}
+    fill="none"
+    aria-hidden="true"
+  >
+    <defs>
+      <radialGradient
+        id="ig-brand-grad"
+        r="150%"
+        cx="30%"
+        cy="105%"
+      >
+        <stop offset="0%" stopColor="#fdf497" />
+        <stop offset="5%" stopColor="#fdf497" />
+        <stop offset="45%" stopColor="#fd5949" />
+        <stop offset="60%" stopColor="#d6249f" />
+        <stop offset="90%" stopColor="#285AEB" />
+      </radialGradient>
+    </defs>
+    <rect width="28" height="28" rx="7" fill="url(#ig-brand-grad)" />
+    <rect
+      x="5"
+      y="5"
+      width="18"
+      height="18"
+      rx="4.5"
+      stroke="#FFFFFF"
+      strokeWidth="1.8"
+      fill="none"
+    />
+    <circle
+      cx="14"
+      cy="14"
+      r="4.2"
+      stroke="#FFFFFF"
+      strokeWidth="1.8"
+      fill="none"
+    />
+    <circle cx="19.2" cy="8.8" r="1.1" fill="#FFFFFF" />
+  </svg>
+);
+
 export const LemonLogo = ({
   className = 'lemon-logo',
   style,

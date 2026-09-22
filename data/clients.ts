@@ -99,6 +99,12 @@ export const CASES_DATA: CaseItem[] = [
     videoUrl: 'https://www.youtube.com/shorts/T0763nGCmkM',
   },
   {
+    title: 'Puma',
+    meta: 'Retail desks · five stores',
+    body: 'One of the first floors that let this run at all. Five stores, real conditions, real customers. The model you are looking at today only exists because someone was willing to give it a floor to be tested on.',
+    image: '/img/puma.jpg',
+  },
+  {
     title: 'Decathlon',
     meta: 'Embedded desks · pan-India',
     body: 'The proof that a desk works on an ordinary floor, on an ordinary day. Live embroidery desks running inside stores across the country, with customers returning to customise again.',
@@ -107,30 +113,24 @@ export const CASES_DATA: CaseItem[] = [
     videoUrl: 'https://www.youtube.com/shorts/y3J-sEqtXcg',
   },
   {
-    title: 'Mothercare',
-    meta: 'Embedded desk · Bandra',
-    body: 'Names on babywear, blankets and towels. The memory marker — a gift that gets kept rather than used, and the reason the desk earns its floor space in a category where nothing else is personal.',
-    videoUrl: 'https://www.youtube.com/watch?v=9Z110fUe90Q',
-  },
-  {
-    title: 'Puma',
-    meta: 'Retail desks · five stores',
-    body: 'One of the first floors that let this run at all. Five stores, real conditions, real customers. The model you are looking at today only exists because someone was willing to give it a floor to be tested on.',
-    image: '/img/puma.jpg',
-  },
-  {
-    title: 'Sports Yard',
-    meta: 'Retail · ongoing',
-    body: 'Live personalisation as a permanent part of the in-store experience — the layer an online store cannot ship, sitting on the floor where the decision is already being made.',
-    image: '/img/sports-yard.jpg',
-  },
-  {
     title: 'Benetton',
     meta: 'In-store embroidery · select stores',
     body: 'Live embroidery customization integrated into select stores, enabling customers to add personal touches to apparel and experience the brand live on the floor.',
     noteLabel: 'The impact:',
     noteText: 'a 20% increase in customized product sales, and 15% higher average spend on personalized items.',
     image: '/img/benetton.jpg',
+  },
+  {
+    title: 'Mothercare',
+    meta: 'Embedded desk · Bandra',
+    body: 'Names on babywear, blankets and towels. The memory marker — a gift that gets kept rather than used, and the reason the desk earns its floor space in a category where nothing else is personal.',
+    videoUrl: 'https://www.youtube.com/watch?v=9Z110fUe90Q',
+  },
+  {
+    title: 'Sports Yard',
+    meta: 'Retail · ongoing',
+    body: 'Live personalisation as a permanent part of the in-store experience — the layer an online store cannot ship, sitting on the floor where the decision is already being made.',
+    image: '/img/sports-yard.jpg',
   },
   {
     title: 'Uniqlo — In-store customization',

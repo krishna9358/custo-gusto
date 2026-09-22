@@ -594,6 +594,20 @@ h3.mid{font-family:'Best Curry','Poppins',sans-serif;font-weight:400;
 .close-c a{text-decoration:none;color:inherit;}
 .close-c a:hover{text-decoration:underline;}
 
+.close-social-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.close-social-card{display:flex;flex-direction:column;gap:6px;text-decoration:none !important;color:inherit;}
+.close-social-thumb{position:relative;width:100%;aspect-ratio:16/9;border-radius:4px;overflow:hidden;background:rgba(69,39,17,.12);box-shadow:0 1px 4px rgba(69,39,17,.1);}
+.close-social-thumb img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .3s cubic-bezier(.2,.7,.3,1);}
+.close-social-card:hover .close-social-thumb img{transform:scale(1.06);}
+.close-social-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.08) 0%,rgba(0,0,0,.45) 100%);display:flex;align-items:center;justify-content:center;transition:background .25s ease;}
+.close-social-card:hover .close-social-overlay{background:linear-gradient(180deg,rgba(0,0,0,.02) 0%,rgba(0,0,0,.35) 100%);}
+.close-social-icon-badge{display:flex;align-items:center;justify-content:center;transition:transform .25s cubic-bezier(.2,.7,.3,1),filter .25s ease;filter:drop-shadow(0 2px 6px rgba(0,0,0,.45));}
+.close-social-card:hover .close-social-icon-badge{transform:scale(1.12);filter:drop-shadow(0 4px 10px rgba(0,0,0,.6));}
+.close-social-label{font-size:13px;font-weight:600;display:flex;align-items:center;gap:4px;color:var(--ink);transition:color .2s;margin-top:2px;}
+.close-social-card:hover .close-social-label{color:var(--brick);text-decoration:none !important;}
+.close-social-arr{transition:transform .2s ease;display:inline-block;}
+.close-social-card:hover .close-social-arr{transform:translateX(3px);}
+
 /* ---- technique rows ---- */
 .tech{background:var(--panel);border:1px solid var(--rule);padding:18px 20px;box-shadow:var(--sh);
   display:flex;flex-direction:column;gap:9px;}
