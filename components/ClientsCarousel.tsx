@@ -4,7 +4,7 @@ import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight, Play, X } from 'lucide-react';
 import { CASES_DATA } from '@/data/clients';
 
-function getYouTubeId(url?: string): string | null {
+function getYouTubeId(url: string): string | null {
   if (!url) return null;
   const match = url.match(
     /(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))([\w-]{11})/
@@ -19,7 +19,7 @@ function getYouTubeEmbedUrl(url: string): string {
     : url;
 }
 
-function getYouTubeThumbnailUrl(url?: string): string {
+function getYouTubeThumbnailUrl(url: string): string {
   const id = getYouTubeId(url);
   return id ? `https://img.youtube.com/vi/${id}/hqdefault.jpg` : '';
 }
@@ -78,14 +78,14 @@ export function ClientsCarousel() {
 
   return (
     <div>
-      <div className="tg-head" data-aos="fade-up">
+      <div className="tg-head client-tg-head" data-aos="fade-up">
         <div>
           <h2 className="big" data-aos="fade-up" data-aos-delay="100">
             TRUSTED BY
           </h2>
         </div>
         <div
-          className="tg-nav"
+          className="tg-nav client-tg-nav"
           aria-label="Client case studies navigation"
           data-aos="fade-up"
           data-aos-delay="120"
@@ -114,7 +114,7 @@ export function ClientsCarousel() {
       <div className="client-carousel-rail" style={{ marginTop: '30px' }}>
         <div className="client-carousel-track" ref={scrollRef}>
           {CASES_DATA.map((c, i) => {
-            const thumb = getYouTubeThumbnailUrl(c.videoUrl);
+            const thumbnail = c.image || (c.videoUrl ? getYouTubeThumbnailUrl(c.videoUrl) : '');
 
             return (
               <div
@@ -123,10 +123,10 @@ export function ClientsCarousel() {
                 data-aos="fade-up"
                 data-aos-delay={(i % 3) * 100}
               >
-                {/* 1. Video Thumbnail / Play Area */}
-                {c.videoUrl && (
+                {/* Media Area */}
+                {c.videoUrl ? (
                   <div
-                    className="scale-card-video"
+                    className="client-card-media client-card-media-video scale-card-video"
                     onClick={() => setActiveVideo(c.videoUrl!)}
                     role="button"
                     tabIndex={0}
@@ -138,9 +138,9 @@ export function ClientsCarousel() {
                       }
                     }}
                   >
-                    {thumb ? (
+                    {thumbnail ? (
                       <img
-                        src={thumb}
+                        src={thumbnail}
                         alt={c.title}
                         loading="lazy"
                         decoding="async"
@@ -154,9 +154,19 @@ export function ClientsCarousel() {
                       </div>
                     </div>
                   </div>
-                )}
+                ) : c.image ? (
+                  <div className="client-card-media">
+                    <img
+                      src={c.image}
+                      alt={c.title}
+                      className={`client-card-img ${c.title.toLowerCase().includes('one8') ? 'client-card-img-one8' : ''}`}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                ) : null}
 
-                {/* 2. Content Body */}
+                {/* Content Body */}
                 <div className="scale-card-body">
                   <div className="scale-card-title">{c.title}</div>
                   <div className="scale-card-highlight">{c.meta}</div>
