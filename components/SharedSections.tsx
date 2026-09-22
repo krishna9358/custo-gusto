@@ -3,7 +3,7 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { ChevronLeft, ChevronRight, Play, X } from 'lucide-react';
-import { Dot, bc } from './Glyphs';
+import { Dot, bc, YouTubeBrandIcon, InstagramBrandIcon } from './Glyphs';
 import { Button } from './Button';
 import { ShoeCarousel } from './ShoeCarousel';
 import { ENGINES_DATA } from '@/data/engines';
@@ -496,20 +496,54 @@ export function ClosingBand({ dare, sub }: { dare: string; sub: string }) {
         <div style={{ display: 'grid', gap: '12px' }} data-aos="fade-left" data-aos-delay="150">
           <div className="close-c">
             <div className="k">CHECK US OUT</div>
-            <div className="v" style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginTop: '6px' }}>
+            <div className="close-social-grid" style={{ marginTop: '10px' }}>
               <a
-                href="https://www.youtube.com/@CustoGusto-desk"
+                href="https://www.youtube.com/@CustoGusto-desk/shorts"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="close-social-card"
+                aria-label="Custo Gusto on YouTube Shorts"
               >
-                YouTube &rarr;
+                <div className="close-social-thumb">
+                  <img
+                    src="https://img.youtube.com/vi/SHvAwvWKkWY/hqdefault.jpg"
+                    alt="Custo Gusto YouTube Shorts"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="close-social-overlay">
+                    <div className="close-social-icon-badge">
+                      <YouTubeBrandIcon />
+                    </div>
+                  </div>
+                </div>
+                <span className="close-social-label">
+                  YouTube <span className="close-social-arr">&rarr;</span>
+                </span>
               </a>
               <a
-                href="https://www.instagram.com/custogusto.embroidery/"
+                href="https://www.instagram.com/custogusto.embroidery"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="close-social-card"
+                aria-label="Custo Gusto on Instagram"
               >
-                Instagram &rarr;
+                <div className="close-social-thumb">
+                  <img
+                    src="/img/instagram-reel.jpg"
+                    alt="Custo Gusto Instagram"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="close-social-overlay">
+                    <div className="close-social-icon-badge">
+                      <InstagramBrandIcon />
+                    </div>
+                  </div>
+                </div>
+                <span className="close-social-label">
+                  Instagram <span className="close-social-arr">&rarr;</span>
+                </span>
               </a>
             </div>
           </div>
