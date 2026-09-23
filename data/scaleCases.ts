@@ -21,7 +21,7 @@ export const SCALE_CASES_DATA: ScaleCaseItem[] = [
   {
     id: 'uniqlo-in-store',
     title: 'Uniqlo — In-store customization',
-    highlight: '700+ one-of-one designs in 3 days',
+    highlight: '700+ designs in 3 days',
     description:
       'We turned Uniqlo clothes and bags into personal pieces, live in the store. The store saw its own sales rise across the three days.',
     techniques: ['Apparel & bags', 'Retail activation'],
