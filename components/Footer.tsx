@@ -1,0 +1,70 @@
+import React from 'react';
+import Link from 'next/link';
+import { FOOTER_PAGES } from '@/data/navigation';
+import { LemonLogo } from './Glyphs';
+
+export default function Footer() {
+  return (
+    <footer className="ftr">
+      <div className="wrap">
+        <div className="ftr-g">
+          <div data-aos="fade-up">
+            <div className="d inline-flex items-center gap-2" style={{ fontSize: '26px' }}>
+              <span>CUSTO GUSTO</span>
+              <LemonLogo />
+            </div>
+            <p
+              style={{
+                marginTop: '10px',
+                opacity: 0.85,
+                fontSize: '15px',
+                maxWidth: '34ch',
+              }}
+            >
+              India&rsquo;s live customisation brand. One-of-one pieces, made
+              in front of the customer, in minutes.
+            </p>
+            <p
+              className="hi"
+              style={{
+                color: 'var(--marigold)',
+                fontSize: '19px',
+                marginTop: '14px',
+              }}
+            >
+              आपका. सिर्फ़ आपका.
+            </p>
+          </div>
+          <div data-aos="fade-up" data-aos-delay="100">
+            <h4>Pages</h4>
+            {FOOTER_PAGES.map((page) => (
+              <Link key={page.href} href={page.href}>
+                {page.label}
+              </Link>
+            ))}
+          </div>
+          <div data-aos="fade-up" data-aos-delay="150">
+            <h4>Talk to us</h4>
+            <a href="tel:+918130868884">+91 81308 68884</a>
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=laksh@custogusto.in"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              laksh@custogusto.in
+            </a>
+            <Link href="/contact">Noida &middot; Bangalore &middot; Delhi</Link>
+          </div>
+        </div>
+        <div className="ftr-b" data-aos="fade-up" data-aos-delay="200">
+          <span>
+            &copy; 2026 Custo Gusto{' '}
+            <LemonLogo style={{ height: '1.05em', verticalAlign: '-0.15em' }} />. All rights reserved.
+          </span>
+          <span>Made in front of you. Never repeated.</span>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
