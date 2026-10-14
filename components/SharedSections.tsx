@@ -472,7 +472,18 @@ export function TechGrid({
   );
 }
 
-export function ClosingBand({ dare, sub }: { dare: string; sub: string }) {
+export function ClosingBand({
+  dare,
+  sub,
+  primary = { href: '/contact', label: 'Get a price in 24 hours' },
+  secondary = { href: '/work', label: 'Just look at the work' },
+}: {
+  dare: string;
+  sub: string;
+  /* the service pages point these at their own #brief form */
+  primary?: { href: string; label: string };
+  secondary?: { href: string; label: string };
+}) {
   return (
     <section className="band band-mar">
       <div className="wrap close-g">
@@ -482,11 +493,15 @@ export function ClosingBand({ dare, sub }: { dare: string; sub: string }) {
             {sub}
           </p>
           <div className="btns" style={{ marginTop: '26px' }}>
-            <Button href="/contact" variant="primary">
-              Get a price in 24 hours
+            <Button href={primary.href} variant="primary">
+              {primary.label}
             </Button>
-            <Button href="/work" variant="ghost">
-              Just look at the work
+            <Button
+              href={secondary.href}
+              variant="ghost"
+              target={secondary.href.startsWith('http') ? '_blank' : undefined}
+            >
+              {secondary.label}
             </Button>
           </div>
           <p style={{ marginTop: '14px', fontSize: '14px', opacity: 0.8 }}>

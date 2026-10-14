@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "schema:homepage": "node scripts/gen-schema-homepage.js"
   },
   "dependencies": {
     "@types/aos": "^3.0.8",

@@ -1,11 +1,13 @@
 import React from 'react';
-import type { Metadata } from 'next';
 import Link from 'next/link';
+import { pageMetadata } from '@/lib/seo';
+import { HOME_SCHEMA, HOME_TITLE, HOME_DESCRIPTION } from '@/lib/homeSchema';
+import { JsonLd } from '@/components/JsonLd';
 
-export const metadata: Metadata = {
-  title: 'Custo Gusto — Made in front of you. Never repeated.',
-  description:
-    'India’s live customisation brand. One-of-one shoes, apparel, and accessories embroidered, printed, or laser engraved live in minutes at retail desks across India.',
+export const metadata = pageMetadata({
+  path: '/',
+  title: HOME_TITLE,
+  description: HOME_DESCRIPTION,
   keywords: [
     'live customisation',
     'live embroidery',
@@ -17,7 +19,7 @@ export const metadata: Metadata = {
     'Delhi',
     'Bangalore',
   ],
-};
+});
 import { Dot, bc } from '@/components/Glyphs';
 import Ticker from '@/components/Ticker';
 import {
@@ -37,6 +39,7 @@ import { ScaleCasesSection } from '@/components/ScaleCasesSection';
 export default function Home() {
   return (
     <>
+      <JsonLd data={HOME_SCHEMA} />
       <section className="hero">
         <div className="wrap relative">
           <div className="hero-stk" data-aos="fade-down">

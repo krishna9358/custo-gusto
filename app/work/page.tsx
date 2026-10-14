@@ -18,6 +18,8 @@ import WorkGrid from '@/components/WorkGrid';
 import { ClosingBand } from '@/components/SharedSections';
 import { Button } from '@/components/Button';
 import { ScrollToTop } from '@/components/ScrollToTop';
+import { RelatedLinks } from '@/components/IntentSections';
+import { CASE_STUDIES } from '@/data/seoPages';
 
 export default function WorkPage() {
   return (
@@ -41,6 +43,14 @@ export default function WorkPage() {
             Each block carries its shot code from the production list.
             Photography is being shot now; the layout is final.
           </p>
+        </div>
+      </section>
+
+      <section className="sec-sm">
+        <div className="wrap">
+          <p className="eyebrow" data-aos="fade-up">Case studies</p>
+          <h2 className="big" data-aos="fade-up" data-aos-delay="100">THE NIGHTS BEHIND THE NUMBERS.</h2>
+          <RelatedLinks items={CASE_STUDIES} />
         </div>
       </section>
 

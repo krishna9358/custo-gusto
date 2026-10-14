@@ -5,8 +5,10 @@ import Footer from '@/components/Footer';
 import AosProvider from '@/components/AosProvider';
 import LoadingScreen from '@/components/LoadingScreen';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
+import { SITE_URL } from '@/lib/seo';
 
 export const metadata = {
+  metadataBase: new URL(SITE_URL),
   title: 'Custo Gusto — Made in front of you. Never repeated.',
   description:
     'Custo Gusto puts your name, number or design onto things you already own — stitched, printed or engraved in front of you, in minutes. Live customisation desks for retail floors, launches and job work across India.',

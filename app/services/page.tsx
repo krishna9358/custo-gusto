@@ -21,6 +21,8 @@ import {
   TechGrid,
   ClosingBand,
 } from '@/components/SharedSections';
+import { RelatedLinks } from '@/components/IntentSections';
+import { SERVICE_PAGES } from '@/data/seoPages';
 
 export default function ServicesPage() {
   return (
@@ -42,6 +44,14 @@ export default function ServicesPage() {
       <section className="sec-sm">
         <div className="wrap">
           <Engines />
+        </div>
+      </section>
+
+      <section className="sec-sm">
+        <div className="wrap">
+          <p className="eyebrow" data-aos="fade-up">By occasion</p>
+          <h2 className="big" data-aos="fade-up" data-aos-delay="100">LIVE CUSTOMISATION FOR EVERY KIND OF ROOM.</h2>
+          <RelatedLinks items={SERVICE_PAGES} />
         </div>
       </section>
 
