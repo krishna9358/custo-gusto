@@ -250,9 +250,9 @@ const MORE_WORK: Omit<React.ComponentProps<typeof CaseCard>, 'aosDelay'>[] = [
 ];
 
 const PROOF_TILES = [
-  { v: '40,000+', l: 'Customers at our store desks' },
-  { v: '1,20,000+', l: 'Pieces embroidered at our store desks' },
-  { v: '5.0', l: '500+ Google reviews, from stores across India', stars: true },
+  { v: '50,000', l: 'Customers at our store desks' },
+  { v: '1,50,000', l: 'Pieces embroidered at our store desks' },
+  { v: '600+', l: 'Five-star Google reviews, from stores across India', stars: true },
   { v: '13', l: 'Desks running across India' },
 ];
 

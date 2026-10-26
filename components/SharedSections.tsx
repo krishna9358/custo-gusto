@@ -108,8 +108,8 @@ export function One8Photo({ shape }: { shape: string }) {
 
 export function StatTiles({ night }: { night?: boolean }) {
   const row = [
-    ['40,000+', 'Customers served'],
-    ['1,20,000+', 'Pieces embroidered'],
+    ['50,000', 'Customers served'],
+    ['1,50,000', 'Pieces embroidered'],
     ['3', 'Things the average customer takes home, not one'],
   ];
 
@@ -127,7 +127,7 @@ export function StatTiles({ night }: { night?: boolean }) {
         <span className="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
         <span className="bg">A PERFECT 5.0</span>
         <span className="tx">
-          500+ Google reviews, from stores right across India.
+          600+ Google reviews, from stores right across India.
         </span>
       </div>
     </>

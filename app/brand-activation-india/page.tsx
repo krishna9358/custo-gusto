@@ -8,6 +8,9 @@ import {
   Breadcrumbs,
   DirectAnswer,
   CaseCard,
+  VideoEmbed,
+  SixWays,
+  ProofSection,
   FaqSection,
   BriefSection,
 } from '@/components/IntentSections';
@@ -158,36 +161,6 @@ const STEPS = [
   },
 ];
 
-const TECHNIQUES = [
-  {
-    name: 'Live embroidery',
-    live: true,
-    hook: 'The hero. The one they film.',
-    desc: 'Names, dates and artwork stitched into shoes, caps, jackets and bags on German ZSK machines.',
-    time: 'About 5 min',
-    img: '/img/01-shoe-cursive-10-embroidered.jpg',
-    alt: 'A name embroidered in cursive onto a sneaker at a Custo Gusto desk',
-  },
-  {
-    name: 'DTF print',
-    live: false,
-    hook: 'Full colour, for the busy hour.',
-    desc: 'Full-colour artwork on tees, jerseys, hoodies and event tees. Transfers are printed ahead; the guest watches it pressed on.',
-    time: 'About 3 min',
-    img: '/img/05-dtf-heat-press-process.jpg',
-    alt: 'A DTF transfer being pressed onto a tee with a heat press',
-  },
-  {
-    name: 'UV stickers',
-    live: false,
-    hook: 'For what cannot be stitched.',
-    desc: 'Bottles, phone cases, helmets and flasks. Cured on the spot and pressed on with no heat.',
-    time: 'About 1 min',
-    img: '/img/02-uv-phone-case-wide.jpg',
-    alt: 'A UV sticker applied to a phone case',
-  },
-];
-
 const PRODUCTS = [
   'Shoes',
   'Caps',
@@ -201,22 +174,20 @@ const PRODUCTS = [
   'Kidswear',
 ];
 
-const ONE8_TILES = [
-  { v: '300+', l: 'One-of-one pieces in about five hours' },
-  { v: '4', l: 'ZSK machines' },
-  { v: '8', l: 'Operators' },
-  { v: '3', l: 'Live designers' },
+const UNIQLO_TILES = [
+  { v: '100+', l: 'Customers' },
+  { v: '700+', l: 'Designs made' },
 ];
 
 const MORE_CASES: Omit<React.ComponentProps<typeof CaseCard>, 'aosDelay'>[] = [
   {
-    href: '/work/uniqlo',
-    videoId: 'SHvAwvWKkWY',
-    alt: 'Uniqlo in-store customisation',
-    title: 'Uniqlo — In-store customization',
-    highlight: '700+ designs in 3 days',
-    desc: 'We turned Uniqlo clothes and bags into personal pieces, live in the store. The store saw its own sales rise across the three days.',
-    tags: ['Apparel and bags', 'Retail activation'],
+    href: '/work/one8-global-premiere',
+    videoId: 'T0763nGCmkM',
+    alt: 'one8 × Custo Gusto — Global Premiere',
+    title: 'one8 × Custo Gusto — Global Premiere',
+    highlight: '300+ custom shoes in 5 hours',
+    desc: 'At the one8 Global Premiere with Virat Kohli (Yashobhoomi, with District by Zomato), we ran 4 machines and a live design desk. Guests picked their pair, designed it with us, and walked out wearing a one-of-one in minutes.',
+    tags: ['Live embroidery', 'Footwear', 'Brand launch'],
   },
   {
     href: '/work/comic-con-52-degrees',
@@ -236,26 +207,6 @@ const MORE_CASES: Omit<React.ComponentProps<typeof CaseCard>, 'aosDelay'>[] = [
     desc: 'Parents personalised Mothercare kidswear with custom embroidery, stitched live. A gift that becomes a keepsake.',
     tags: ['Live embroidery', 'Kidswear', 'Festive event'],
   },
-];
-
-const PROOF_TILES = [
-  { v: '40,000+', l: 'Customers at our store desks' },
-  { v: '1,20,000+', l: 'Pieces embroidered at our store desks' },
-  { v: '5.0', l: '500+ Google reviews, from stores across India', stars: true },
-  { v: '13', l: 'Desks running across India' },
-];
-
-const CAPACITY = [
-  ['Embroidery, per piece', 'About 4 to 5 minutes on a ready design; about 10 minutes when designed on the spot'],
-  ['Per machine', 'Roughly 15 pieces an hour on ready designs'],
-  [
-    'Biggest proven night',
-    '300+ one-of-one pieces in about five hours, on 4 machines with 8 operators and 3 designers (one8 Global Premiere)',
-  ],
-  ['Busy hours', 'Extra heat-press stations are added for volume'],
-  ['Setup', 'About two days from confirmation'],
-  ['Crews', 'Standing crews in Bangalore and Delhi; two events can run at the same time'],
-  ['Event windows', 'Pay per use, typically 3 to 14 days, with no long-term commitment'],
 ];
 
 /** `crew: true` marks the cities where standing crews are based (highlighted chip). */
@@ -333,8 +284,49 @@ export default function BrandActivationIndiaPage() {
 
       <Ticker />
 
-      {/* 2 · Buyer + business problem */}
-      <section className="sec">
+      {/* 2 · Case study: Uniqlo */}
+      <section className="band band-night">
+        <div className="wrap split split-night">
+          <div className="night-side" style={{ paddingLeft: 0 }}>
+            <div className="night-text">
+              <p className="eyebrow" data-aos="fade-up">Case study · In-store activation</p>
+              <h2 className="big" data-aos="fade-up" data-aos-delay="100">
+                UNIQLO, THREE DAYS IN STORE.
+              </h2>
+              <p className="lead" data-aos="fade-up" data-aos-delay="150">
+                One compact station on the Uniqlo floor personalised bags, T-shirts, jackets and
+                baby onesies for three days. Bags led, customers came back with family members after
+                seeing a finished bag, some bought products specifically to customise them, and the
+                store saw its own sales rise.
+              </p>
+            </div>
+            <div className="night-lower">
+              <div className="g cg-case-tiles">
+                {UNIQLO_TILES.map((t, i) => (
+                  <div className="tile" key={t.l} data-aos="fade-up" data-aos-delay={i * 100}>
+                    <div className="v">{t.v}</div>
+                    <div className="l">{t.l}</div>
+                  </div>
+                ))}
+              </div>
+              <div className="btns" data-aos="fade-up" data-aos-delay="200">
+                <Button href="/work/uniqlo" variant="blush">
+                  Read the Uniqlo case study
+                </Button>
+                <Button href="https://youtube.com/shorts/SHvAwvWKkWY" variant="live" target="_blank">
+                  Watch videos
+                </Button>
+              </div>
+            </div>
+          </div>
+          <div style={{ alignSelf: 'center' }}>
+            <VideoEmbed videoId="SHvAwvWKkWY" title="Uniqlo in-store customisation" />
+          </div>
+        </div>
+      </section>
+
+      {/* 3 · Buyer + business problem */}
+      <section className="sec band-blush">
         <div className="wrap">
           <div className="cg-head">
             <p className="eyebrow" data-aos="fade-up">Who this is for</p>
@@ -358,8 +350,8 @@ export default function BrandActivationIndiaPage() {
         </div>
       </section>
 
-      {/* 3 · How it runs */}
-      <section className="sec band-blush">
+      {/* 4 · How it runs */}
+      <section className="sec">
         <div className="wrap">
           <div className="cg-head">
             <p className="eyebrow" data-aos="fade-up">How an activation runs</p>
@@ -384,116 +376,21 @@ export default function BrandActivationIndiaPage() {
         </div>
       </section>
 
-      {/* 4 · Products + techniques */}
-      <section className="sec">
-        <div className="wrap">
-          <div className="cg-head">
-            <p className="eyebrow" data-aos="fade-up">What guests walk away with</p>
-            <h2 className="big" data-aos="fade-up" data-aos-delay="100">
-              THREE TECHNIQUES DO MOST OF THE WORK AT A LAUNCH.
-            </h2>
-            <p className="sub" data-aos="fade-up" data-aos-delay="150">
-              Around 90% of a typical retail range can be customised live, with shoes leading the
-              desk.
-            </p>
-          </div>
-          <div className="g g3 cg-mt">
-            {TECHNIQUES.map((t, i) => (
-              <article className="tk" key={t.name} data-aos="fade-up" data-aos-delay={i * 100}>
-                <div className="tk-media">
-                  <img className="tk-img" src={t.img} alt={t.alt} loading="lazy" decoding="async" />
-                </div>
-                <div className="tk-inner">
-                  <div className="tk-top">
-                    <h3 className="tk-name">{t.name}</h3>
-                    {t.live ? (
-                      <span className="tk-live on">Live</span>
-                    ) : (
-                      <span className="tk-live off">Applied live</span>
-                    )}
-                  </div>
-                  <div className="tk-hook">{t.hook}</div>
-                  <p className="tk-desc">{t.desc}</p>
-                  <div className="tk-foot">
-                    <span className="tk-time">{t.time}</span>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-          <p className="cg-also" data-aos="fade-up">
-            <b>Also at the desk:</b> digital hot foil for leather, luggage tags, notebooks and gift
-            boxes (about 2 minutes), and laser engraving for perfume bottles, pens, glassware and
-            leather (about 5 minutes). In-house design is included in every engagement.
-          </p>
-          <div
-            className="cg-chips"
-            aria-label="Products we customise at activations"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            {PRODUCTS.map((p) => (
-              <span className="chip" key={p}>
-                {p}
-              </span>
-            ))}
-          </div>
+      {/* 5 · 6 ways to customise */}
+      <SixWays
+        eyebrow="What guests walk away with"
+        title="6 WAYS TO CUSTOMISE."
+        sub="Around 90% of a typical retail range can be customised live, with shoes leading the desk."
+        blush
+      >
+        <div className="cg-chips" aria-label="Products we customise at activations" data-aos="fade-up" data-aos-delay="100">
+          {PRODUCTS.map((p) => (
+            <span className="chip" key={p}>
+              {p}
+            </span>
+          ))}
         </div>
-      </section>
-
-      {/* 5 · Case study: one8 */}
-      <section className="band band-night">
-        <div className="wrap split split-night">
-          <div className="night-side" style={{ paddingLeft: 0 }}>
-            <div className="night-text">
-              <p className="eyebrow" data-aos="fade-up">Case study · Brand launch · New Delhi</p>
-              <h2 className="big" data-aos="fade-up" data-aos-delay="100">
-                THE one8 GLOBAL PREMIERE.
-              </h2>
-              <p className="lead" data-aos="fade-up" data-aos-delay="150">
-                Virat Kohli’s brand launch at Yashobhoomi, produced with District by Zomato. Four
-                machines, eight operators and three designers ran a live design desk for one
-                evening. Guests picked their pair, designed it with us, and walked out wearing a
-                one-of-one in minutes. The queue never emptied.
-              </p>
-            </div>
-            <div className="night-lower">
-              <div className="g cg-case-tiles">
-                {ONE8_TILES.map((t, i) => (
-                  <div className="tile" key={t.l} data-aos="fade-up" data-aos-delay={i * 100}>
-                    <div className="v">{t.v}</div>
-                    <div className="l">{t.l}</div>
-                  </div>
-                ))}
-              </div>
-              <div className="btns" data-aos="fade-up" data-aos-delay="200">
-                <Button href="/work/one8-global-premiere" variant="blush">
-                  Read the one8 case study
-                </Button>
-                <Button href="https://youtube.com/shorts/PFZjzmlq5LI" variant="live" target="_blank">
-                  Watch the night
-                </Button>
-              </div>
-            </div>
-          </div>
-          <figure
-            className="cg-case-photo"
-            style={{ margin: 0 }}
-            data-aos="fade-left"
-            data-aos-delay="150"
-          >
-            <img
-              src="/img/one8-midstitch.jpg"
-              alt="A ZSK machine stitching a guest’s design at the one8 Global Premiere"
-              width={688}
-              height={1266}
-              loading="lazy"
-              decoding="async"
-            />
-            <span className="stk stk-b">{bc('1/1')}</span>
-          </figure>
-        </div>
-      </section>
+      </SixWays>
 
       {/* 6 · More activations */}
       <section className="sec">
@@ -512,53 +409,10 @@ export default function BrandActivationIndiaPage() {
         </div>
       </section>
 
-      {/* 7 · Verified proof + operating capacity */}
-      <section className="sec band-blush">
-        <div className="wrap">
-          <div className="cg-head">
-            <p className="eyebrow" data-aos="fade-up">Verified proof · operating capacity</p>
-            <h2 className="big" data-aos="fade-up" data-aos-delay="100">
-              THE NUMBERS, AND WHAT ONE DESK CAN CARRY.
-            </h2>
-          </div>
-          <div className="g g4 cg-mt">
-            {PROOF_TILES.map((t, i) => (
-              <div className="tile" key={t.l} data-aos="fade-up" data-aos-delay={i * 100}>
-                {t.stars && (
-                  <div className="stars" aria-hidden="true">
-                    ★★★★★
-                  </div>
-                )}
-                <div className="v">{t.v}</div>
-                <div className="l">{t.l}</div>
-              </div>
-            ))}
-          </div>
-          <div className="tw cg-cap" data-aos="fade-up">
-            <table>
-              <thead>
-                <tr>
-                  <th scope="col">Capacity, stated plainly</th>
-                  <th scope="col">What we run</th>
-                </tr>
-              </thead>
-              <tbody>
-                {CAPACITY.map(([k, v]) => (
-                  <tr key={k}>
-                    <td>{k}</td>
-                    <td>{v}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="cg-note" data-aos="fade-up">
-            We size the desk to the event: machines, operators and designers are matched to your
-            expected footfall and hours. Store-desk figures cover our retail desks only; event
-            volumes are stated separately.
-          </p>
-        </div>
-      </section>
+      {/* 7 · Verified proof */}
+      <ProofSection
+        note="We size the desk to the event: machines, operators and designers are matched to your expected footfall and hours."
+      />
 
       {/* 8 · Cities + nationwide */}
       <section className="sec">

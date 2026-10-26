@@ -5,6 +5,7 @@ import { Button } from './Button';
 import { AccordionGroup } from './Accordion';
 import { BriefForm, type BriefFormConfig } from './BriefForm';
 import { EMAIL, PHONE_DISPLAY, PHONE_TEL, gmailCompose, whatsApp, type Crumb, type FaqItem } from '@/lib/seo';
+import { SIX_WAYS } from '@/data/techniques';
 
 /* Building blocks shared by the service (intent) pages and the case studies.
    Styling lives in the "Phase 1 pages" block at the end of globals.css. */
@@ -142,6 +143,108 @@ export function VideoEmbed({
       </div>
       {caption && <p className="cg-video-cap">{caption}</p>}
     </div>
+  );
+}
+
+/** "6 ways to customise": the same six technique cards on every service page.
+    `children` renders under the cards (product chips, the corporate finish table).
+    `blush` sets the band background so sections keep alternating on each page. */
+export function SixWays({
+  eyebrow,
+  title,
+  sub,
+  blush,
+  children,
+}: {
+  eyebrow: string;
+  title: string;
+  sub?: string;
+  blush?: boolean;
+  children?: React.ReactNode;
+}) {
+  return (
+    <section className={blush ? 'sec band-blush' : 'sec'}>
+      <div className="wrap">
+        <div className="cg-head">
+          <p className="eyebrow" data-aos="fade-up">{eyebrow}</p>
+          <h2 className="big" data-aos="fade-up" data-aos-delay="100">{title}</h2>
+          {sub && (
+            <p className="sub" data-aos="fade-up" data-aos-delay="150">{sub}</p>
+          )}
+        </div>
+        <div className="g cg-six cg-mt">
+          {SIX_WAYS.map((t, i) => (
+            <article className="tk" key={t.name} data-aos="fade-up" data-aos-delay={(i % 3) * 100}>
+              <div className="tk-media">
+                <img className="tk-img" src={t.img} alt={t.alt} loading="lazy" decoding="async" />
+              </div>
+              <div className="tk-inner">
+                <div className="tk-top">
+                  <h3 className="tk-name">{t.name}</h3>
+                  {t.live ? (
+                    <span className="tk-live on">Live</span>
+                  ) : (
+                    <span className="tk-live off">Applied live</span>
+                  )}
+                </div>
+                <div className="tk-hook">{t.hook}</div>
+                <p className="tk-desc">{t.desc}</p>
+                {t.time && (
+                  <div className="tk-foot">
+                    <span className="tk-time">{t.time}</span>
+                  </div>
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
+        <p className="cg-also" data-aos="fade-up">
+          In-house design is included in every engagement.
+        </p>
+        {children}
+      </div>
+    </section>
+  );
+}
+
+const PROOF_TILES: { v: string; l: string; stars?: boolean }[] = [
+  { v: '50,000', l: 'Customers at our store desks' },
+  { v: '1,50,000', l: 'Pieces embroidered at our store desks' },
+  { v: '600+', l: 'Five-star Google reviews, from stores across India', stars: true },
+  { v: '13', l: 'Desks running across India' },
+];
+
+/** The four headline numbers, shared by every service page. */
+export function ProofSection({ note }: { note?: string }) {
+  return (
+    <section className="sec band-blush">
+      <div className="wrap">
+        <div className="cg-head">
+          <p className="eyebrow" data-aos="fade-up">Verified proof</p>
+          <h2 className="big" data-aos="fade-up" data-aos-delay="100">
+            THE NUMBERS FROM OUR STORE DESKS.
+          </h2>
+        </div>
+        <div className="g g4 cg-mt">
+          {PROOF_TILES.map((t, i) => (
+            <div className="tile" key={t.l} data-aos="fade-up" data-aos-delay={i * 100}>
+              {t.stars && (
+                <div className="stars" aria-hidden="true">
+                  ★★★★★
+                </div>
+              )}
+              <div className="v">{t.v}</div>
+              <div className="l">{t.l}</div>
+            </div>
+          ))}
+        </div>
+        {note && (
+          <p className="cg-note" data-aos="fade-up">
+            {note}
+          </p>
+        )}
+      </div>
+    </section>
   );
 }
 

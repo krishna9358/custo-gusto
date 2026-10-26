@@ -8,6 +8,8 @@ import {
   Breadcrumbs,
   DirectAnswer,
   CaseCard,
+  SixWays,
+  ProofSection,
   FaqSection,
   BriefSection,
 } from '@/components/IntentSections';
@@ -174,33 +176,6 @@ const KEEPSAKES = [
   },
 ];
 
-const TECHNIQUES = [
-  {
-    name: 'Digital hot foil',
-    hook: 'The date, in gold.',
-    desc: 'Names, initials and the date foiled onto favour boxes, notebooks, luggage tags and leather.',
-    time: 'About 2 min',
-    img: '/img/touch_foil.jpg',
-    alt: 'Initials and a paisley foiled in gold onto leather',
-  },
-  {
-    name: 'Live embroidery',
-    hook: 'Thread they can feel.',
-    desc: 'Initials and dates stitched into handkerchiefs, napkins, robes, totes and apparel, raised and permanent.',
-    time: 'About 5 min',
-    img: '/img/w06.jpg',
-    alt: 'Embroidery close enough to count the threads',
-  },
-  {
-    name: 'Laser engraving',
-    hook: 'Permanent, with nothing added.',
-    desc: 'Perfume bottles, pens, glassware and leather, marked by laser. Nothing sits on top, so nothing wears off.',
-    time: 'About 5 min',
-    img: '/img/w12.jpg',
-    alt: 'A name engraved into steel',
-  },
-];
-
 const PRODUCTS = [
   'Handkerchiefs',
   'Napkins',
@@ -213,13 +188,6 @@ const PRODUCTS = [
   'Leather keepsakes',
   'Wooden coasters',
   'Glassware',
-];
-
-const ONE8_TILES = [
-  { v: '300+', l: 'One-of-one pieces in about five hours' },
-  { v: '4', l: 'ZSK machines' },
-  { v: '8', l: 'Operators' },
-  { v: '3', l: 'Live designers' },
 ];
 
 const MORE_CASES: Omit<React.ComponentProps<typeof CaseCard>, 'aosDelay'>[] = [
@@ -241,26 +209,6 @@ const MORE_CASES: Omit<React.ComponentProps<typeof CaseCard>, 'aosDelay'>[] = [
     desc: 'We turned Uniqlo clothes and bags into personal pieces, live in the store. The store saw its own sales rise across the three days.',
     tags: ['Apparel and bags', 'Retail activation'],
   },
-];
-
-const PROOF_TILES = [
-  { v: '40,000+', l: 'Customers at our store desks' },
-  { v: '1,20,000+', l: 'Pieces embroidered at our store desks' },
-  { v: '5.0', l: '500+ Google reviews, from stores across India', stars: true },
-  { v: '13', l: 'Desks running across India' },
-];
-
-const CAPACITY = [
-  ['Embroidery, per piece', 'About 4 to 5 minutes on a ready design; about 10 minutes when designed on the spot'],
-  ['Per machine', 'Roughly 15 pieces an hour on ready designs'],
-  [
-    'Biggest proven night',
-    '300+ one-of-one pieces in about five hours, on 4 machines with 8 operators and 3 designers (one8 Global Premiere)',
-  ],
-  ['Busy hours', 'Extra heat-press stations are added for volume'],
-  ['Setup', 'About two days from confirmation'],
-  ['Crews', 'Standing crews in Bangalore and Delhi; two events can run at the same time'],
-  ['Event windows', 'Pay per use, typically 3 to 14 days, with no long-term commitment'],
 ];
 
 /** `crew: true` marks the cities where standing crews are based (highlighted chip). */
@@ -336,58 +284,7 @@ export default function WeddingLiveCustomisationPage() {
 
       <Ticker />
 
-      {/* 2 · Buyer + problem */}
-      <section className="sec">
-        <div className="wrap">
-          <div className="cg-head">
-            <p className="eyebrow" data-aos="fade-up">Who this is for</p>
-            <h2 className="big" data-aos="fade-up" data-aos-delay="100">
-              A BEAUTIFUL WEDDING NOBODY REMEMBERS SPECIFICALLY.
-            </h2>
-            <p className="sub" data-aos="fade-up" data-aos-delay="150">
-              Couples, families and the planners who run their weddings want guests to remember
-              this wedding, not weddings in general. The favour made for everybody is the one left
-              behind. The one made for a guest goes home.
-            </p>
-          </div>
-          <div className="four">
-            {PROBLEMS.map((p, i) => (
-              <div className="q" key={p.title} data-aos="fade-up" data-aos-delay={i * 100}>
-                <div className="qt">{p.title}</div>
-                <p className="qb">{p.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 3 · Two ways to do it */}
-      <section className="sec band-blush">
-        <div className="wrap">
-          <div className="cg-head">
-            <p className="eyebrow" data-aos="fade-up">Two ways to do it</p>
-            <h2 className="big" data-aos="fade-up" data-aos-delay="100">
-              AT THE FUNCTION, OR READY BEFORE IT.
-            </h2>
-          </div>
-          <div className="g g3 cg-mt">
-            {WAYS.map((w, i) => (
-              <div
-                className={w.hero ? 'tech hero-tech' : 'tech'}
-                key={w.meta}
-                data-aos="fade-up"
-                data-aos-delay={i * 100}
-              >
-                <div className="tm">{w.meta}</div>
-                <div className="tn">{w.name}</div>
-                <p className="tb">{w.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 4 · Keepsakes guests take home */}
+      {/* 2 · Keepsakes guests take home */}
       <section className="sec">
         <div className="wrap">
           <div className="cg-head">
@@ -415,107 +312,74 @@ export default function WeddingLiveCustomisationPage() {
         </div>
       </section>
 
-      {/* 5 · Techniques */}
+      {/* 3 · 6 ways to customise */}
+      <SixWays
+        eyebrow="What we use"
+        title="6 TYPES OF CUSTOMISATION."
+        sub="Foil leads at weddings; embroidery carries the soft keepsakes; laser marks wood, glass and leather."
+        blush
+      >
+        <div className="cg-chips" aria-label="Products" data-aos="fade-up" data-aos-delay="100">
+          {PRODUCTS.map((p) => (
+            <span className="chip" key={p}>
+              {p}
+            </span>
+          ))}
+        </div>
+      </SixWays>
+
+      {/* 4 · Two ways to do it */}
       <section className="sec">
         <div className="wrap">
           <div className="cg-head">
-            <p className="eyebrow" data-aos="fade-up">What we use</p>
+            <p className="eyebrow" data-aos="fade-up">Two ways to do it</p>
             <h2 className="big" data-aos="fade-up" data-aos-delay="100">
-              THREE FINISHES CARRY MOST WEDDINGS.
+              AT THE FUNCTION, OR READY BEFORE IT.
             </h2>
-            <p className="sub" data-aos="fade-up" data-aos-delay="150">
-              Foil leads at weddings; embroidery carries the soft keepsakes; laser marks wood, glass
-              and leather.
-            </p>
           </div>
           <div className="g g3 cg-mt">
-            {TECHNIQUES.map((t, i) => (
-              <article className="tk" key={t.name} data-aos="fade-up" data-aos-delay={i * 100}>
-                <div className="tk-media">
-                  <img className="tk-img" src={t.img} alt={t.alt} loading="lazy" decoding="async" />
-                </div>
-                <div className="tk-inner">
-                  <div className="tk-top">
-                    <h3 className="tk-name">{t.name}</h3>
-                    <span className="tk-live on">Live</span>
-                  </div>
-                  <div className="tk-hook">{t.hook}</div>
-                  <p className="tk-desc">{t.desc}</p>
-                  <div className="tk-foot">
-                    <span className="tk-time">{t.time}</span>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-          <p className="cg-also" data-aos="fade-up">
-            <b>Also at the desk:</b> DTF print for tees, jerseys and hoodies (about 3 minutes) and
-            UV stickers for bottles, phone cases and flasks (about 1 minute). In-house design is
-            included in every engagement.
-          </p>
-          <div className="cg-chips" aria-label="Products" data-aos="fade-up" data-aos-delay="100">
-            {PRODUCTS.map((p) => (
-              <span className="chip" key={p}>
-                {p}
-              </span>
+            {WAYS.map((w, i) => (
+              <div
+                className={w.hero ? 'tech hero-tech' : 'tech'}
+                key={w.meta}
+                data-aos="fade-up"
+                data-aos-delay={i * 100}
+              >
+                <div className="tm">{w.meta}</div>
+                <div className="tn">{w.name}</div>
+                <p className="tb">{w.body}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 6 · Proof at scale: one8 */}
-      <section className="band band-night">
-        <div className="wrap split split-night">
-          <div className="night-side" style={{ paddingLeft: 0 }}>
-            <div className="night-text">
-              <p className="eyebrow" data-aos="fade-up">Proof at scale</p>
-              <h2 className="big" data-aos="fade-up" data-aos-delay="100">
-                THE SAME DESK THAT HELD A PREMIERE CROWD.
-              </h2>
-              <p className="lead" data-aos="fade-up" data-aos-delay="150">
-                Weddings run to a fixed hour, so the question is whether the desk keeps up. At the
-                one8 Global Premiere, four machines, eight operators and three designers made 300+
-                one-of-one pieces in about five hours, and the queue never emptied. We scope your
-                desk to your guest count the same way.
-              </p>
-            </div>
-            <div className="night-lower">
-              <div className="g cg-case-tiles">
-                {ONE8_TILES.map((t, i) => (
-                  <div className="tile" key={t.l} data-aos="fade-up" data-aos-delay={i * 100}>
-                    <div className="v">{t.v}</div>
-                    <div className="l">{t.l}</div>
-                  </div>
-                ))}
-              </div>
-              <div className="btns" data-aos="fade-up" data-aos-delay="200">
-                <Button href="/work/one8-global-premiere" variant="blush">
-                  Read the one8 case study
-                </Button>
-                <Button href="https://youtube.com/shorts/PFZjzmlq5LI" variant="live" target="_blank">
-                  Watch it
-                </Button>
-              </div>
-            </div>
+      {/* 5 · Buyer + problem */}
+      <section className="sec band-blush">
+        <div className="wrap">
+          <div className="cg-head">
+            <p className="eyebrow" data-aos="fade-up">Who this is for</p>
+            <h2 className="big" data-aos="fade-up" data-aos-delay="100">
+              A BEAUTIFUL WEDDING NOBODY REMEMBERS SPECIFICALLY.
+            </h2>
+            <p className="sub" data-aos="fade-up" data-aos-delay="150">
+              Couples, families and the planners who run their weddings want guests to remember
+              this wedding, not weddings in general. The favour made for everybody is the one left
+              behind. The one made for a guest goes home.
+            </p>
           </div>
-          <figure
-            className="cg-case-photo"
-            style={{ margin: 0 }}
-            data-aos="fade-left"
-            data-aos-delay="150"
-          >
-            <img
-              src="/img/one8-midstitch.jpg"
-              alt="A ZSK machine stitching a design at the one8 Global Premiere"
-              loading="lazy"
-              decoding="async"
-            />
-            <span className="stk stk-b">{bc('1/1')}</span>
-          </figure>
+          <div className="four">
+            {PROBLEMS.map((p, i) => (
+              <div className="q" key={p.title} data-aos="fade-up" data-aos-delay={i * 100}>
+                <div className="qt">{p.title}</div>
+                <p className="qb">{p.body}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* 7 · Keepsakes we have made */}
+      {/* 6 · Keepsakes we have made */}
       <section className="sec">
         <div className="wrap">
           <div className="cg-head">
@@ -532,55 +396,12 @@ export default function WeddingLiveCustomisationPage() {
         </div>
       </section>
 
-      {/* 8 · Verified proof + operating capacity */}
-      <section className="sec band-blush">
-        <div className="wrap">
-          <div className="cg-head">
-            <p className="eyebrow" data-aos="fade-up">Verified proof · operating capacity</p>
-            <h2 className="big" data-aos="fade-up" data-aos-delay="100">
-              THE NUMBERS, AND WHAT A WEDDING DESK CAN CARRY.
-            </h2>
-          </div>
-          <div className="g g4 cg-mt">
-            {PROOF_TILES.map((t, i) => (
-              <div className="tile" key={t.l} data-aos="fade-up" data-aos-delay={i * 100}>
-                {t.stars && (
-                  <div className="stars" aria-hidden="true">
-                    ★★★★★
-                  </div>
-                )}
-                <div className="v">{t.v}</div>
-                <div className="l">{t.l}</div>
-              </div>
-            ))}
-          </div>
-          <div className="tw cg-cap" data-aos="fade-up">
-            <table>
-              <thead>
-                <tr>
-                  <th scope="col">Capacity, stated plainly</th>
-                  <th scope="col">What we run</th>
-                </tr>
-              </thead>
-              <tbody>
-                {CAPACITY.map(([k, v]) => (
-                  <tr key={k}>
-                    <td>{k}</td>
-                    <td>{v}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="cg-note" data-aos="fade-up">
-            We size the desk to the event: machines, operators and designers are matched to your
-            expected footfall and hours. Store-desk figures cover our retail desks only; event
-            volumes are stated separately.
-          </p>
-        </div>
-      </section>
+      {/* 7 · Verified proof */}
+      <ProofSection
+        note="We size the desk to the event: machines, operators and designers are matched to your expected footfall and hours."
+      />
 
-      {/* 9 · Cities + nationwide */}
+      {/* 8 · Cities + nationwide */}
       <section className="sec">
         <div className="wrap split">
           <div>
@@ -612,10 +433,10 @@ export default function WeddingLiveCustomisationPage() {
         </div>
       </section>
 
-      {/* 10 · FAQ (the same FAQS feed the FAQPage JSON-LD) */}
+      {/* 9 · FAQ (the same FAQS feed the FAQPage JSON-LD) */}
       <FaqSection eyebrow="Asked before the call" title="WEDDING QUESTIONS." items={FAQS} />
 
-      {/* 11 · Brief form + book a call */}
+      {/* 10 · Brief form + book a call */}
       <BriefSection
         eyebrow="Wedding brief"
         title="TELL US ABOUT THE WEDDING."
@@ -625,7 +446,7 @@ export default function WeddingLiveCustomisationPage() {
         waText={WA_TEXT}
       />
 
-      {/* 12 · Closing band */}
+      {/* 11 · Closing band */}
       <ClosingBand
         dare="YOURS. ONLY YOURS."
         sub="A desk at the wedding, favours at the door, or both. We bring everything else."

@@ -9,6 +9,8 @@ import {
   DirectAnswer,
   CaseCard,
   VideoEmbed,
+  SixWays,
+  ProofSection,
   FaqSection,
   BriefSection,
 } from '@/components/IntentSections';
@@ -160,36 +162,6 @@ const EVENTS = [
   },
 ];
 
-const TECHNIQUES = [
-  {
-    name: 'DTF print',
-    live: false,
-    hook: 'Full colour, for the busy hour.',
-    desc: 'Full-colour artwork on tees, jerseys, hoodies and event tees. Transfers are printed ahead; the guest watches it pressed on.',
-    time: 'About 3 min',
-    img: '/img/05-dtf-heat-press-process.jpg',
-    alt: 'A DTF transfer being pressed onto a tee with a heat press',
-  },
-  {
-    name: 'Live embroidery',
-    live: true,
-    hook: 'Caps, made around a fandom.',
-    desc: 'Thread into caps, tees, jackets and bags on German ZSK machines, designed with the person at the desk.',
-    time: 'About 5 min',
-    img: '/img/touch_caps.jpg',
-    alt: 'A cap with a gold embroidered emblem',
-  },
-  {
-    name: 'UV stickers',
-    live: false,
-    hook: 'For what cannot be stitched.',
-    desc: 'Bottles, phone cases, helmets and flasks. Cured on the spot and pressed on with no heat.',
-    time: 'About 1 min',
-    img: '/img/02-uv-phone-case-wide.jpg',
-    alt: 'A UV sticker applied to a phone case',
-  },
-];
-
 const PRODUCTS = [
   'Caps',
   'Tees',
@@ -199,6 +171,11 @@ const PRODUCTS = [
   'Bottles and flasks',
   'Phone cases',
   'Kidswear',
+];
+
+const EVENT_TILES = [
+  { v: '3', l: 'Events' },
+  { v: '500+', l: 'Caps customised' },
 ];
 
 const MORE_CASES: Omit<React.ComponentProps<typeof CaseCard>, 'aosDelay'>[] = [
@@ -229,26 +206,6 @@ const MORE_CASES: Omit<React.ComponentProps<typeof CaseCard>, 'aosDelay'>[] = [
     desc: 'Parents personalised Mothercare kidswear with custom embroidery, stitched live. A gift that becomes a keepsake.',
     tags: ['Live embroidery', 'Kidswear', 'Festive event'],
   },
-];
-
-const PROOF_TILES = [
-  { v: '40,000+', l: 'Customers at our store desks' },
-  { v: '1,20,000+', l: 'Pieces embroidered at our store desks' },
-  { v: '5.0', l: '500+ Google reviews, from stores across India', stars: true },
-  { v: '13', l: 'Desks running across India' },
-];
-
-const CAPACITY = [
-  ['Embroidery, per piece', 'About 4 to 5 minutes on a ready design; about 10 minutes when designed on the spot'],
-  ['Per machine', 'Roughly 15 pieces an hour on ready designs'],
-  [
-    'Biggest proven night',
-    '300+ one-of-one pieces in about five hours, on 4 machines with 8 operators and 3 designers (one8 Global Premiere)',
-  ],
-  ['Busy hours', 'Extra heat-press stations are added for volume'],
-  ['Setup', 'About two days from confirmation'],
-  ['Crews', 'Standing crews in Bangalore and Delhi; two events can run at the same time'],
-  ['Event windows', 'Pay per use, typically 3 to 14 days, with no long-term commitment'],
 ];
 
 /** `crew: true` marks the cities where standing crews are based (highlighted chip). */
@@ -324,8 +281,45 @@ export default function LiveCustomisationEventsIndiaPage() {
 
       <Ticker />
 
-      {/* 2 · Buyers */}
-      <section className="sec">
+      {/* 2 · Case study: Comic Con + Horn OK Please */}
+      <section className="band band-night">
+        <div className="wrap split split-night">
+          <div className="night-side" style={{ paddingLeft: 0 }}>
+            <div className="night-text">
+              <p className="eyebrow" data-aos="fade-up">Case study · Fan conventions and festivals</p>
+              <h2 className="big" data-aos="fade-up" data-aos-delay="100">
+                COMIC CON + HORN OK PLEASE.
+              </h2>
+              <p className="lead" data-aos="fade-up" data-aos-delay="150">
+                Across three events at Comic Con and Horn OK Please, people designed caps around what
+                they love and watched them made live at the booth. At Comic Con, where we partner
+                with cap brand 52 Degrees, demand outran capacity on both days.
+              </p>
+            </div>
+            <div className="night-lower">
+              <div className="g cg-case-tiles">
+                {EVENT_TILES.map((t, i) => (
+                  <div className="tile" key={t.l} data-aos="fade-up" data-aos-delay={i * 100}>
+                    <div className="v">{t.v}</div>
+                    <div className="l">{t.l}</div>
+                  </div>
+                ))}
+              </div>
+              <div className="btns" data-aos="fade-up" data-aos-delay="200">
+                <Button href="/work/comic-con-52-degrees" variant="blush">
+                  Read the Comic Con case study
+                </Button>
+              </div>
+            </div>
+          </div>
+          <div style={{ alignSelf: 'center' }}>
+            <VideoEmbed videoId="jQ0MTVmFfFg" title="52 Degrees custom caps at Comic Con" />
+          </div>
+        </div>
+      </section>
+
+      {/* 3 · Buyers */}
+      <section className="sec band-blush">
         <div className="wrap">
           <div className="cg-head">
             <p className="eyebrow" data-aos="fade-up">Who this is for</p>
@@ -349,8 +343,8 @@ export default function LiveCustomisationEventsIndiaPage() {
         </div>
       </section>
 
-      {/* 3 · Events we run */}
-      <section className="sec band-blush">
+      {/* 4 · Events we run */}
+      <section className="sec">
         <div className="wrap">
           <div className="cg-head">
             <p className="eyebrow" data-aos="fade-up">Events we run</p>
@@ -370,93 +364,21 @@ export default function LiveCustomisationEventsIndiaPage() {
         </div>
       </section>
 
-      {/* 4 · Products + techniques */}
-      <section className="sec">
-        <div className="wrap">
-          <div className="cg-head">
-            <p className="eyebrow" data-aos="fade-up">What attendees walk out with</p>
-            <h2 className="big" data-aos="fade-up" data-aos-delay="100">
-              BUILT FOR A CROWD.
-            </h2>
-            <p className="sub" data-aos="fade-up" data-aos-delay="150">
-              DTF and heat press carry festival volume, embroidery is the premium moment, and UV
-              stickers cover hard goods.
-            </p>
-          </div>
-          <div className="g g3 cg-mt">
-            {TECHNIQUES.map((t, i) => (
-              <article className="tk" key={t.name} data-aos="fade-up" data-aos-delay={i * 100}>
-                <div className="tk-media">
-                  <img className="tk-img" src={t.img} alt={t.alt} loading="lazy" decoding="async" />
-                </div>
-                <div className="tk-inner">
-                  <div className="tk-top">
-                    <h3 className="tk-name">{t.name}</h3>
-                    {t.live ? (
-                      <span className="tk-live on">Live</span>
-                    ) : (
-                      <span className="tk-live off">Applied live</span>
-                    )}
-                  </div>
-                  <div className="tk-hook">{t.hook}</div>
-                  <p className="tk-desc">{t.desc}</p>
-                  <div className="tk-foot">
-                    <span className="tk-time">{t.time}</span>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-          <p className="cg-also" data-aos="fade-up">
-            <b>Also at the desk:</b> digital hot foil for leather, luggage tags, notebooks and gift
-            boxes (about 2 minutes), and laser engraving for perfume bottles, pens, glassware and
-            leather (about 5 minutes). In-house design is included in every engagement.
-          </p>
-          <div className="cg-chips" aria-label="Products" data-aos="fade-up" data-aos-delay="100">
-            {PRODUCTS.map((p) => (
-              <span className="chip" key={p}>
-                {p}
-              </span>
-            ))}
-          </div>
+      {/* 5 · 6 ways to customise */}
+      <SixWays
+        eyebrow="What attendees walk out with"
+        title="6 WAYS TO CUSTOMISE."
+        sub="DTF and heat press carry festival volume, embroidery is the premium moment, and UV stickers cover hard goods."
+        blush
+      >
+        <div className="cg-chips" aria-label="Products" data-aos="fade-up" data-aos-delay="100">
+          {PRODUCTS.map((p) => (
+            <span className="chip" key={p}>
+              {p}
+            </span>
+          ))}
         </div>
-      </section>
-
-      {/* 5 · Case study: Comic Con × 52 Degrees */}
-      <section className="band band-night">
-        <div className="wrap split split-night">
-          <div className="night-side" style={{ paddingLeft: 0 }}>
-            <div className="night-text">
-              <p className="eyebrow" data-aos="fade-up">Case study · Fan convention</p>
-              <h2 className="big" data-aos="fade-up" data-aos-delay="100">
-                COMIC CON, WITH 52 DEGREES.
-              </h2>
-              <p className="lead" data-aos="fade-up" data-aos-delay="150">
-                We partner with cap brand 52 Degrees at Comic Con editions every year. Fans design a
-                cap around their fandom and get it made live at the booth. The crowd around the
-                machine does the marketing, and demand outran capacity on both days.
-              </p>
-            </div>
-            <div className="night-lower">
-              <div className="btns" data-aos="fade-up" data-aos-delay="200">
-                <Button href="/work/comic-con-52-degrees" variant="blush">
-                  Read the Comic Con case study
-                </Button>
-                <Button
-                  href="https://www.youtube.com/watch?v=jQ0MTVmFfFg"
-                  variant="live"
-                  target="_blank"
-                >
-                  Watch it
-                </Button>
-              </div>
-            </div>
-          </div>
-          <div style={{ alignSelf: 'center' }}>
-            <VideoEmbed videoId="jQ0MTVmFfFg" title="52 Degrees custom caps at Comic Con" />
-          </div>
-        </div>
-      </section>
+      </SixWays>
 
       {/* 6 · More events */}
       <section className="sec">
@@ -475,53 +397,10 @@ export default function LiveCustomisationEventsIndiaPage() {
         </div>
       </section>
 
-      {/* 7 · Verified proof + operating capacity */}
-      <section className="sec band-blush">
-        <div className="wrap">
-          <div className="cg-head">
-            <p className="eyebrow" data-aos="fade-up">Verified proof · operating capacity</p>
-            <h2 className="big" data-aos="fade-up" data-aos-delay="100">
-              THE NUMBERS, AND WHAT AN EVENT DESK CAN CARRY.
-            </h2>
-          </div>
-          <div className="g g4 cg-mt">
-            {PROOF_TILES.map((t, i) => (
-              <div className="tile" key={t.l} data-aos="fade-up" data-aos-delay={i * 100}>
-                {t.stars && (
-                  <div className="stars" aria-hidden="true">
-                    ★★★★★
-                  </div>
-                )}
-                <div className="v">{t.v}</div>
-                <div className="l">{t.l}</div>
-              </div>
-            ))}
-          </div>
-          <div className="tw cg-cap" data-aos="fade-up">
-            <table>
-              <thead>
-                <tr>
-                  <th scope="col">Capacity, stated plainly</th>
-                  <th scope="col">What we run</th>
-                </tr>
-              </thead>
-              <tbody>
-                {CAPACITY.map(([k, v]) => (
-                  <tr key={k}>
-                    <td>{k}</td>
-                    <td>{v}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="cg-note" data-aos="fade-up">
-            We size the desk to the event: machines, operators and designers are matched to your
-            expected footfall and hours. Store-desk figures cover our retail desks only; event
-            volumes are stated separately.
-          </p>
-        </div>
-      </section>
+      {/* 7 · Verified proof */}
+      <ProofSection
+        note="We size the desk to the event: machines, operators and designers are matched to your expected footfall and hours."
+      />
 
       {/* 8 · Cities + nationwide */}
       <section className="sec">

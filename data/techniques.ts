@@ -72,3 +72,72 @@ export const TECHS_DATA: TechItem[] = [
     image: '/img/02-uv-phone-case-wide.jpg',
   },
 ];
+
+/** The six techniques every service page shows, in the brief's order (22 Oct 2026).
+    `live: false` means the piece is prepared ahead and applied in front of the guest. */
+export interface SixWayItem {
+  name: string;
+  live: boolean;
+  hook: string;
+  desc: string;
+  /** omitted where no per-piece time has been confirmed */
+  time?: string;
+  img: string;
+  alt: string;
+}
+
+export const SIX_WAYS: SixWayItem[] = [
+  {
+    name: 'Embroidery',
+    live: true,
+    hook: 'The hero. The one they film.',
+    desc: 'Names, dates and artwork stitched into shoes, caps, jackets and bags on German ZSK machines.',
+    time: 'About 5 min',
+    img: '/img/01-shoe-cursive-10-embroidered.jpg',
+    alt: 'A name embroidered in cursive onto a sneaker at a Custo Gusto desk',
+  },
+  {
+    name: 'Iron-on patches',
+    live: false,
+    hook: 'Embroidery, pressed on.',
+    desc: 'Embroidered patches carrying a name, number or mark, ironed onto jackets, caps, bags and denim.',
+    img: '/img/story_e5.jpg',
+    alt: 'An embroidered one8 patch being ironed onto a jacket',
+  },
+  {
+    name: 'DTF print',
+    live: false,
+    hook: 'Full colour, for the busy hour.',
+    desc: 'Full-colour artwork on tees, jerseys, hoodies and event tees. Transfers are printed ahead; the guest watches it pressed on.',
+    time: 'About 3 min',
+    img: '/img/05-dtf-heat-press-process.jpg',
+    alt: 'A DTF transfer being pressed onto a tee with a heat press',
+  },
+  {
+    name: 'UV stickers',
+    live: false,
+    hook: 'For what cannot be stitched.',
+    desc: 'Bottles, phone cases, helmets and flasks. Cured on the spot and pressed on with no heat.',
+    time: 'About 1 min',
+    img: '/img/02-uv-phone-case-wide.jpg',
+    alt: 'A UV sticker applied to a phone case',
+  },
+  {
+    name: 'Digital hot foil',
+    live: true,
+    hook: 'The premium finish.',
+    desc: 'Metallic foil bonded with heat onto leather, luggage tags, notebooks and gift boxes, with no metal plate needed.',
+    time: 'About 2 min',
+    img: '/img/dhf-09-hands-loading-machine.jpg',
+    alt: 'Hands loading a piece into the digital hot foil machine',
+  },
+  {
+    name: 'Laser engraving',
+    live: true,
+    hook: 'Permanent, with nothing added.',
+    desc: 'Perfume bottles, pens, glassware and leather, marked by laser. Nothing sits on top, so nothing wears off.',
+    time: 'About 5 min',
+    img: '/img/w12.jpg',
+    alt: 'A name engraved into steel',
+  },
+];

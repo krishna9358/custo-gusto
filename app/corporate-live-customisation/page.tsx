@@ -7,6 +7,8 @@ import { ClosingBand } from '@/components/SharedSections';
 import {
   Breadcrumbs,
   DirectAnswer,
+  SixWays,
+  ProofSection,
   FaqSection,
   BriefSection,
 } from '@/components/IntentSections';
@@ -207,36 +209,6 @@ const NEEDS = [
   },
 ];
 
-const FINISHES = [
-  {
-    name: 'Live embroidery',
-    live: true,
-    hook: 'Caps, made around a fandom.',
-    desc: 'Thread into caps, tees, jackets and bags on German ZSK machines, designed with the person at the desk.',
-    time: 'About 5 min',
-    img: '/img/touch_caps.jpg',
-    alt: 'A cap with a gold embroidered emblem',
-  },
-  {
-    name: 'DTF print',
-    live: false,
-    hook: 'Full colour, for the busy hour.',
-    desc: 'Full-colour artwork on tees, jerseys, hoodies and event tees. Transfers are printed ahead; the guest watches it pressed on.',
-    time: 'About 3 min',
-    img: '/img/05-dtf-heat-press-process.jpg',
-    alt: 'A DTF transfer being pressed onto a tee with a heat press',
-  },
-  {
-    name: 'Laser engraving',
-    live: true,
-    hook: 'Permanent, with nothing added.',
-    desc: 'Perfume bottles, pens, glassware and leather, marked by laser. Nothing sits on top, so nothing wears off.',
-    time: 'About 5 min',
-    img: '/img/w12.jpg',
-    alt: 'A name engraved into steel',
-  },
-];
-
 const FINISH_TABLE = [
   ['Uniforms, shirts and jackets', 'Embroidery · patches · DTF print'],
   ['Caps', 'Embroidery · patches'],
@@ -288,13 +260,6 @@ const ROUTE = [
   },
 ];
 
-const ONE8_TILES = [
-  { v: '300+', l: 'One-of-one pieces in about five hours' },
-  { v: '4', l: 'ZSK machines' },
-  { v: '8', l: 'Operators' },
-  { v: '3', l: 'Live designers' },
-];
-
 const JOB_WORK = [
   {
     title: 'Uniforms and apparel',
@@ -311,28 +276,6 @@ const JOB_WORK = [
     clients: 'Maxvida',
     body: 'More than 2,400 towels customised for Maxvida on a single order. Hotel towels, robes, cushion covers and quilts.',
   },
-];
-
-const PROOF_TILES = [
-  { v: '40,000+', l: 'Customers at our store desks' },
-  { v: '1,20,000+', l: 'Pieces embroidered at our store desks' },
-  { v: '5.0', l: '500+ Google reviews, from stores across India', stars: true },
-  { v: '13', l: 'Desks running across India' },
-];
-
-const CAPACITY = [
-  ['Minimum order', 'None, on any product or finish'],
-  [
-    'Recent runs',
-    '1,000 bags in 7 days with zero rejections · 130 caps in a single day · 200 jackets in 10 hours · 2,400+ towels on one order',
-  ],
-  ['Logo set up', 'Logos digitised in house; a sample is approved before production'],
-  ['Quality', 'Every piece checked by hand before it is packed'],
-  ['Finishes', 'Embroidery, patches, DTF print, digital hot foil, laser engraving and UV stickers'],
-  [
-    'Live desk',
-    '300+ one-of-one pieces in about five hours, on 4 machines with 8 operators and 3 designers (one8 Global Premiere)',
-  ],
 ];
 
 /** `crew: true` marks the cities where standing crews are based (highlighted chip). */
@@ -405,71 +348,8 @@ export default function CorporateCustomisationPage() {
 
       <Ticker />
 
-      {/* 2 · Buyer + business problem */}
-      <section className="sec">
-        <div className="wrap">
-          <div className="cg-head">
-            <p className="eyebrow" data-aos="fade-up">Who this is for</p>
-            <h2 className="big" data-aos="fade-up" data-aos-delay="100">
-              ONE PARTNER FOR EVERYTHING YOUR BRAND PUTS ITS NAME ON.
-            </h2>
-            <p className="sub" data-aos="fade-up" data-aos-delay="150">
-              HR and admin teams, marketing, procurement, apparel and uniform brands, hotels and
-              restaurants come to us when merch has to carry the brand: logo uniforms, team caps,
-              branded bags, towels, festive gifts and client kits. You bring the brief; we handle
-              the product, the finish, the packing and the dispatch.
-            </p>
-          </div>
-          <div className="four">
-            {PROBLEMS.map((p, i) => (
-              <div className="q" key={p.title} data-aos="fade-up" data-aos-delay={i * 100}>
-                <div className="qt">{p.title}</div>
-                <p className="qb">{p.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 3 · Pull line */}
-      <section className="sec-sm">
-        <div className="wrap">
-          <div className="pull" style={{ maxWidth: '860px' }} data-aos="fade-up">
-            Whatever your merch is, we make it custom. Your logo on every piece, a name on each one
-            if you want it, sampled first, then made to that standard.
-            <small>As job work on your products, as products we source and pack, or live at your event.</small>
-          </div>
-        </div>
-      </section>
-
-      {/* 4 · Three ways to order */}
+      {/* 2 · Start with what you need */}
       <section className="sec band-blush">
-        <div className="wrap">
-          <div className="cg-head">
-            <p className="eyebrow" data-aos="fade-up">Three ways to order</p>
-            <h2 className="big" data-aos="fade-up" data-aos-delay="100">
-              YOUR PRODUCTS, OURS, OR LIVE AT YOUR EVENT.
-            </h2>
-          </div>
-          <div className="g g3 cg-mt">
-            {ORDER_WAYS.map((w, i) => (
-              <div
-                className={w.hero ? 'tech hero-tech' : 'tech'}
-                key={w.meta}
-                data-aos="fade-up"
-                data-aos-delay={i * 100}
-              >
-                <div className="tm">{w.meta}</div>
-                <div className="tn">{w.name}</div>
-                <p className="tb">{w.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 5 · Start with what you need */}
-      <section className="sec">
         <div className="wrap">
           <div className="cg-head">
             <p className="eyebrow" data-aos="fade-up">Start with what you need</p>
@@ -510,65 +390,96 @@ export default function CorporateCustomisationPage() {
         </div>
       </section>
 
-      {/* 6 · Recommended finishes */}
+      {/* 3 · 6 ways to customise */}
+      <SixWays
+        eyebrow="6 types of customisation"
+        title="6 FINISHES FOR MOST COMPANY BRIEFS."
+        sub="We recommend the finish after checking the material, the artwork and the quantity."
+      >
+        <div className="tw cg-cap" data-aos="fade-up">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Product</th>
+                <th scope="col">Finishes</th>
+              </tr>
+            </thead>
+            <tbody>
+              {FINISH_TABLE.map(([product, finishes]) => (
+                <tr key={product}>
+                  <td>{product}</td>
+                  <td>{finishes}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className="cg-chips" aria-label="Products" data-aos="fade-up" data-aos-delay="100">
+          {PRODUCTS.map((p) => (
+            <span className="chip" key={p}>
+              {p}
+            </span>
+          ))}
+        </div>
+      </SixWays>
+      {/* 4 · Buyer + business problem */}
+      <section className="sec band-blush">
+        <div className="wrap">
+          <div className="cg-head">
+            <p className="eyebrow" data-aos="fade-up">Who this is for</p>
+            <h2 className="big" data-aos="fade-up" data-aos-delay="100">
+              ONE PARTNER FOR EVERYTHING YOUR BRAND PUTS ITS NAME ON.
+            </h2>
+            <p className="sub" data-aos="fade-up" data-aos-delay="150">
+              HR and admin teams, marketing, procurement, apparel and uniform brands, hotels and
+              restaurants come to us when merch has to carry the brand: logo uniforms, team caps,
+              branded bags, towels, festive gifts and client kits. You bring the brief; we handle
+              the product, the finish, the packing and the dispatch.
+            </p>
+          </div>
+          <div className="four">
+            {PROBLEMS.map((p, i) => (
+              <div className="q" key={p.title} data-aos="fade-up" data-aos-delay={i * 100}>
+                <div className="qt">{p.title}</div>
+                <p className="qb">{p.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5 · Pull line */}
+      <section className="sec-sm">
+        <div className="wrap">
+          <div className="pull" style={{ maxWidth: '860px' }} data-aos="fade-up">
+            Whatever your merch is, we make it custom. Your logo on every piece, a name on each one
+            if you want it, sampled first, then made to that standard.
+            <small>As job work on your products, as products we source and pack, or live at your event.</small>
+          </div>
+        </div>
+      </section>
+
+      {/* 6 · Three ways to order */}
       <section className="sec">
         <div className="wrap">
           <div className="cg-head">
-            <p className="eyebrow" data-aos="fade-up">Recommended most often</p>
+            <p className="eyebrow" data-aos="fade-up">Three ways to order</p>
             <h2 className="big" data-aos="fade-up" data-aos-delay="100">
-              THREE FINISHES FOR MOST CORPORATE BRIEFS.
+              YOUR PRODUCTS, OURS, OR LIVE AT YOUR EVENT.
             </h2>
-            <p className="sub" data-aos="fade-up" data-aos-delay="150">
-              We recommend the finish after checking the material, the artwork and the quantity.
-            </p>
           </div>
           <div className="g g3 cg-mt">
-            {FINISHES.map((t, i) => (
-              <article className="tk" key={t.name} data-aos="fade-up" data-aos-delay={i * 100}>
-                <div className="tk-media">
-                  <img className="tk-img" src={t.img} alt={t.alt} loading="lazy" decoding="async" />
-                </div>
-                <div className="tk-inner">
-                  <div className="tk-top">
-                    <h3 className="tk-name">{t.name}</h3>
-                    {t.live ? (
-                      <span className="tk-live on">Live</span>
-                    ) : (
-                      <span className="tk-live off">Applied live</span>
-                    )}
-                  </div>
-                  <div className="tk-hook">{t.hook}</div>
-                  <p className="tk-desc">{t.desc}</p>
-                  <div className="tk-foot">
-                    <span className="tk-time">{t.time}</span>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-          <div className="tw cg-cap" data-aos="fade-up">
-            <table>
-              <thead>
-                <tr>
-                  <th scope="col">Product</th>
-                  <th scope="col">Finishes</th>
-                </tr>
-              </thead>
-              <tbody>
-                {FINISH_TABLE.map(([product, finishes]) => (
-                  <tr key={product}>
-                    <td>{product}</td>
-                    <td>{finishes}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <div className="cg-chips" aria-label="Products" data-aos="fade-up" data-aos-delay="100">
-            {PRODUCTS.map((p) => (
-              <span className="chip" key={p}>
-                {p}
-              </span>
+            {ORDER_WAYS.map((w, i) => (
+              <div
+                className={w.hero ? 'tech hero-tech' : 'tech'}
+                key={w.meta}
+                data-aos="fade-up"
+                data-aos-delay={i * 100}
+              >
+                <div className="tm">{w.meta}</div>
+                <div className="tn">{w.name}</div>
+                <p className="tb">{w.body}</p>
+              </div>
             ))}
           </div>
         </div>
@@ -599,61 +510,7 @@ export default function CorporateCustomisationPage() {
         </div>
       </section>
 
-      {/* 8 · Proof at scale: one8 */}
-      <section className="band band-night">
-        <div className="wrap split split-night">
-          <div className="night-side" style={{ paddingLeft: 0 }}>
-            <div className="night-text">
-              <p className="eyebrow" data-aos="fade-up">
-                Proof at scale · Live at a large production
-              </p>
-              <h2 className="big" data-aos="fade-up" data-aos-delay="100">
-                THE CONFIGURATION WE BRING TO A BIG ROOM.
-              </h2>
-              <p className="lead" data-aos="fade-up" data-aos-delay="150">
-                At the one8 Global Premiere, produced with District by Zomato, four machines, eight
-                operators and three designers ran a live design desk inside a large production for
-                one evening and made 300+ one-of-one pieces in about five hours. The same crew,
-                machines and design desk come to your company event.
-              </p>
-            </div>
-            <div className="night-lower">
-              <div className="g cg-case-tiles">
-                {ONE8_TILES.map((t, i) => (
-                  <div className="tile" key={t.l} data-aos="fade-up" data-aos-delay={i * 100}>
-                    <div className="v">{t.v}</div>
-                    <div className="l">{t.l}</div>
-                  </div>
-                ))}
-              </div>
-              <div className="btns" data-aos="fade-up" data-aos-delay="200">
-                <Button href="/work/one8-global-premiere" variant="blush">
-                  Read the one8 case study
-                </Button>
-                <Button href="https://youtube.com/shorts/PFZjzmlq5LI" variant="live" target="_blank">
-                  Watch it
-                </Button>
-              </div>
-            </div>
-          </div>
-          <figure
-            className="cg-case-photo"
-            style={{ margin: 0 }}
-            data-aos="fade-left"
-            data-aos-delay="150"
-          >
-            <img
-              src="/img/one8-midstitch.jpg"
-              alt="A ZSK machine stitching a guest’s design at the one8 Global Premiere"
-              loading="lazy"
-              decoding="async"
-            />
-            <span className="stk stk-b">{bc('1/1')}</span>
-          </figure>
-        </div>
-      </section>
-
-      {/* 9 · Job work, recently */}
+      {/* 8 · Job work, recently */}
       <section className="sec">
         <div className="wrap">
           <div className="cg-head">
@@ -677,54 +534,10 @@ export default function CorporateCustomisationPage() {
         </div>
       </section>
 
-      {/* 10 · Verified proof + operating capacity */}
-      <section className="sec band-blush">
-        <div className="wrap">
-          <div className="cg-head">
-            <p className="eyebrow" data-aos="fade-up">Verified proof · operating capacity</p>
-            <h2 className="big" data-aos="fade-up" data-aos-delay="100">
-              THE NUMBERS, AND WHAT WE CAN CARRY.
-            </h2>
-          </div>
-          <div className="g g4 cg-mt">
-            {PROOF_TILES.map((t, i) => (
-              <div className="tile" key={t.l} data-aos="fade-up" data-aos-delay={i * 100}>
-                {t.stars && (
-                  <div className="stars" aria-hidden="true">
-                    ★★★★★
-                  </div>
-                )}
-                <div className="v">{t.v}</div>
-                <div className="l">{t.l}</div>
-              </div>
-            ))}
-          </div>
-          <div className="tw cg-cap" data-aos="fade-up">
-            <table>
-              <thead>
-                <tr>
-                  <th scope="col">Job work and corporate orders</th>
-                  <th scope="col">What we run</th>
-                </tr>
-              </thead>
-              <tbody>
-                {CAPACITY.map(([k, v]) => (
-                  <tr key={k}>
-                    <td>{k}</td>
-                    <td>{v}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="cg-note" data-aos="fade-up">
-            Store-desk figures above cover our retail desks only. Job-work runs and client names are
-            from our own published orders.
-          </p>
-        </div>
-      </section>
+      {/* 9 · Verified proof */}
+      <ProofSection />
 
-      {/* 11 · Cities + nationwide */}
+      {/* 10 · Cities + nationwide */}
       <section className="sec">
         <div className="wrap split">
           <div>
@@ -756,10 +569,10 @@ export default function CorporateCustomisationPage() {
         </div>
       </section>
 
-      {/* 12 · FAQ (the same FAQS feed the FAQPage JSON-LD) */}
+      {/* 11 · FAQ (the same FAQS feed the FAQPage JSON-LD) */}
       <FaqSection eyebrow="Asked before the call" title="CORPORATE MERCH QUESTIONS." items={FAQS} />
 
-      {/* 13 · Brief form + book a call */}
+      {/* 12 · Brief form + book a call */}
       <BriefSection
         eyebrow="The five details we need"
         title="SEND THE BRIEF. WE WILL MAKE IT CUSTOM."
@@ -769,7 +582,7 @@ export default function CorporateCustomisationPage() {
         waText={WA_TEXT}
       />
 
-      {/* 14 · Closing band */}
+      {/* 13 · Closing band */}
       <ClosingBand
         dare="YOUR BRAND, ON ANYTHING. MADE CUSTOM."
         sub="No minimum order. Job work packed and sent, or live at your event."

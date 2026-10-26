@@ -10,6 +10,8 @@ import {
   DirectAnswer,
   CaseCard,
   VideoEmbed,
+  SixWays,
+  ProofSection,
   FaqSection,
   BriefSection,
 } from '@/components/IntentSections';
@@ -155,36 +157,6 @@ const MODELS = [
   },
 ];
 
-const TECHNIQUES = [
-  {
-    name: 'Live embroidery',
-    live: true,
-    hook: 'The hero. The one they film.',
-    desc: 'Names, dates and artwork stitched into shoes, caps, jackets and bags on German ZSK machines.',
-    time: 'About 5 min',
-    img: '/img/01-shoe-cursive-10-embroidered.jpg',
-    alt: 'A name embroidered in cursive onto a sneaker at a Custo Gusto desk',
-  },
-  {
-    name: 'Digital hot foil',
-    live: true,
-    hook: 'The premium finish.',
-    desc: 'Metallic foil bonded with heat onto leather, luggage tags, notebooks and gift boxes, with no metal plate needed.',
-    time: 'About 2 min',
-    img: '/img/dhf-09-hands-loading-machine.jpg',
-    alt: 'Hands loading a piece into the digital hot foil machine',
-  },
-  {
-    name: 'DTF print',
-    live: false,
-    hook: 'Full colour, for the busy hour.',
-    desc: 'Full-colour artwork on tees, jerseys, hoodies and event tees. Transfers are printed ahead; the guest watches it pressed on.',
-    time: 'About 3 min',
-    img: '/img/05-dtf-heat-press-process.jpg',
-    alt: 'A DTF transfer being pressed onto a tee with a heat press',
-  },
-];
-
 const PRODUCTS = [
   'Shoes',
   'Caps',
@@ -197,11 +169,9 @@ const PRODUCTS = [
   'Luggage tags',
 ];
 
-const UNIQLO_TILES = [
-  { v: '142', l: 'Pieces customised' },
-  { v: '80', l: 'Bags, the hero product' },
-  { v: '85+', l: 'Customers served (85 to 90)' },
-  { v: '1', l: 'Compact live station' },
+const DECATHLON_TILES = [
+  { v: '10+', l: 'Stores, pan India' },
+  { v: '3', l: 'Pieces customised per person, on average' },
 ];
 
 type CardBase = Omit<React.ComponentProps<typeof CaseCard>, 'aosDelay' | 'videoId'>;
@@ -211,13 +181,13 @@ type CardBase = Omit<React.ComponentProps<typeof CaseCard>, 'aosDelay' | 'videoI
     with a still photo and no play overlay (as in the demo). */
 const FLOOR_CARDS: (CardBase & ({ videoId: string } | { img: string }))[] = [
   {
-    href: '/work/decathlon',
-    videoId: 'y3J-sEqtXcg',
-    alt: 'Decathlon — Embedded desks, pan-India',
-    title: 'Decathlon — Embedded desks, pan-India',
-    highlight: 'Customers return to customise again',
-    desc: 'Live embroidery desks running inside stores across the country. The proof that a desk works on an ordinary floor, on an ordinary day.',
-    tags: ['Live embroidery', 'Embedded desk', 'Retail'],
+    href: '/work/uniqlo',
+    videoId: 'SHvAwvWKkWY',
+    alt: 'Uniqlo — In-store customization',
+    title: 'Uniqlo — In-store customization',
+    highlight: '700+ designs in 3 days',
+    desc: 'We turned Uniqlo clothes and bags into personal pieces, live in the store. The store saw its own sales rise across the three days.',
+    tags: ['Apparel and bags', 'Retail activation'],
   },
   {
     href: '/clients',
@@ -246,22 +216,6 @@ const FLOOR_CARDS: (CardBase & ({ videoId: string } | { img: string }))[] = [
     desc: 'Parents personalised Mothercare kidswear with custom embroidery, stitched live. A gift that becomes a keepsake.',
     tags: ['Live embroidery', 'Kidswear', 'Festive event'],
   },
-];
-
-const PROOF_TILES = [
-  { v: '40,000+', l: 'Customers at our store desks' },
-  { v: '1,20,000+', l: 'Pieces embroidered at our store desks' },
-  { v: '5.0', l: '500+ Google reviews, from stores across India', stars: true },
-  { v: '13', l: 'Desks running across India' },
-];
-
-const STORE_DESK = [
-  ['Desks running', '13 across India'],
-  ['Permanent desk', 'Rental: a fixed monthly price, minimum six months'],
-  ['Included', 'Expert operator, live designer, all raw materials and 365-day maintenance'],
-  ['Embroidery, per piece', 'About 4 to 5 minutes on a ready design; about 10 minutes when designed on the spot'],
-  ['Per machine', 'Roughly 15 pieces an hour on ready designs'],
-  ['Rollout', 'Operators trained on one system, so every city runs the same; stores served nationwide'],
 ];
 
 /** `crew: true` marks the cities where standing crews are based (highlighted chip). */
@@ -378,8 +332,45 @@ export default function RetailActivationPage() {
 
       <Ticker />
 
-      {/* 2 · Buyer + business problem */}
-      <section className="sec">
+      {/* 2 · Case study: Decathlon */}
+      <section className="band band-night">
+        <div className="wrap split split-night">
+          <div className="night-side" style={{ paddingLeft: 0 }}>
+            <div className="night-text">
+              <p className="eyebrow" data-aos="fade-up">Case study · Embedded desks · Pan India</p>
+              <h2 className="big" data-aos="fade-up" data-aos-delay="100">
+                DECATHLON, DESKS IN STORES ACROSS INDIA.
+              </h2>
+              <p className="lead" data-aos="fade-up" data-aos-delay="150">
+                Live embroidery desks embedded inside Decathlon stores across India. An operator and
+                a designer personalise products from the store floor while the customer watches,
+                every day, and customers come back to customise again.
+              </p>
+            </div>
+            <div className="night-lower">
+              <div className="g cg-case-tiles">
+                {DECATHLON_TILES.map((t, i) => (
+                  <div className="tile" key={t.l} data-aos="fade-up" data-aos-delay={i * 100}>
+                    <div className="v">{t.v}</div>
+                    <div className="l">{t.l}</div>
+                  </div>
+                ))}
+              </div>
+              <div className="btns" data-aos="fade-up" data-aos-delay="200">
+                <Button href="/work/decathlon" variant="blush">
+                  Read the Decathlon case study
+                </Button>
+              </div>
+            </div>
+          </div>
+          <div style={{ alignSelf: 'center' }}>
+            <VideoEmbed videoId="y3J-sEqtXcg" title="Custo Gusto at Decathlon" />
+          </div>
+        </div>
+      </section>
+
+      {/* 3 · Buyer + business problem */}
+      <section className="sec band-blush">
         <div className="wrap">
           <div className="cg-head">
             <p className="eyebrow" data-aos="fade-up">Who this is for</p>
@@ -403,8 +394,8 @@ export default function RetailActivationPage() {
         </div>
       </section>
 
-      {/* 3 · Ways onto your floor */}
-      <section className="sec band-blush">
+      {/* 4 · Ways onto your floor */}
+      <section className="sec">
         <div className="wrap">
           <div className="cg-head">
             <p className="eyebrow" data-aos="fade-up">Ways onto your floor</p>
@@ -429,98 +420,21 @@ export default function RetailActivationPage() {
         </div>
       </section>
 
-      {/* 4 · Products + techniques */}
-      <section className="sec">
-        <div className="wrap">
-          <div className="cg-head">
-            <p className="eyebrow" data-aos="fade-up">What customers personalise</p>
-            <h2 className="big" data-aos="fade-up" data-aos-delay="100">
-              THE PRODUCT ON THE SHELF, MADE THEIRS.
-            </h2>
-            <p className="sub" data-aos="fade-up" data-aos-delay="150">
-              Around 90% of a typical retail range can be customised live, with shoes leading the
-              desk.
-            </p>
-          </div>
-          <div className="g g3 cg-mt">
-            {TECHNIQUES.map((t, i) => (
-              <article className="tk" key={t.name} data-aos="fade-up" data-aos-delay={i * 100}>
-                <div className="tk-media">
-                  <img className="tk-img" src={t.img} alt={t.alt} loading="lazy" decoding="async" />
-                </div>
-                <div className="tk-inner">
-                  <div className="tk-top">
-                    <h3 className="tk-name">{t.name}</h3>
-                    {t.live ? (
-                      <span className="tk-live on">Live</span>
-                    ) : (
-                      <span className="tk-live off">Applied live</span>
-                    )}
-                  </div>
-                  <div className="tk-hook">{t.hook}</div>
-                  <p className="tk-desc">{t.desc}</p>
-                  <div className="tk-foot">
-                    <span className="tk-time">{t.time}</span>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-          <p className="cg-also" data-aos="fade-up">
-            <b>Also at the desk:</b> laser engraving for perfume bottles, pens, glassware and
-            leather (about 5 minutes), and UV stickers for bottles, phone cases, helmets and flasks
-            (about 1 minute). In-house design is included in every engagement.
-          </p>
-          <div className="cg-chips" aria-label="Products" data-aos="fade-up" data-aos-delay="100">
-            {PRODUCTS.map((p) => (
-              <span className="chip" key={p}>
-                {p}
-              </span>
-            ))}
-          </div>
+      {/* 5 · 6 ways to customise */}
+      <SixWays
+        eyebrow="What customers personalise"
+        title="6 WAYS TO CUSTOMISE."
+        sub="Around 90% of a typical retail range can be customised live, with shoes leading the desk."
+        blush
+      >
+        <div className="cg-chips" aria-label="Products" data-aos="fade-up" data-aos-delay="100">
+          {PRODUCTS.map((p) => (
+            <span className="chip" key={p}>
+              {p}
+            </span>
+          ))}
         </div>
-      </section>
-
-      {/* 5 · Case study: Uniqlo */}
-      <section className="band band-night">
-        <div className="wrap split split-night">
-          <div className="night-side" style={{ paddingLeft: 0 }}>
-            <div className="night-text">
-              <p className="eyebrow" data-aos="fade-up">Case study · In-store activation</p>
-              <h2 className="big" data-aos="fade-up" data-aos-delay="100">
-                UNIQLO, THREE DAYS IN STORE.
-              </h2>
-              <p className="lead" data-aos="fade-up" data-aos-delay="150">
-                One compact station on the Uniqlo floor personalised bags, T-shirts, jackets and
-                baby onesies for three days. Bags led, customers came back with family members after
-                seeing a finished bag, some bought products specifically to customise them, and the
-                store saw its own sales rise.
-              </p>
-            </div>
-            <div className="night-lower">
-              <div className="g cg-case-tiles">
-                {UNIQLO_TILES.map((t, i) => (
-                  <div className="tile" key={t.l} data-aos="fade-up" data-aos-delay={i * 100}>
-                    <div className="v">{t.v}</div>
-                    <div className="l">{t.l}</div>
-                  </div>
-                ))}
-              </div>
-              <div className="btns" data-aos="fade-up" data-aos-delay="200">
-                <Button href="/work/uniqlo" variant="blush">
-                  Read the Uniqlo case study
-                </Button>
-                <Button href="https://youtube.com/shorts/SHvAwvWKkWY" variant="live" target="_blank">
-                  Watch it
-                </Button>
-              </div>
-            </div>
-          </div>
-          <div style={{ alignSelf: 'center' }}>
-            <VideoEmbed videoId="SHvAwvWKkWY" title="Uniqlo in-store customisation" />
-          </div>
-        </div>
-      </section>
+      </SixWays>
 
       {/* 6 · Desks on real floors */}
       <section className="sec">
@@ -546,52 +460,10 @@ export default function RetailActivationPage() {
         </div>
       </section>
 
-      {/* 7 · Verified proof + store desk facts */}
-      <section className="sec band-blush">
-        <div className="wrap">
-          <div className="cg-head">
-            <p className="eyebrow" data-aos="fade-up">Verified proof · operating capacity</p>
-            <h2 className="big" data-aos="fade-up" data-aos-delay="100">
-              THE NUMBERS FROM OUR STORE DESKS.
-            </h2>
-          </div>
-          <div className="g g4 cg-mt">
-            {PROOF_TILES.map((t, i) => (
-              <div className="tile" key={t.l} data-aos="fade-up" data-aos-delay={i * 100}>
-                {t.stars && (
-                  <div className="stars" aria-hidden="true">
-                    ★★★★★
-                  </div>
-                )}
-                <div className="v">{t.v}</div>
-                <div className="l">{t.l}</div>
-              </div>
-            ))}
-          </div>
-          <div className="tw cg-cap" data-aos="fade-up">
-            <table>
-              <thead>
-                <tr>
-                  <th scope="col">A store desk, stated plainly</th>
-                  <th scope="col">What we run</th>
-                </tr>
-              </thead>
-              <tbody>
-                {STORE_DESK.map(([k, v]) => (
-                  <tr key={k}>
-                    <td>{k}</td>
-                    <td>{v}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="cg-note" data-aos="fade-up">
-            We measure a desk like store design: by footfall, dwell and loyalty. Store-desk figures
-            cover our retail desks only.
-          </p>
-        </div>
-      </section>
+      {/* 7 · Verified proof */}
+      <ProofSection
+        note="We measure a desk like store design: by footfall, dwell and loyalty."
+      />
 
       {/* 8 · Cities + nationwide */}
       <section className="sec">

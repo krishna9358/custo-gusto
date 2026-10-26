@@ -9,6 +9,8 @@ import {
   DirectAnswer,
   CaseCard,
   VideoEmbed,
+  SixWays,
+  ProofSection,
   FaqSection,
   BriefSection,
 } from '@/components/IntentSections';
@@ -159,36 +161,6 @@ const GROUNDS = [
   },
 ];
 
-const TECHNIQUES = [
-  {
-    name: 'Live embroidery',
-    live: true,
-    hook: 'Caps, made around a fandom.',
-    desc: 'Thread into caps, tees, jackets and bags on German ZSK machines, designed with the person at the desk.',
-    time: 'About 5 min',
-    img: '/img/touch_caps.jpg',
-    alt: 'A cap with a gold embroidered emblem',
-  },
-  {
-    name: 'DTF print',
-    live: false,
-    hook: 'Full colour, for the busy hour.',
-    desc: 'Full-colour artwork on tees, jerseys, hoodies and event tees. Transfers are printed ahead; the guest watches it pressed on.',
-    time: 'About 3 min',
-    img: '/img/05-dtf-heat-press-process.jpg',
-    alt: 'A DTF transfer being pressed onto a tee with a heat press',
-  },
-  {
-    name: 'UV stickers',
-    live: false,
-    hook: 'For what cannot be stitched.',
-    desc: 'Bottles, phone cases, helmets and flasks. Cured on the spot and pressed on with no heat.',
-    time: 'About 1 min',
-    img: '/img/02-uv-phone-case-wide.jpg',
-    alt: 'A UV sticker applied to a phone case',
-  },
-];
-
 const PRODUCTS = [
   'Caps',
   'Tees',
@@ -201,10 +173,7 @@ const PRODUCTS = [
   'Notebooks',
 ];
 
-const WINTER_TILES = [
-  { v: '2', l: 'Kidswear brands, one event' },
-  { v: 'LIVE', l: 'Embroidery and print, on the spot' },
-];
+const EDAMAME_TILES = [{ v: '500+', l: 'Customers' }];
 
 const MORE_CASES: Omit<React.ComponentProps<typeof CaseCard>, 'aosDelay'>[] = [
   {
@@ -234,26 +203,6 @@ const MORE_CASES: Omit<React.ComponentProps<typeof CaseCard>, 'aosDelay'>[] = [
     desc: "For five years we've put fans' names on the back of their RCB jerseys. More than a lakh fans now wear a jersey that's theirs alone.",
     tags: ['Print customization', 'Sports fandom', 'Long-running partnership'],
   },
-];
-
-const PROOF_TILES = [
-  { v: '40,000+', l: 'Customers at our store desks' },
-  { v: '1,20,000+', l: 'Pieces embroidered at our store desks' },
-  { v: '5.0', l: '500+ Google reviews, from stores across India', stars: true },
-  { v: '13', l: 'Desks running across India' },
-];
-
-const CAPACITY = [
-  ['Embroidery, per piece', 'About 4 to 5 minutes on a ready design; about 10 minutes when designed on the spot'],
-  ['Per machine', 'Roughly 15 pieces an hour on ready designs'],
-  [
-    'Biggest proven night',
-    '300+ one-of-one pieces in about five hours, on 4 machines with 8 operators and 3 designers (one8 Global Premiere)',
-  ],
-  ['Busy hours', 'Extra heat-press stations are added for volume'],
-  ['Setup', 'About two days from confirmation'],
-  ['Crews', 'Standing crews in Bangalore and Delhi; two events can run at the same time'],
-  ['Event windows', 'Pay per use, typically 3 to 14 days, with no long-term commitment'],
 ];
 
 /** `crew: true` marks the cities where standing crews are based (highlighted chip). */
@@ -326,8 +275,47 @@ export default function OnGroundCustomerEngagementPage() {
 
       <Ticker />
 
-      {/* 2 · Buyer + business problem */}
-      <section className="sec">
+      {/* 2 · Case study: Edamame */}
+      <section className="band band-night">
+        <div className="wrap split split-night">
+          <div className="night-side" style={{ paddingLeft: 0 }}>
+            <div className="night-text">
+              <p className="eyebrow" data-aos="fade-up">Case study · Winter Wonderland</p>
+              <h2 className="big" data-aos="fade-up" data-aos-delay="100">
+                EDAMAME, AT WINTER WONDERLAND.
+              </h2>
+              <p className="lead" data-aos="fade-up" data-aos-delay="150">
+                Family retail at holiday footfall. Families moving through the event personalised
+                Edamame’s kids’ range with full-colour print applied on the spot.
+              </p>
+            </div>
+            <div className="night-lower">
+              <div className="g cg-case-tiles">
+                {EDAMAME_TILES.map((t, i) => (
+                  <div className="tile" key={t.l} data-aos="fade-up" data-aos-delay={i * 100}>
+                    <div className="v">{t.v}</div>
+                    <div className="l">{t.l}</div>
+                  </div>
+                ))}
+              </div>
+              <div className="btns" data-aos="fade-up" data-aos-delay="200">
+                <Button href="/work/mothercare-winter-wonderland" variant="blush">
+                  Read the Winter Wonderland case study
+                </Button>
+                <Button href="https://youtube.com/shorts/8pAUlRTw35Y" variant="live" target="_blank">
+                  Watch it
+                </Button>
+              </div>
+            </div>
+          </div>
+          <div style={{ alignSelf: 'center' }}>
+            <VideoEmbed videoId="8pAUlRTw35Y" title="Edamame at Winter Wonderland" />
+          </div>
+        </div>
+      </section>
+
+      {/* 3 · Buyer + business problem */}
+      <section className="sec band-blush">
         <div className="wrap">
           <div className="cg-head">
             <p className="eyebrow" data-aos="fade-up">Who this is for</p>
@@ -351,8 +339,8 @@ export default function OnGroundCustomerEngagementPage() {
         </div>
       </section>
 
-      {/* 3 · Where it runs */}
-      <section className="sec band-blush">
+      {/* 4 · Where it runs */}
+      <section className="sec">
         <div className="wrap">
           <div className="cg-head">
             <p className="eyebrow" data-aos="fade-up">Where it runs</p>
@@ -372,103 +360,21 @@ export default function OnGroundCustomerEngagementPage() {
         </div>
       </section>
 
-      {/* 4 · Products + techniques */}
-      <section className="sec">
-        <div className="wrap">
-          <div className="cg-head">
-            <p className="eyebrow" data-aos="fade-up">What the desk makes on the ground</p>
-            <h2 className="big" data-aos="fade-up" data-aos-delay="100">
-              FAST ENOUGH FOR A QUEUE. PERSONAL ENOUGH TO KEEP.
-            </h2>
-            <p className="sub" data-aos="fade-up" data-aos-delay="150">
-              Embroidery is the spectacle; DTF and UV stickers keep a busy queue moving.
-            </p>
-          </div>
-          <div className="g g3 cg-mt">
-            {TECHNIQUES.map((t, i) => (
-              <article className="tk" key={t.name} data-aos="fade-up" data-aos-delay={i * 100}>
-                <div className="tk-media">
-                  <img className="tk-img" src={t.img} alt={t.alt} loading="lazy" decoding="async" />
-                </div>
-                <div className="tk-inner">
-                  <div className="tk-top">
-                    <h3 className="tk-name">{t.name}</h3>
-                    {t.live ? (
-                      <span className="tk-live on">Live</span>
-                    ) : (
-                      <span className="tk-live off">Applied live</span>
-                    )}
-                  </div>
-                  <div className="tk-hook">{t.hook}</div>
-                  <p className="tk-desc">{t.desc}</p>
-                  <div className="tk-foot">
-                    <span className="tk-time">{t.time}</span>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-          <p className="cg-also" data-aos="fade-up">
-            <b>Also at the desk:</b> digital hot foil for leather, luggage tags, notebooks and gift
-            boxes (about 2 minutes), and laser engraving for perfume bottles, pens, glassware and
-            leather (about 5 minutes). In-house design is included in every engagement.
-          </p>
-          <div className="cg-chips" aria-label="Products" data-aos="fade-up" data-aos-delay="100">
-            {PRODUCTS.map((p) => (
-              <span className="chip" key={p}>
-                {p}
-              </span>
-            ))}
-          </div>
+      {/* 5 · 6 ways to customise */}
+      <SixWays
+        eyebrow="What the desk makes on the ground"
+        title="6 WAYS TO CUSTOMISE."
+        sub="Embroidery is the spectacle; DTF and UV stickers keep a busy queue moving."
+        blush
+      >
+        <div className="cg-chips" aria-label="Products" data-aos="fade-up" data-aos-delay="100">
+          {PRODUCTS.map((p) => (
+            <span className="chip" key={p}>
+              {p}
+            </span>
+          ))}
         </div>
-      </section>
-
-      {/* 5 · Case study: Winter Wonderland */}
-      <section className="band band-night">
-        <div className="wrap split split-night">
-          <div className="night-side" style={{ paddingLeft: 0 }}>
-            <div className="night-text">
-              <p className="eyebrow" data-aos="fade-up">Case study · Seasonal retail event</p>
-              <h2 className="big" data-aos="fade-up" data-aos-delay="100">
-                WINTER WONDERLAND, WITH MOTHERCARE AND EDAMAME.
-              </h2>
-              <p className="lead" data-aos="fade-up" data-aos-delay="150">
-                Family retail at holiday footfall. Parents personalised Mothercare kidswear with
-                embroidery stitched live, and Edamame’s kids’ range with full-colour print applied
-                on the spot, as families moved through the event.
-              </p>
-            </div>
-            <div className="night-lower">
-              <div className="g cg-case-tiles">
-                {WINTER_TILES.map((t, i) => (
-                  <div className="tile" key={t.l} data-aos="fade-up" data-aos-delay={i * 100}>
-                    <div className="v">{t.v}</div>
-                    <div className="l">{t.l}</div>
-                  </div>
-                ))}
-              </div>
-              <div className="btns" data-aos="fade-up" data-aos-delay="200">
-                <Button href="/work/mothercare-winter-wonderland" variant="blush">
-                  Read the Winter Wonderland case study
-                </Button>
-                <Button
-                  href="https://www.youtube.com/watch?v=9Z110fUe90Q"
-                  variant="live"
-                  target="_blank"
-                >
-                  Watch it
-                </Button>
-              </div>
-            </div>
-          </div>
-          <div style={{ alignSelf: 'center' }}>
-            <VideoEmbed
-              videoId="9Z110fUe90Q"
-              title="Mothercare kidswear embroidery at Winter Wonderland"
-            />
-          </div>
-        </div>
-      </section>
+      </SixWays>
 
       {/* 6 · More on the ground */}
       <section className="sec">
@@ -487,53 +393,10 @@ export default function OnGroundCustomerEngagementPage() {
         </div>
       </section>
 
-      {/* 7 · Verified proof + operating capacity */}
-      <section className="sec band-blush">
-        <div className="wrap">
-          <div className="cg-head">
-            <p className="eyebrow" data-aos="fade-up">Verified proof · operating capacity</p>
-            <h2 className="big" data-aos="fade-up" data-aos-delay="100">
-              THE NUMBERS, AND WHAT ONE DESK CAN CARRY.
-            </h2>
-          </div>
-          <div className="g g4 cg-mt">
-            {PROOF_TILES.map((t, i) => (
-              <div className="tile" key={t.l} data-aos="fade-up" data-aos-delay={i * 100}>
-                {t.stars && (
-                  <div className="stars" aria-hidden="true">
-                    ★★★★★
-                  </div>
-                )}
-                <div className="v">{t.v}</div>
-                <div className="l">{t.l}</div>
-              </div>
-            ))}
-          </div>
-          <div className="tw cg-cap" data-aos="fade-up">
-            <table>
-              <thead>
-                <tr>
-                  <th scope="col">Capacity, stated plainly</th>
-                  <th scope="col">What we run</th>
-                </tr>
-              </thead>
-              <tbody>
-                {CAPACITY.map(([k, v]) => (
-                  <tr key={k}>
-                    <td>{k}</td>
-                    <td>{v}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="cg-note" data-aos="fade-up">
-            We size the desk to the event: machines, operators and designers are matched to your
-            expected footfall and hours. Store-desk figures cover our retail desks only; event
-            volumes are stated separately.
-          </p>
-        </div>
-      </section>
+      {/* 7 · Verified proof */}
+      <ProofSection
+        note="We size the desk to the event: machines, operators and designers are matched to your expected footfall and hours."
+      />
 
       {/* 8 · Cities + nationwide */}
       <section className="sec">

@@ -3,11 +3,11 @@ import { bc } from './Glyphs';
 
 export default function Ticker() {
   const bits = [
-    '40,000+ CUSTOMERS',
-    '1,20,000+ PIECES',
+    '50,000 CUSTOMERS',
+    '1,50,000 PIECES',
     '300+ IN ONE NIGHT',
     '~5 MIN LIVE',
-    '500+ FIVE STAR REVIEWS',
+    '600+ FIVE STAR REVIEWS',
     '13 LIVE DESKS',
     '5 LIVE EVENTS',
     'NEVER REPEATED',

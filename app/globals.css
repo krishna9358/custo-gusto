@@ -1378,3 +1378,8 @@ tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--panel) 93%,var(--
 
 /* Capacity table: fit phones without sideways scroll */
 @media (max-width:600px){.cg-cap table{min-width:0}.cg-cap td:first-child{width:38%;font-weight:600}.cg-cap td,.cg-cap th{padding:11px 12px}}
+
+/* Six techniques: 3 × 2 on desktop, 2 × 3 on tablet, one column on phones */
+.cg-six{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:900px){.cg-six{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.cg-six{grid-template-columns:1fr}}

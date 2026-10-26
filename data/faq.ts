@@ -6,7 +6,7 @@ export interface FaqItem {
 export const COMMERCIAL_FAQS: FaqItem[] = [
   {
     q: 'What is the ROI? What is the revenue share?',
-    a: 'Do not think of us as a shop inside your shop. Think of us the way you think about how your store looks and feels: it brings people in, keeps them there longer, and gives them something to tell people about. The commercial proof does exist: the average customer at our desks takes home three pieces, not one, and every one of our 500+ Google reviews is five stars. But that is the consequence of the experience, not the pitch.',
+    a: 'Do not think of us as a shop inside your shop. Think of us the way you think about how your store looks and feels: it brings people in, keeps them there longer, and gives them something to tell people about. The commercial proof does exist: the average customer at our desks takes home three pieces, not one, and every one of our 600+ Google reviews is five stars. But that is the consequence of the experience, not the pitch.',
   },
   {
     q: 'Can you handle our footfall? All of our stores?',
