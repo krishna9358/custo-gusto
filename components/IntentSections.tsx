@@ -4,7 +4,10 @@ import { Play } from 'lucide-react';
 import { Button } from './Button';
 import { AccordionGroup } from './Accordion';
 import { BriefForm, type BriefFormConfig } from './BriefForm';
+import { NumbersBand, TechRail } from './SharedSections';
+import { Dot } from './Glyphs';
 import { EMAIL, PHONE_DISPLAY, PHONE_TEL, gmailCompose, whatsApp, type Crumb, type FaqItem } from '@/lib/seo';
+import { SIX_WAYS } from '@/data/techniques';
 
 /* Building blocks shared by the service (intent) pages and the case studies.
    Styling lives in the "Phase 1 pages" block at the end of globals.css. */
@@ -143,6 +146,68 @@ export function VideoEmbed({
       {caption && <p className="cg-video-cap">{caption}</p>}
     </div>
   );
+}
+
+/** "6 ways to customise": the same six technique cards on every service page, in
+    the landing page's horizontal rail (three cards in view, the rest scroll).
+    `children` renders under the rail (product chips).
+    `blush` sets the band background so sections keep alternating on each page. */
+export function SixWays({
+  eyebrow,
+  title,
+  sub,
+  blush,
+  children,
+}: {
+  eyebrow: string;
+  title: string;
+  sub?: string;
+  blush?: boolean;
+  children?: React.ReactNode;
+}) {
+  return (
+    <section className={blush ? 'sec band-blush' : 'sec'}>
+      <div className="wrap">
+        <TechRail eyebrow={eyebrow} title={title} sub={sub}>
+          {SIX_WAYS.map((t, i) => (
+            <article className="tk" key={t.name} data-aos="fade-up" data-aos-delay={(i % 3) * 100}>
+              <div className="tk-media">
+                <img className="tk-img" src={t.img} alt={t.alt} loading="lazy" decoding="async" />
+              </div>
+              <div className="tk-inner">
+                <div className="tk-top">
+                  <h3 className="tk-name">{t.name}</h3>
+                  {t.live ? (
+                    <span className="tk-live on">
+                      <Dot /> Live
+                    </span>
+                  ) : (
+                    <span className="tk-live off">Applied live</span>
+                  )}
+                </div>
+                <div className="tk-hook">{t.hook}</div>
+                <p className="tk-desc">{t.desc}</p>
+                {t.time && (
+                  <div className="tk-foot">
+                    <span className="tk-time">{t.time}</span>
+                  </div>
+                )}
+              </div>
+            </article>
+          ))}
+        </TechRail>
+        <p className="cg-also" data-aos="fade-up">
+          In-house design is included in every engagement.
+        </p>
+        {children}
+      </div>
+    </section>
+  );
+}
+
+/** The headline numbers: the same band and figures as the landing page. */
+export function ProofSection({ note }: { note?: string }) {
+  return <NumbersBand note={note} />;
 }
 
 /** Visible FAQ. Pass the same `items` to faqNode() so the schema matches word for word. */

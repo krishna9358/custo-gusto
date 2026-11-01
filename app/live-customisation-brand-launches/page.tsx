@@ -8,6 +8,8 @@ import {
   Breadcrumbs,
   DirectAnswer,
   CaseCard,
+  SixWays,
+  ProofSection,
   FaqSection,
   BriefSection,
 } from '@/components/IntentSections';
@@ -154,36 +156,6 @@ const STEPS = [
   },
 ];
 
-const TECHNIQUES = [
-  {
-    name: 'Live embroidery',
-    live: true,
-    hook: 'The hero. The one they film.',
-    desc: 'Names, dates and artwork stitched into shoes, caps, jackets and bags on German ZSK machines.',
-    time: 'About 5 min',
-    img: '/img/01-shoe-cursive-10-embroidered.jpg',
-    alt: 'A name embroidered in cursive onto a sneaker at a Custo Gusto desk',
-  },
-  {
-    name: 'DTF print',
-    live: false,
-    hook: 'Full colour, for the busy hour.',
-    desc: 'Full-colour artwork on tees, jerseys, hoodies and event tees. Transfers are printed ahead; the guest watches it pressed on.',
-    time: 'About 3 min',
-    img: '/img/05-dtf-heat-press-process.jpg',
-    alt: 'A DTF transfer being pressed onto a tee with a heat press',
-  },
-  {
-    name: 'Laser engraving',
-    live: true,
-    hook: 'Permanent, with nothing added.',
-    desc: 'Perfume bottles, pens, glassware and leather, marked by laser. Nothing sits on top, so nothing wears off.',
-    time: 'About 5 min',
-    img: '/img/w12.jpg',
-    alt: 'A name engraved into steel',
-  },
-];
-
 const PRODUCTS = [
   'Sneakers',
   'Caps',
@@ -197,10 +169,10 @@ const PRODUCTS = [
 ];
 
 const ONE8_TILES = [
-  { v: '300+', l: 'One-of-one pieces in about five hours' },
-  { v: '4', l: 'ZSK machines' },
-  { v: '8', l: 'Operators' },
-  { v: '3', l: 'Live designers' },
+  { v: '300+', l: 'Designs on monogrammed shoes' },
+  { v: '500+', l: 'Embroidered iron-on patches' },
+  { v: '4', l: 'Machines' },
+  { v: '11', l: 'Experts' },
 ];
 
 const MORE_CASES: Omit<React.ComponentProps<typeof CaseCard>, 'aosDelay'>[] = [
@@ -231,26 +203,6 @@ const MORE_CASES: Omit<React.ComponentProps<typeof CaseCard>, 'aosDelay'>[] = [
     desc: "For five years we've put fans' names on the back of their RCB jerseys. More than a lakh fans now wear a jersey that's theirs alone.",
     tags: ['Print customization', 'Sports fandom', 'Long-running partnership'],
   },
-];
-
-const PROOF_TILES = [
-  { v: '40,000+', l: 'Customers at our store desks' },
-  { v: '1,20,000+', l: 'Pieces embroidered at our store desks' },
-  { v: '5.0', l: '500+ Google reviews, from stores across India', stars: true },
-  { v: '13', l: 'Desks running across India' },
-];
-
-const CAPACITY = [
-  ['Embroidery, per piece', 'About 4 to 5 minutes on a ready design; about 10 minutes when designed on the spot'],
-  ['Per machine', 'Roughly 15 pieces an hour on ready designs'],
-  [
-    'Biggest proven night',
-    '300+ one-of-one pieces in about five hours, on 4 machines with 8 operators and 3 designers (one8 Global Premiere)',
-  ],
-  ['Busy hours', 'Extra heat-press stations are added for volume'],
-  ['Setup', 'About two days from confirmation'],
-  ['Crews', 'Standing crews in Bangalore and Delhi; two events can run at the same time'],
-  ['Event windows', 'Pay per use, typically 3 to 14 days, with no long-term commitment'],
 ];
 
 /** `crew: true` marks the cities where standing crews are based (highlighted chip). */
@@ -326,110 +278,7 @@ export default function BrandLaunchesPage() {
 
       <Ticker />
 
-      {/* 2 · Buyer + business problem */}
-      <section className="sec">
-        <div className="wrap">
-          <div className="cg-head">
-            <p className="eyebrow" data-aos="fade-up">Who this is for</p>
-            <h2 className="big" data-aos="fade-up" data-aos-delay="100">
-              THE LAUNCH IS ONE NIGHT. THE PRODUCT HAS TO OUTLIVE IT.
-            </h2>
-            <p className="sub" data-aos="fade-up" data-aos-delay="150">
-              Brand and marketing heads launching a shoe, a collection or a store need the product
-              in people’s hands, on their feeds and in conversation the week after. A stage and a
-              goodie bag rarely do all three.
-            </p>
-          </div>
-          <div className="four">
-            {PROBLEMS.map((p, i) => (
-              <div className="q" key={p.title} data-aos="fade-up" data-aos-delay={i * 100}>
-                <div className="qt">{p.title}</div>
-                <p className="qb">{p.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 3 · How a launch desk runs */}
-      <section className="sec band-blush">
-        <div className="wrap">
-          <div className="cg-head">
-            <p className="eyebrow" data-aos="fade-up">How a launch desk runs</p>
-            <h2 className="big" data-aos="fade-up" data-aos-delay="100">
-              BUILT AROUND YOUR LAUNCH, NOT BOLTED ON.
-            </h2>
-          </div>
-          <div className="g g3 steps-flow cg-mt">
-            {STEPS.map((s, i) => (
-              <div
-                className={s.hero ? 'tech hero-tech' : 'tech'}
-                key={s.meta}
-                data-aos="fade-up"
-                data-aos-delay={i * 100}
-              >
-                <div className="tm">{s.meta}</div>
-                <div className="tn">{s.name}</div>
-                <p className="tb">{s.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 4 · Products + techniques */}
-      <section className="sec">
-        <div className="wrap">
-          <div className="cg-head">
-            <p className="eyebrow" data-aos="fade-up">What a launch desk makes</p>
-            <h2 className="big" data-aos="fade-up" data-aos-delay="100">
-              WHAT GUESTS CARRY OUT OF YOUR LAUNCH.
-            </h2>
-            <p className="sub" data-aos="fade-up" data-aos-delay="150">
-              Embroidery leads most launches, DTF carries the busy hour, and laser marks premium
-              hard goods.
-            </p>
-          </div>
-          <div className="g g3 cg-mt">
-            {TECHNIQUES.map((t, i) => (
-              <article className="tk" key={t.name} data-aos="fade-up" data-aos-delay={i * 100}>
-                <div className="tk-media">
-                  <img className="tk-img" src={t.img} alt={t.alt} loading="lazy" decoding="async" />
-                </div>
-                <div className="tk-inner">
-                  <div className="tk-top">
-                    <h3 className="tk-name">{t.name}</h3>
-                    {t.live ? (
-                      <span className="tk-live on">Live</span>
-                    ) : (
-                      <span className="tk-live off">Applied live</span>
-                    )}
-                  </div>
-                  <div className="tk-hook">{t.hook}</div>
-                  <p className="tk-desc">{t.desc}</p>
-                  <div className="tk-foot">
-                    <span className="tk-time">{t.time}</span>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-          <p className="cg-also" data-aos="fade-up">
-            <b>Also at the desk:</b> digital hot foil for leather, luggage tags, notebooks and gift
-            boxes (about 2 minutes), and UV stickers for bottles, phone cases and flasks (about 1
-            minute). In-house design is included in every engagement.
-          </p>
-          <div className="cg-chips" aria-label="Products" data-aos="fade-up" data-aos-delay="100">
-            {PRODUCTS.map((p) => (
-              <span className="chip" key={p}>
-                {p}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 5 · Case study: one8 */}
+      {/* 2 · Case study: one8 */}
       <section className="band band-night">
         <div className="wrap split split-night">
           <div className="night-side" style={{ paddingLeft: 0 }}>
@@ -459,7 +308,7 @@ export default function BrandLaunchesPage() {
                   Read the one8 case study
                 </Button>
                 <Button href="https://youtube.com/shorts/PFZjzmlq5LI" variant="live" target="_blank">
-                  Watch it
+                  Watch video
                 </Button>
               </div>
             </div>
@@ -481,6 +330,73 @@ export default function BrandLaunchesPage() {
         </div>
       </section>
 
+      {/* 3 · Buyer + business problem */}
+      <section className="sec band-blush">
+        <div className="wrap">
+          <div className="cg-head">
+            <p className="eyebrow" data-aos="fade-up">Who this is for</p>
+            <h2 className="big" data-aos="fade-up" data-aos-delay="100">
+              THE LAUNCH IS ONE NIGHT. THE PRODUCT HAS TO OUTLIVE IT.
+            </h2>
+            <p className="sub" data-aos="fade-up" data-aos-delay="150">
+              Brand and marketing heads launching a shoe, a collection or a store need the product
+              in people’s hands, on their feeds and in conversation the week after. A stage and a
+              goodie bag rarely do all three.
+            </p>
+          </div>
+          <div className="four">
+            {PROBLEMS.map((p, i) => (
+              <div className="q" key={p.title} data-aos="fade-up" data-aos-delay={i * 100}>
+                <div className="qt">{p.title}</div>
+                <p className="qb">{p.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4 · How a launch desk runs */}
+      <section className="sec">
+        <div className="wrap">
+          <div className="cg-head">
+            <p className="eyebrow" data-aos="fade-up">How a launch desk runs</p>
+            <h2 className="big" data-aos="fade-up" data-aos-delay="100">
+              BUILT AROUND YOUR LAUNCH, NOT BOLTED ON.
+            </h2>
+          </div>
+          <div className="g g3 steps-flow cg-mt">
+            {STEPS.map((s, i) => (
+              <div
+                className={s.hero ? 'tech hero-tech' : 'tech'}
+                key={s.meta}
+                data-aos="fade-up"
+                data-aos-delay={i * 100}
+              >
+                <div className="tm">{s.meta}</div>
+                <div className="tn">{s.name}</div>
+                <p className="tb">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5 · 6 ways to customise */}
+      <SixWays
+        eyebrow="What a launch desk makes"
+        title="6 WAYS TO CUSTOMISE."
+        sub="Embroidery leads most launches, DTF carries the busy hour, and laser marks premium hard goods."
+        blush
+      >
+        <div className="cg-chips" aria-label="Products" data-aos="fade-up" data-aos-delay="100">
+          {PRODUCTS.map((p) => (
+            <span className="chip" key={p}>
+              {p}
+            </span>
+          ))}
+        </div>
+      </SixWays>
+
       {/* 6 · More launches and activations */}
       <section className="sec">
         <div className="wrap">
@@ -498,53 +414,10 @@ export default function BrandLaunchesPage() {
         </div>
       </section>
 
-      {/* 7 · Verified proof + operating capacity */}
-      <section className="sec band-blush">
-        <div className="wrap">
-          <div className="cg-head">
-            <p className="eyebrow" data-aos="fade-up">Verified proof · operating capacity</p>
-            <h2 className="big" data-aos="fade-up" data-aos-delay="100">
-              THE NUMBERS, AND WHAT A LAUNCH DESK CAN CARRY.
-            </h2>
-          </div>
-          <div className="g g4 cg-mt">
-            {PROOF_TILES.map((t, i) => (
-              <div className="tile" key={t.l} data-aos="fade-up" data-aos-delay={i * 100}>
-                {t.stars && (
-                  <div className="stars" aria-hidden="true">
-                    ★★★★★
-                  </div>
-                )}
-                <div className="v">{t.v}</div>
-                <div className="l">{t.l}</div>
-              </div>
-            ))}
-          </div>
-          <div className="tw cg-cap" data-aos="fade-up">
-            <table>
-              <thead>
-                <tr>
-                  <th scope="col">Capacity, stated plainly</th>
-                  <th scope="col">What we run</th>
-                </tr>
-              </thead>
-              <tbody>
-                {CAPACITY.map(([k, v]) => (
-                  <tr key={k}>
-                    <td>{k}</td>
-                    <td>{v}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="cg-note" data-aos="fade-up">
-            We size the desk to the event: machines, operators and designers are matched to your
-            expected footfall and hours. Store-desk figures cover our retail desks only; event
-            volumes are stated separately.
-          </p>
-        </div>
-      </section>
+      {/* 7 · Verified proof */}
+      <ProofSection
+        note="We size the desk to the event: machines, operators and designers are matched to your expected footfall and hours."
+      />
 
       {/* 8 · Cities + nationwide */}
       <section className="sec">

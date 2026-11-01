@@ -1346,8 +1346,9 @@ tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--panel) 93%,var(--
 .cg-case-photo .stk{position:absolute;left:-10px;bottom:22px;z-index:2}
 @media (max-width:820px){.cg-case-photo{min-height:0;aspect-ratio:4/5}}
 
-/* Capacity table note */
+/* Section footnote */
 .cg-note{font-size:14.5px;color:var(--soft);margin-top:14px;max-width:80ch}
+.band-night .cg-note{color:var(--on-night);opacity:.8;margin-top:22px}
 
 /* Video embed (16:9, lazy) */
 .cg-video{position:relative;width:100%;aspect-ratio:16/9;background:var(--night);border:1px solid var(--rule);box-shadow:var(--sh)}
@@ -1375,6 +1376,3 @@ tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--panel) 93%,var(--
 /* Night band readability + case tiles 2×2 */
 .band-night .lead{color:var(--on-night)}
 .cg-case-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
-
-/* Capacity table: fit phones without sideways scroll */
-@media (max-width:600px){.cg-cap table{min-width:0}.cg-cap td:first-child{width:38%;font-weight:600}.cg-cap td,.cg-cap th{padding:11px 12px}}

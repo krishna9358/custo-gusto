@@ -27,10 +27,9 @@ import {
   Engines,
   Photo,
   TechGrid,
-  StatTiles,
+  NumbersBand,
   ClosingBand,
 } from '@/components/SharedSections';
-import { TRUSTED_LOGOS } from '@/data/clients';
 import { Button } from '@/components/Button';
 import { TouchCarousel } from '@/components/TouchCarousel';
 import { ScaleCasesSection } from '@/components/ScaleCasesSection';
@@ -202,35 +201,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="band band-night">
-        <div className="wrap">
-          <p className="eyebrow" data-aos="fade-up">Three years, thirteen desks, counting</p>
-          <h2 className="big" data-aos="fade-up" data-aos-delay="100">THE NUMBERS BEHIND THE CRAFT</h2>
-          <div style={{ marginTop: '32px' }}>
-            <StatTiles night={true} />
-          </div>
-          <p
-            data-aos="fade-up"
-            data-aos-delay="200"
-            style={{
-              marginTop: '30px',
-              fontSize: '12px',
-              letterSpacing: '.14em',
-              textTransform: 'uppercase',
-              opacity: 0.7,
-            }}
-          >
-            Trusted by
-          </p>
-          <div className="logos" data-aos="fade-up" data-aos-delay="250">
-            {TRUSTED_LOGOS.map((l, i) => (
-              <span key={i} className="logo-pill">
-                {l}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
+      <NumbersBand />
 
       <section className="sec">
         <div className="wrap">

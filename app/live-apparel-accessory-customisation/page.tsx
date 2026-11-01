@@ -9,6 +9,7 @@ import {
   DirectAnswer,
   CaseCard,
   VideoEmbed,
+  ProofSection,
   FaqSection,
   BriefSection,
 } from '@/components/IntentSections';
@@ -185,20 +186,6 @@ const TECHNIQUES = [
   },
 ];
 
-/** Product → technique → time a piece. */
-const PRODUCT_TABLE = [
-  ['Shoes and sneakers', 'Embroidery', 'About 5 min'],
-  ['Caps', 'Embroidery', 'About 5 min'],
-  ['Tees, jerseys and hoodies', 'DTF print', 'About 3 min'],
-  ['Jackets and bags', 'Embroidery', 'About 5 min'],
-  ['Leather wallets and luggage tags', 'Digital hot foil or laser engraving', 'About 2 to 5 min'],
-  ['Notebooks and gift boxes', 'Digital hot foil', 'About 2 min'],
-  ['Perfume bottles, pens and glassware', 'Laser engraving', 'About 5 min'],
-  ['Bottles, phone cases, helmets and flasks', 'UV stickers', 'About 1 min'],
-  ['Kidswear and babywear', 'Embroidery or print', 'About 3 to 5 min'],
-  ['Robes and towels', 'Embroidery', 'About 5 min'],
-];
-
 const PRODUCTS = [
   'Shoes',
   'Caps',
@@ -247,24 +234,6 @@ const MORE_WORK: Omit<React.ComponentProps<typeof CaseCard>, 'aosDelay'>[] = [
     desc: "Alongside Mothercare, we ran live print customization for Edamame's kids' range: full-colour designs, applied on the spot, for families moving through the event.",
     tags: ['Print customization', 'Kidswear', 'Festive event'],
   },
-];
-
-const PROOF_TILES = [
-  { v: '40,000+', l: 'Customers at our store desks' },
-  { v: '1,20,000+', l: 'Pieces embroidered at our store desks' },
-  { v: '5.0', l: '500+ Google reviews, from stores across India', stars: true },
-  { v: '13', l: 'Desks running across India' },
-];
-
-const CAPACITY = [
-  ['Embroidery, per piece', 'About 4 to 5 minutes on a ready design; about 10 minutes when designed on the spot'],
-  ['Per machine', 'Roughly 15 pieces an hour on ready designs'],
-  ['Machines', 'German ZSK embroidery machines, plus heat press, digital hot foil, laser and UV equipment'],
-  [
-    'Job work',
-    'No desk needed: we source the products or work on yours, sample first, then produce and pack; no minimum order, priced per order',
-  ],
-  ['Design', 'In-house design included in every engagement'],
 ];
 
 /** `crew: true` marks the cities where standing crews are based (highlighted chip). */
@@ -399,7 +368,7 @@ export default function ApparelAccessoryPage() {
             </h2>
             <p className="sub" data-aos="fade-up" data-aos-delay="150">
               Around 90% of a typical retail range can be customised. Three techniques carry most of
-              it; the table shows the rest.
+              it.
             </p>
           </div>
           <div className="g g3 cg-mt">
@@ -425,26 +394,6 @@ export default function ApparelAccessoryPage() {
                 </div>
               </article>
             ))}
-          </div>
-          <div className="tw cg-cap" data-aos="fade-up">
-            <table>
-              <thead>
-                <tr>
-                  <th scope="col">Product</th>
-                  <th scope="col">Technique</th>
-                  <th scope="col">Time a piece</th>
-                </tr>
-              </thead>
-              <tbody>
-                {PRODUCT_TABLE.map(([product, technique, time]) => (
-                  <tr key={product}>
-                    <td>{product}</td>
-                    <td>{technique}</td>
-                    <td>{time}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
           </div>
           <div className="cg-chips" aria-label="Products" data-aos="fade-up" data-aos-delay="100">
             {PRODUCTS.map((p) => (
@@ -517,53 +466,10 @@ export default function ApparelAccessoryPage() {
         </div>
       </section>
 
-      {/* 7 · Verified proof + operating capacity */}
-      <section className="sec band-blush">
-        <div className="wrap">
-          <div className="cg-head">
-            <p className="eyebrow" data-aos="fade-up">Verified proof · operating capacity</p>
-            <h2 className="big" data-aos="fade-up" data-aos-delay="100">
-              THE NUMBERS BEHIND THE CRAFT.
-            </h2>
-          </div>
-          <div className="g g4 cg-mt">
-            {PROOF_TILES.map((t, i) => (
-              <div className="tile" key={t.l} data-aos="fade-up" data-aos-delay={i * 100}>
-                {t.stars && (
-                  <div className="stars" aria-hidden="true">
-                    ★★★★★
-                  </div>
-                )}
-                <div className="v">{t.v}</div>
-                <div className="l">{t.l}</div>
-              </div>
-            ))}
-          </div>
-          <div className="tw cg-cap" data-aos="fade-up">
-            <table>
-              <thead>
-                <tr>
-                  <th scope="col">Capacity, stated plainly</th>
-                  <th scope="col">What we run</th>
-                </tr>
-              </thead>
-              <tbody>
-                {CAPACITY.map(([k, v]) => (
-                  <tr key={k}>
-                    <td>{k}</td>
-                    <td>{v}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="cg-note" data-aos="fade-up">
-            Job work is sampled first, with no minimum order; timing and price are confirmed once we
-            see the product, artwork, quantity and destination. Store-desk figures cover our retail
-            desks only.
-          </p>
-        </div>
-      </section>
+      {/* 7 · Verified proof */}
+      <ProofSection
+        note="Job work is sampled first, with no minimum order; timing and price are confirmed once we see the product, artwork, quantity and destination. Store-desk figures cover our retail desks only."
+      />
 
       {/* 8 · Cities + nationwide */}
       <section className="sec">

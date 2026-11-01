@@ -8,7 +8,7 @@ import { Button } from './Button';
 import { ShoeCarousel } from './ShoeCarousel';
 import { ENGINES_DATA } from '@/data/engines';
 import { TECHS_DATA } from '@/data/techniques';
-import { TICKETS_DATA } from '@/data/clients';
+import { TICKETS_DATA, TRUSTED_LOGOS } from '@/data/clients';
 import { Sticker } from './Sticker';
 
 export const IMG_KEYS: Record<string, string> = {
@@ -108,8 +108,8 @@ export function One8Photo({ shape }: { shape: string }) {
 
 export function StatTiles({ night }: { night?: boolean }) {
   const row = [
-    ['40,000+', 'Customers served'],
-    ['1,20,000+', 'Pieces embroidered'],
+    ['50,000', 'Customers served'],
+    ['1,50,000', 'Pieces embroidered'],
     ['3', 'Things the average customer takes home, not one'],
   ];
 
@@ -127,10 +127,51 @@ export function StatTiles({ night }: { night?: boolean }) {
         <span className="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
         <span className="bg">A PERFECT 5.0</span>
         <span className="tx">
-          500+ Google reviews, from stores right across India.
+          600+ Google reviews, from stores right across India.
         </span>
       </div>
     </>
+  );
+}
+
+/** The landing page's "numbers behind the craft" band. The service pages reuse it
+    so the figures read the same everywhere; `note` adds a line under the stats. */
+export function NumbersBand({ note }: { note?: string }) {
+  return (
+    <section className="band band-night">
+      <div className="wrap">
+        <p className="eyebrow" data-aos="fade-up">Three years, thirteen desks, counting</p>
+        <h2 className="big" data-aos="fade-up" data-aos-delay="100">THE NUMBERS BEHIND THE CRAFT</h2>
+        <div style={{ marginTop: '32px' }}>
+          <StatTiles night={true} />
+        </div>
+        {note && (
+          <p className="cg-note" data-aos="fade-up">
+            {note}
+          </p>
+        )}
+        <p
+          data-aos="fade-up"
+          data-aos-delay="200"
+          style={{
+            marginTop: '30px',
+            fontSize: '12px',
+            letterSpacing: '.14em',
+            textTransform: 'uppercase',
+            opacity: 0.7,
+          }}
+        >
+          Trusted by
+        </p>
+        <div className="logos" data-aos="fade-up" data-aos-delay="250">
+          {TRUSTED_LOGOS.map((l, i) => (
+            <span key={i} className="logo-pill">
+              {l}
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -331,14 +372,19 @@ export function SameDeskDifferentRooms() {
   );
 }
 
-export function TechGrid({
-  eyebrow = 'Six techniques · in-house design always included',
-  title = 'SIX WAYS TO MARK A THING.',
-  subtitle,
+/** Horizontal technique rail: heading with prev/next buttons over a snap-scrolling
+    track that shows about three and a half cards. Used by TechGrid on the landing
+    page and by SixWays on the service pages. */
+export function TechRail({
+  eyebrow,
+  title,
+  sub,
+  children,
 }: {
   eyebrow?: string;
-  title?: string;
-  subtitle?: string;
+  title: string;
+  sub?: string;
+  children: React.ReactNode;
 }) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
@@ -381,6 +427,11 @@ export function TechGrid({
         <div>
           {eyebrow && <p className="eyebrow">{eyebrow}</p>}
           <h2 className="big" data-aos="fade-up" data-aos-delay="100" style={{ color: 'var(--brick)' }}>{title}</h2>
+          {sub && (
+            <p className="sub" style={{ marginTop: '12px' }} data-aos="fade-up" data-aos-delay="150">
+              {sub}
+            </p>
+          )}
         </div>
         <div className="tg-nav" aria-label="Carousel navigation" data-aos="fade-up" data-aos-delay="120">
           <button
@@ -406,57 +457,75 @@ export function TechGrid({
 
       <div className="tg-rail" style={{ marginTop: '30px' }}>
         <div className="tg" ref={scrollRef}>
-          {TECHS_DATA.map((t, idx) => (
-            <div
-              key={idx}
-              className={`tk ${t.isHero ? 'hero' : ''}`}
-              data-aos="fade-up"
-              data-aos-delay={(idx % 3) * 100}
-            >
-              <div className="tk-media">
-                <img
-                  src={t.image}
-                  alt={t.name}
-                  className="tk-img"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-
-              <div className="tk-inner">
-                <div className="tk-top">
-                  <div className="tk-name">{bc(t.name)}</div>
-                  {t.isLive ? (
-                    <span className="tk-live on">
-                      <Dot /> Live
-                    </span>
-                  ) : (
-                    <span className="tk-live off">Applied live</span>
-                  )}
-                </div>
-                <div className="tk-hook">{t.hook}</div>
-                <p className="tk-desc">{t.body}</p>
-                {t.chips && t.chips.length > 0 && (
-                  <div className="scale-card-tags" style={{ marginTop: '2px' }}>
-                    {t.chips.map((c, i) => (
-                      <span key={i} className="scale-tag">
-                        {c}
-                      </span>
-                    ))}
-                  </div>
-                )}
-                <div className="tk-foot">
-                  <span className="tk-time">{t.time}</span>
-                </div>
-                <details className="sci">
-                  <summary>How it actually works</summary>
-                  <p dangerouslySetInnerHTML={{ __html: t.technical }} />
-                </details>
-              </div>
-            </div>
-          ))}
+          {children}
         </div>
       </div>
+    </>
+  );
+}
+
+export function TechGrid({
+  eyebrow = 'Six techniques · in-house design always included',
+  title = 'SIX WAYS TO MARK A THING.',
+  subtitle,
+}: {
+  eyebrow?: string;
+  title?: string;
+  subtitle?: string;
+}) {
+  return (
+    <>
+      <TechRail eyebrow={eyebrow} title={title}>
+        {TECHS_DATA.map((t, idx) => (
+          <div
+            key={idx}
+            className={`tk ${t.isHero ? 'hero' : ''}`}
+            data-aos="fade-up"
+            data-aos-delay={(idx % 3) * 100}
+          >
+            <div className="tk-media">
+              <img
+                src={t.image}
+                alt={t.name}
+                className="tk-img"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+
+            <div className="tk-inner">
+              <div className="tk-top">
+                <div className="tk-name">{bc(t.name)}</div>
+                {t.isLive ? (
+                  <span className="tk-live on">
+                    <Dot /> Live
+                  </span>
+                ) : (
+                  <span className="tk-live off">Applied live</span>
+                )}
+              </div>
+              <div className="tk-hook">{t.hook}</div>
+              <p className="tk-desc">{t.body}</p>
+              {t.chips && t.chips.length > 0 && (
+                <div className="scale-card-tags" style={{ marginTop: '2px' }}>
+                  {t.chips.map((c, i) => (
+                    <span key={i} className="scale-tag">
+                      {c}
+                    </span>
+                  ))}
+                </div>
+              )}
+              <div className="tk-foot">
+                <span className="tk-time">{t.time}</span>
+              </div>
+              <details className="sci">
+                <summary>How it actually works</summary>
+                <p dangerouslySetInnerHTML={{ __html: t.technical }} />
+              </details>
+            </div>
+          </div>
+        ))}
+      </TechRail>
 
       {subtitle && (
         <p
